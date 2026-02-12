@@ -1,4 +1,4 @@
-public class Player_FallState : EntityState
+public class Player_FallState : Player_AiredState
 {
     public Player_FallState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
@@ -13,5 +13,8 @@ public class Player_FallState : EntityState
     public override void Update()
     {
         base.Update();
+
+        if (player.isGrounded)
+            stateMachine.ChangeState(player.idleState);
     }
 }

@@ -5,7 +5,7 @@ public class ControlsManager : MonoBehaviour
     public static ControlsManager instance { get; private set; }
 
     public PlayerControls inputActions;
-    private Player player;
+    //private Player player;
 
     public Vector2 moveInput { get; private set; }
 
@@ -14,7 +14,7 @@ public class ControlsManager : MonoBehaviour
         instance = this;
 
         inputActions = new PlayerControls();
-        player = FindAnyObjectByType<Player>();
+        //player = FindAnyObjectByType<Player>();
     }
 
     private void Start()
@@ -28,8 +28,8 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
-        inputActions.Player.Jump.performed += ctx => player.jumpPressed = true;
-        inputActions.Player.Jump.canceled += ctx => player.jumpPressed = false;
+        //inputActions.Player.Jump.performed += ctx => player.jumpPressed = true;
+        //inputActions.Player.Jump.canceled += ctx => player.jumpPressed = false;
     }
 
     private void OnEnable()

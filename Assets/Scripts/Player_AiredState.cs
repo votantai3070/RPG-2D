@@ -1,0 +1,16 @@
+public class Player_AiredState : EntityState
+{
+    public Player_AiredState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    {
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (controls.moveInput.x != 0)
+            player.SetVelocity
+                (controls.moveInput.x * player.moveSpeed * player.moveAirMultiplier,
+                rb.linearVelocityY);
+    }
+}

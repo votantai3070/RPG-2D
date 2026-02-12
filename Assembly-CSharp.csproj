@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Player_AiredState.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\EntityState.cs" />
     <Compile Include="Assets\Scripts\Player_FallState.cs" />
