@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
-    public Player_AttackState attackState { get; private set; }
+    public Player_BasicAttackState basicAttackState { get; private set; }
 
     [Header("Player Movement Info")]
     public float moveSpeed = 3;
@@ -32,8 +33,9 @@ public class Player : MonoBehaviour
 
     [Header("Player Attack Info")]
     public float durationAttack = 1;
-    public float attackVelocity = .5f;
-    public float attackVelocitySpeed = 3;
+    public int cooldownAttack = 2;
+    public Vector2[] attackVelocity;
+    private Coroutine basicAttackCo;
 
     [Header("Collision Check")]
     [SerializeField] private float groundCheckDistance;
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour
         wallSlideState = new(this, stateMachine, "WallSlide");
         wallJumpState = new(this, stateMachine, "JumpFall");
         dashState = new(this, stateMachine, "Dash");
-        attackState = new(this, stateMachine, "Attack");
+        basicAttackState = new(this, stateMachine, "BasicAttack");
     }
 
     private void Start()
@@ -69,6 +71,21 @@ public class Player : MonoBehaviour
     {
         HandleCollisionDetection();
         stateMachine.currentState.Update();
+    }
+
+    public void BasicAttackDelay()
+    {
+        if (basicAttackCo != null)
+            StopCoroutine(basicAttackCo);
+
+        basicAttackCo = StartCoroutine(BasicAttackDelayCo());
+    }
+
+    private IEnumerator BasicAttackDelayCo()
+    {
+        yield return new WaitForEndOfFrame();
+
+        stateMachine.ChangeState(basicAttackState);
     }
 
     public void SetVelocity(float x, float y)

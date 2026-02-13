@@ -16,6 +16,6 @@ public class Player_GroundedState : EntityState
             stateMachine.ChangeState(player.jumpState);
 
         if (controls.PressedAttack())
-            stateMachine.ChangeState(player.attackState);
+            stateMachine.ChangeState(player.basicAttackState);
     }
 }

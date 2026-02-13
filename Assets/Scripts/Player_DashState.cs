@@ -13,9 +13,11 @@ public class Player_DashState : EntityState
 
         stateTimer = player.durationDash;
 
-        dashDir = player.faceDir;
+        this.dashDir = player.faceDir;
         orginalGravity = rb.gravityScale;
         rb.gravityScale = 0;
+
+        dashDir = controls.moveInput.x != 0 ? (int)controls.moveInput.x : player.faceDir;
 
         player.SetVelocity(player.dashSpeed * dashDir, 0);
     }
