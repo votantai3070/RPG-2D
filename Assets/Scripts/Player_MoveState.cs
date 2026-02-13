@@ -22,7 +22,9 @@ public class Player_MoveState : Player_GroundedState
         base.Update();
 
         Vector2 input = controls.moveInput;
-        player.SetVelocity(input.x * player.moveSpeed, rb.linearVelocityY);
+
+        if (!controls.PressedAttack())
+            player.SetVelocity(input.x * player.moveSpeed, rb.linearVelocityY);
 
         if (input.x == 0)
             stateMachine.ChangeState(player.idleState);

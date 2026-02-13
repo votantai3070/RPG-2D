@@ -27,10 +27,14 @@ public class ControlsManager : MonoBehaviour
         // Movement
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
-
-        //inputActions.Player.Jump.performed += ctx => player.jumpPressed = true;
-        //inputActions.Player.Jump.canceled += ctx => player.jumpPressed = false;
     }
+
+    public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
+
+    public bool PressedDash() => inputActions.Player.Dash.WasPressedThisFrame();
+
+    public bool PressedJump() => inputActions.Player.Jump.WasPressedThisFrame();
+
 
     private void OnEnable()
     {

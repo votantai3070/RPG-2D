@@ -10,6 +10,7 @@ public class EntityState
     protected ControlsManager controls;
 
     protected float stateTimer;
+    protected bool attackTrigged;
 
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
@@ -32,7 +33,7 @@ public class EntityState
 
         player.anim.SetFloat("yVelocity", rb.linearVelocityY);
 
-        if (controls.inputActions.Player.Dash.WasPressedThisFrame() && CanDash())
+        if (controls.PressedDash() && CanDash())
             stateMachine.ChangeState(player.dashState);
     }
 
@@ -51,4 +52,6 @@ public class EntityState
 
         return true;
     }
+
+    public void CallAnimationEventAttackOver() => attackTrigged = true;
 }

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
+    public Player_AttackState attackState { get; private set; }
 
     [Header("Player Movement Info")]
     public float moveSpeed = 3;
@@ -28,6 +29,11 @@ public class Player : MonoBehaviour
     public float wallSlideMultiplier = .4f;
     public int faceDir { get; private set; } = 1;
     private bool isFacingRight = true;
+
+    [Header("Player Attack Info")]
+    public float durationAttack = 1;
+    public float attackVelocity = .5f;
+    public float attackVelocitySpeed = 3;
 
     [Header("Collision Check")]
     [SerializeField] private float groundCheckDistance;
@@ -49,6 +55,7 @@ public class Player : MonoBehaviour
         wallSlideState = new(this, stateMachine, "WallSlide");
         wallJumpState = new(this, stateMachine, "JumpFall");
         dashState = new(this, stateMachine, "Dash");
+        attackState = new(this, stateMachine, "Attack");
     }
 
     private void Start()
