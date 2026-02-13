@@ -7,6 +7,8 @@ public class Player_IdleState : Player_GroundedState
     public override void Enter()
     {
         base.Enter();
+
+        rb.linearVelocity = new(0, rb.linearVelocityY);
     }
 
     public override void Exit()

@@ -8,6 +8,9 @@ public class Player_AiredState : EntityState
     {
         base.Update();
 
+        if (player.wallDetected)
+            stateMachine.ChangeState(player.wallSlideState);
+
         if (controls.moveInput.x != 0)
             player.SetVelocity
                 (controls.moveInput.x * player.moveSpeed * player.moveAirMultiplier,

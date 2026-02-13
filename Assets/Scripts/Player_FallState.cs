@@ -14,7 +14,7 @@ public class Player_FallState : Player_AiredState
     {
         base.Update();
 
-        if (player.isGrounded)
+        if (player.groundDetected)
             stateMachine.ChangeState(player.idleState);
     }
 }
