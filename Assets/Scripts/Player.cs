@@ -19,31 +19,33 @@ public class Player : MonoBehaviour
     public Player_JumpAttackState jumpAttackState { get; private set; }
 
     [Header("Player Movement Info")]
+    public Vector2 jumpForceDir;
+
     public float moveSpeed = 3;
     public float jumpForce = 8;
     public float dashSpeed = 15;
     public float durationDash = 2;
-
-    public Vector2 jumpForceDir;
     [Range(0f, 1f)]
     public float moveAirMultiplier = 0.5f;
     [Range(0f, 1f)]
     public float wallSlideMultiplier = .4f;
-    public int faceDir { get; private set; } = 1;
     private bool isFacingRight = true;
+    public int faceDir { get; private set; } = 1;
 
     [Header("Player Attack Info")]
-    public float durationAttack = 1;
-    public int cooldownAttack = 2;
     public Vector2[] attackVelocity;
     public Vector2 jumpAttackVelocity;
     private Coroutine basicAttackCo;
+    public float durationAttack = 1;
     [HideInInspector] public bool attackTrigged;
+    public int cooldownAttack = 2;
 
     [Header("Collision Check")]
+    [SerializeField] private LayerMask whatIsGround;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private Transform primaryWallCheck;
+    [SerializeField] private Transform secondaryWallCheck;
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
 
@@ -101,7 +103,8 @@ public class Player : MonoBehaviour
     private void HandleCollisionDetection()
     {
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * faceDir, wallCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * faceDir, wallCheckDistance, whatIsGround)
+             && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * faceDir, wallCheckDistance, whatIsGround);
     }
 
     private void HandleFlip()
@@ -124,6 +127,7 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(wallCheckDistance * faceDir, 0));
+        Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * faceDir, 0));
+        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * faceDir, 0));
     }
 }

@@ -26,7 +26,7 @@ public class Player_MoveState : Player_GroundedState
         if (!controls.PressedAttack())
             player.SetVelocity(input.x * player.moveSpeed, rb.linearVelocityY);
 
-        if (input.x == 0)
+        if (input.x == 0 || player.wallDetected)
             stateMachine.ChangeState(player.idleState);
     }
 }
