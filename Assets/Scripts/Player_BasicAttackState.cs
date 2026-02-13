@@ -22,7 +22,7 @@ public class Player_BasicAttackState : EntityState
         base.Enter();
 
         attackQueued = false;
-        attackTrigged = false;
+        player.attackTrigged = false;
 
         ResetBasicAttack();
 
@@ -47,7 +47,7 @@ public class Player_BasicAttackState : EntityState
         if (controls.PressedAttack())
             attackQueued = true;
 
-        if (attackTrigged)
+        if (player.attackTrigged)
             if (attackQueued)
             {
                 player.anim.SetBool("BasicAttack", false); // Remove anim frame before
@@ -77,7 +77,6 @@ public class Player_BasicAttackState : EntityState
     private void GenerateAttackVelocity()
     {
         Vector2 attackVelocity = player.attackVelocity[comboIndex - 1];
-
         float attackDir = controls.moveInput.x != 0 ? controls.moveInput.x : player.faceDir;
 
         attackTimer = player.durationAttack;

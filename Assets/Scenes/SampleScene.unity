@@ -201,10 +201,13 @@ MonoBehaviour:
   moveAirMultiplier: 0.5
   wallSlideMultiplier: 0.4
   durationAttack: 0.5
+  cooldownAttack: 2
   attackVelocity:
   - {x: 3, y: 1.5}
   - {x: 1, y: 1.5}
   - {x: 4, y: 3}
+  jumpAttackVelocity: {x: 5, y: -5}
+  attackTrigged: 0
   groundCheckDistance: 1.4
   wallCheckDistance: 0.48
   whatIsGround:

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
+    public Player_JumpAttackState jumpAttackState { get; private set; }
 
     [Header("Player Movement Info")]
     public float moveSpeed = 3;
@@ -35,7 +36,9 @@ public class Player : MonoBehaviour
     public float durationAttack = 1;
     public int cooldownAttack = 2;
     public Vector2[] attackVelocity;
+    public Vector2 jumpAttackVelocity;
     private Coroutine basicAttackCo;
+    [HideInInspector] public bool attackTrigged;
 
     [Header("Collision Check")]
     [SerializeField] private float groundCheckDistance;
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
         wallJumpState = new(this, stateMachine, "JumpFall");
         dashState = new(this, stateMachine, "Dash");
         basicAttackState = new(this, stateMachine, "BasicAttack");
+        jumpAttackState = new(this, stateMachine, "JumpAttack");
     }
 
     private void Start()
@@ -114,6 +118,8 @@ public class Player : MonoBehaviour
         isFacingRight = !isFacingRight;
         faceDir *= -1;
     }
+
+    public void CallAnimationEventAttackOver() => attackTrigged = true;
 
     private void OnDrawGizmos()
     {

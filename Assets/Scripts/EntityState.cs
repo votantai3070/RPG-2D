@@ -10,7 +10,6 @@ public class EntityState
     protected ControlsManager controls;
 
     protected float stateTimer;
-    protected bool attackTrigged;
 
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
@@ -53,5 +52,4 @@ public class EntityState
         return true;
     }
 
-    public void CallAnimationEventAttackOver() => attackTrigged = true;
 }

@@ -11,6 +11,6 @@ public class Player_AnimationEvent : MonoBehaviour
 
     private void AttackOver()
     {
-        player.basicAttackState.CallAnimationEventAttackOver();
+        player.CallAnimationEventAttackOver();
     }
 }
