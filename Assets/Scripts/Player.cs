@@ -13,16 +13,20 @@ public class Player : MonoBehaviour
     public Player_FallState fallState { get; private set; }
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
+    public Player_DashState dashState { get; private set; }
 
     [Header("Player Movement Info")]
     public float moveSpeed = 3;
     public float jumpForce = 8;
+    public float dashSpeed = 15;
+    public float durationDash = 2;
+
     public Vector2 jumpForceDir;
     [Range(0f, 1f)]
     public float moveAirMultiplier = 0.5f;
     [Range(0f, 1f)]
     public float wallSlideMultiplier = .4f;
-    public int wallDir { get; private set; } = 1;
+    public int faceDir { get; private set; } = 1;
     private bool isFacingRight = true;
 
     [Header("Collision Check")]
@@ -44,6 +48,7 @@ public class Player : MonoBehaviour
         fallState = new(this, stateMachine, "JumpFall");
         wallSlideState = new(this, stateMachine, "WallSlide");
         wallJumpState = new(this, stateMachine, "JumpFall");
+        dashState = new(this, stateMachine, "Dash");
     }
 
     private void Start()
@@ -68,7 +73,7 @@ public class Player : MonoBehaviour
     private void HandleCollisionDetection()
     {
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * wallDir, wallCheckDistance, whatIsGround);
+        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * faceDir, wallCheckDistance, whatIsGround);
     }
 
     private void HandleFlip()
@@ -83,12 +88,12 @@ public class Player : MonoBehaviour
     {
         transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
-        wallDir *= -1;
+        faceDir *= -1;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(wallCheckDistance * wallDir, 0));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(wallCheckDistance * faceDir, 0));
     }
 }

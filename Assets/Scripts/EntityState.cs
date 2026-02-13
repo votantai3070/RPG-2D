@@ -9,6 +9,8 @@ public class EntityState
     protected Rigidbody2D rb;
     protected ControlsManager controls;
 
+    protected float stateTimer;
+
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
         this.player = player;
@@ -26,11 +28,27 @@ public class EntityState
 
     public virtual void Update()
     {
+        stateTimer -= Time.deltaTime;
+
         player.anim.SetFloat("yVelocity", rb.linearVelocityY);
+
+        if (controls.inputActions.Player.Dash.WasPressedThisFrame() && CanDash())
+            stateMachine.ChangeState(player.dashState);
     }
 
     public virtual void Exit()
     {
         player.anim.SetBool(animBoolName, false);
+    }
+
+    private bool CanDash()
+    {
+        if (stateMachine.currentState == player.dashState)
+            return false;
+
+        if (player.wallDetected)
+            return false;
+
+        return true;
     }
 }

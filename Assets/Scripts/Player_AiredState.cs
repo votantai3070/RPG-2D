@@ -11,7 +11,7 @@ public class Player_AiredState : EntityState
         if (player.wallDetected)
             stateMachine.ChangeState(player.wallSlideState);
 
-        if (controls.moveInput.x != 0)
+        if (controls.moveInput.x != 0 && !controls.inputActions.Player.Dash.WasPressedThisFrame())
             player.SetVelocity
                 (controls.moveInput.x * player.moveSpeed * player.moveAirMultiplier,
                 rb.linearVelocityY);

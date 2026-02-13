@@ -8,7 +8,7 @@ public class Player_WallJumpState : EntityState
     {
         base.Enter();
 
-        player.SetVelocity(player.jumpForceDir.x * -player.wallDir, player.jumpForceDir.y);
+        player.SetVelocity(player.jumpForceDir.x * -player.faceDir, player.jumpForceDir.y);
         player.Flip();
     }
 
