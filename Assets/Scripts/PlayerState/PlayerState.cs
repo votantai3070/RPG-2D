@@ -17,7 +17,6 @@ public class PlayerState : EntityState
     {
         base.Enter();
 
-        player.anim.SetBool(animBoolName, true);
     }
 
     public override void Update()
@@ -33,8 +32,6 @@ public class PlayerState : EntityState
     public override void Exit()
     {
         base.Exit();
-
-        player.anim.SetBool(animBoolName, false);
     }
 
     private bool CanDash()

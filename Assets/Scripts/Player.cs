@@ -13,6 +13,7 @@ public class Player : Entity
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
 
+
     [Header("Player Movement Info")]
     public Vector2 jumpForceDir;
     public float moveSpeed = 3;
@@ -57,6 +58,8 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+
+        HandleFlip();
     }
 
     public void BasicAttackDelay()
