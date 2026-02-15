@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_BasicAttackState.cs" />
@@ -74,11 +75,13 @@
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\EntityState.cs" />
+    <Compile Include="Assets\Scripts\EnemyState.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\PlayerState\Player_JumpState.cs" />
+    <Compile Include="Assets\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Scripts\ParallaxLayer.cs" />
   </ItemGroup>
   <ItemGroup>

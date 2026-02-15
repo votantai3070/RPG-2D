@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_BasicAttackState : EntityState
+public class Player_BasicAttackState : PlayerState
 {
     private const int FIRST_BASIC_ATTACK_INDEX = 1;
     private int comboIndex = 1;
