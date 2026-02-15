@@ -43,7 +43,7 @@ public class Entity : MonoBehaviour
     public void SetVelocity(float x, float y)
     {
         rb.linearVelocity = new(x, y);
-
+        HandleFlip(x);
     }
 
     private void HandleCollisionDetection()
@@ -60,11 +60,11 @@ public class Entity : MonoBehaviour
 
     }
 
-    protected void HandleFlip()
+    protected void HandleFlip(float xVelocity)
     {
-        if (controls.moveInput.x > 0 && !isFacingRight)
+        if (xVelocity > 0 && !isFacingRight)
             Flip();
-        else if (controls.moveInput.x < 0 && isFacingRight)
+        else if (xVelocity < 0 && isFacingRight)
             Flip();
     }
 

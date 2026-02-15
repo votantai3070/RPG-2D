@@ -12,12 +12,17 @@ public class Enemy : Entity
     public float moveSpeed = 1.5f;
     [Range(0, 2)]
     public float moveAnimMultilier = 1;
+    public float battleSpeed = 3;
+
 
     [Header("Player detected")]
     public float playerDetectedDistance;
     public float attackDistance;
     public LayerMask whatIsPlayer;
     public Transform playerDetectedPoint;
+
+    [Header("Attack Info")]
+    public float attackDuration = 2;
 
     protected override void Awake()
     {
@@ -33,6 +38,9 @@ public class Enemy : Entity
     {
         base.Update();
 
+        float battleAnimMultilier = battleSpeed / moveSpeed;
+
+        anim.SetFloat("battleAnimMultilier", battleAnimMultilier);
         anim.SetFloat("moveAnimMultilier", moveAnimMultilier);
         anim.SetFloat("xVelocity", rb.linearVelocityX);
     }
@@ -55,6 +63,5 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + playerDetectedDistance * faceDir, playerDetectedPoint.position.y));
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + attackDistance * faceDir, playerDetectedPoint.position.y));
-
     }
 }

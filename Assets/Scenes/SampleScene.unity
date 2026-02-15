@@ -17410,12 +17410,14 @@ MonoBehaviour:
   idleDuration: 2
   moveSpeed: 1.5
   moveAnimMultilier: 1
+  battleAnimMultilier: 1
   playerDetectedDistance: 8.96
   attackDistance: 2
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
   playerDetectedPoint: {fileID: 1377024154}
+  attackDuration: 2
 --- !u!50 &1552617132
 Rigidbody2D:
   serializedVersion: 5

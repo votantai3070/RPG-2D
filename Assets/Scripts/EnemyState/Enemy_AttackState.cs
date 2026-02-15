@@ -8,6 +8,7 @@ public class Enemy_AttackState : EnemyState
     {
         base.Enter();
         enemy.attackTrigged = false;
+
     }
 
     public override void Exit()
@@ -20,6 +21,6 @@ public class Enemy_AttackState : EnemyState
         base.Update();
 
         if (enemy.attackTrigged)
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.battleState);
     }
 }
