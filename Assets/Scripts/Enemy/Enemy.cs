@@ -6,6 +6,7 @@ public class Enemy : Entity
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
+    public Enemy_DeadState deadState;
 
     public Player player { get; private set; }
 
@@ -41,6 +42,11 @@ public class Enemy : Entity
     {
         base.Update();
 
+        SetupAnimationMultilier();
+    }
+
+    private void SetupAnimationMultilier()
+    {
         float battleAnimMultilier = battleSpeed / moveSpeed;
 
         anim.SetFloat("battleAnimMultilier", battleAnimMultilier);
@@ -54,6 +60,18 @@ public class Enemy : Entity
         stateMachine.ChangeState(battleState);
     }
 
+    public override void TryEnterDeadState()
+    {
+        base.TryEnterDeadState();
+
+        stateMachine.ChangeState(deadState);
+    }
+
+    private void TryEnterIdleState()
+    {
+        stateMachine.ChangeState(idleState);
+    }
+
     public Player GetPlayerReference() => player;
 
     public RaycastHit2D DetectedPlayer()
@@ -64,6 +82,16 @@ public class Enemy : Entity
             return default;
 
         return hit;
+    }
+
+    private void OnEnable()
+    {
+        Player.OnPlayerDead += TryEnterIdleState;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDead -= TryEnterIdleState;
     }
 
     protected override void OnDrawGizmos()

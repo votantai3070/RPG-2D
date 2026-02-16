@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
@@ -79,14 +80,15 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundedState.cs" />
-    <Compile Include="Assets\Scripts\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpState.cs" />
+    <Compile Include="Assets\Scripts\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Entity_DamageVfx.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

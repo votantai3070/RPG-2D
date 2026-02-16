@@ -41,14 +41,14 @@ TagManager:
   - name: BG
     uniqueID: 87063245
     locked: 0
+  - name: Ground
+    uniqueID: 2534117779
+    locked: 0
   - name: Enemy
     uniqueID: 2882099549
     locked: 0
   - name: Player
     uniqueID: 2956865445
-    locked: 0
-  - name: Ground
-    uniqueID: 2534117779
     locked: 0
   - name: Default
     uniqueID: 0

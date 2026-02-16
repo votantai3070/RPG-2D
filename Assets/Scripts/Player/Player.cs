@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
 {
+    public static Action OnPlayerDead;
+
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
@@ -12,6 +15,7 @@ public class Player : Entity
     public Player_DashState dashState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
+    public Player_DeadState deadState { get; private set; }
 
 
     [Header("Player Movement Info")]
@@ -46,6 +50,7 @@ public class Player : Entity
         dashState = new(this, stateMachine, "Dash");
         basicAttackState = new(this, stateMachine, "BasicAttack");
         jumpAttackState = new(this, stateMachine, "JumpAttack");
+        deadState = new(this, stateMachine, "Dead");
     }
 
 
@@ -58,6 +63,13 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+    }
+
+    public override void TryEnterDeadState()
+    {
+        base.TryEnterDeadState();
+        OnPlayerDead?.Invoke();
+        stateMachine.ChangeState(deadState);
     }
 
     public void BasicAttackDelay()

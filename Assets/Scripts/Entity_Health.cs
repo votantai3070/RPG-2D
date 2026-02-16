@@ -12,8 +12,7 @@ public class Entity_Health : MonoBehaviour
     [SerializeField] private float damagedVfxDuration = .1f;
 
 
-
-    [SerializeField] private bool isDead;
+    [SerializeField] protected bool isDead;
 
     private void Awake()
     {
@@ -24,6 +23,8 @@ public class Entity_Health : MonoBehaviour
 
     public virtual void TakeDamaged(int damage, Transform damagedDealer)
     {
+        if (isDead) return;
+
         ReduceHp(damage);
 
         transform.GetComponent<Entity_DamageVfx>().DamageVfx(damagedVfxDuration);
@@ -37,13 +38,14 @@ public class Entity_Health : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (maxHealth <= 0)
+        if (currentHealth <= 0)
             Die();
     }
 
-    private void Die()
+    protected virtual void Die()
     {
-        Debug.Log("Die");
         isDead = true;
+
+        entity.TryEnterDeadState();
     }
 }

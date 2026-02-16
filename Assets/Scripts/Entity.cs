@@ -49,6 +49,11 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
+    public virtual void TryEnterDeadState()
+    {
+
+    }
+
     public void SetVelocity(float x, float y)
     {
         if (isKnockBack)
@@ -105,7 +110,6 @@ public class Entity : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isKnockBack = false;
     }
-
 
     private Vector2 KnockBackDir(Transform damagedDealer, float averageDamage)
     {
