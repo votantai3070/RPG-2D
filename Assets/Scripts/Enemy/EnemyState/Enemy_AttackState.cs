@@ -11,11 +11,6 @@ public class Enemy_AttackState : EnemyState
 
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void Update()
     {
         base.Update();
@@ -23,4 +18,5 @@ public class Enemy_AttackState : EnemyState
         if (enemy.attackTrigged)
             stateMachine.ChangeState(enemy.battleState);
     }
+
 }

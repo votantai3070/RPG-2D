@@ -7,13 +7,16 @@ public class Enemy : Entity
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
 
+    public Player player { get; private set; }
+
     [Header("Enemy Movement Info")]
     public float idleDuration = 2;
     public float moveSpeed = 1.5f;
     [Range(0, 2)]
     public float moveAnimMultilier = 1;
     public float battleSpeed = 3;
-
+    public float retreatDistance = 2;
+    public Vector2 retreatDir;
 
     [Header("Player detected")]
     public float playerDetectedDistance;
@@ -45,6 +48,14 @@ public class Enemy : Entity
         anim.SetFloat("xVelocity", rb.linearVelocityX);
     }
 
+    public void TryEnterBattleState(Player player)
+    {
+        this.player = player;
+        stateMachine.ChangeState(battleState);
+    }
+
+    public Player GetPlayerReference() => player;
+
     public RaycastHit2D DetectedPlayer()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerDetectedPoint.position, Vector2.right * faceDir, playerDetectedDistance, whatIsPlayer | whatIsGround);
@@ -63,5 +74,7 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + playerDetectedDistance * faceDir, playerDetectedPoint.position.y));
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + attackDistance * faceDir, playerDetectedPoint.position.y));
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + retreatDistance * faceDir, playerDetectedPoint.position.y));
     }
 }

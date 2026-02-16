@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -22,6 +23,14 @@ public class Entity : MonoBehaviour
     public bool groundDetected { get; private set; }
     public bool wallDetected { get; private set; }
 
+    [Header("Knockback")]
+    [SerializeField] private Vector2 knockBackPower;
+    [SerializeField] private Vector2 heavyKnockBackPower;
+    [SerializeField] private float knockBackDuration = .1f;
+    private bool isKnockBack;
+    private Coroutine knockBackCo;
+    [SerializeField] private float heavyKnockBackThreshold = .3f;
+
     protected virtual void Awake()
     {
         stateMachine = new StateMachine();
@@ -42,6 +51,9 @@ public class Entity : MonoBehaviour
 
     public void SetVelocity(float x, float y)
     {
+        if (isKnockBack)
+            return;
+
         rb.linearVelocity = new(x, y);
         HandleFlip(x);
     }
@@ -73,6 +85,37 @@ public class Entity : MonoBehaviour
         transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
         faceDir *= -1;
+    }
+
+    public void KnockBack(Transform damagedDealer, float averangeDamage)
+    {
+        if (knockBackCo != null)
+            StopCoroutine(knockBackCo);
+
+        Vector2 knockbackDir = KnockBackDir(damagedDealer, averangeDamage);
+
+        knockBackCo = StartCoroutine(KnockBackCo(knockbackDir, knockBackDuration));
+    }
+
+    private IEnumerator KnockBackCo(Vector2 knockbackDir, float duration)
+    {
+        isKnockBack = true;
+        rb.linearVelocity = knockbackDir;
+        yield return new WaitForSeconds(duration);
+        rb.linearVelocity = Vector2.zero;
+        isKnockBack = false;
+    }
+
+
+    private Vector2 KnockBackDir(Transform damagedDealer, float averageDamage)
+    {
+        float direction = damagedDealer.position.x > transform.position.x ? -1 : 1;
+
+        Vector2 knockback = averageDamage > heavyKnockBackThreshold ? heavyKnockBackPower : knockBackPower;
+
+        knockback.x *= direction;
+
+        return knockback;
     }
 
     public void CallAnimationEventAttackOver() => attackTrigged = true;

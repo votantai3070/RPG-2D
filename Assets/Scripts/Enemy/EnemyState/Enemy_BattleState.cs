@@ -13,8 +13,10 @@ public class Enemy_BattleState : EnemyState
     {
         base.Enter();
 
-        if (player == null)
-            player = enemy.DetectedPlayer().transform;
+        player = GetPlayer();
+
+        if (WithinRetreatRange())
+            rb.linearVelocity = new(enemy.retreatDir.x * -enemy.faceDir, enemy.retreatDir.y);
     }
 
     public override void Exit()
@@ -39,9 +41,19 @@ public class Enemy_BattleState : EnemyState
 
     }
 
+    private Transform GetPlayer()
+    {
+        if (player == null && enemy.GetPlayerReference())
+            return enemy.GetPlayerReference().transform;
+
+        return enemy.DetectedPlayer().transform;
+    }
+
     private bool StopAttackPlayer() => Time.time > lastAttackTime + enemy.attackDuration;
 
     private bool AttackPlayer() => DistanceToPlayer() < enemy.attackDistance;
+
+    private bool WithinRetreatRange() => DistanceToPlayer() < enemy.retreatDistance;
 
     private float DistanceToPlayer()
     {
