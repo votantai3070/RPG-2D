@@ -8,14 +8,13 @@ public class Enemy_AttackState : EnemyState
     {
         base.Enter();
         enemy.attackTrigged = false;
-
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (enemy.attackTrigged)
+        if (enemy.attackTrigged && stateMachine.currentState != enemy.counterState)
             stateMachine.ChangeState(enemy.battleState);
     }
 

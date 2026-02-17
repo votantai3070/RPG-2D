@@ -16,6 +16,7 @@ public class Player : Entity
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_DeadState deadState { get; private set; }
+    public Player_CounterAttackState counterAttackState { get; private set; }
 
 
     [Header("Player Movement Info")]
@@ -29,13 +30,15 @@ public class Player : Entity
     [Range(0f, 1f)]
     public float wallSlideMultiplier = .4f;
 
-
     [Header("Player Attack Info")]
     public Vector2[] attackVelocity;
     public Vector2 jumpAttackVelocity;
     private Coroutine basicAttackCo;
     public float durationAttack = 1;
     public int cooldownAttack = 2;
+
+    [Header("Counter Attack Info")]
+    public float counterAttackDuration = 1;
 
     protected override void Awake()
     {
@@ -51,6 +54,7 @@ public class Player : Entity
         basicAttackState = new(this, stateMachine, "BasicAttack");
         jumpAttackState = new(this, stateMachine, "JumpAttack");
         deadState = new(this, stateMachine, "Dead");
+        counterAttackState = new(this, stateMachine, "CounterAttack");
     }
 
 

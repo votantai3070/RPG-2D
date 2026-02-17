@@ -35,6 +35,8 @@ public class ControlsManager : MonoBehaviour
 
     public bool PressedJump() => inputActions.Player.Jump.WasPressedThisFrame();
 
+    public bool PressedCounterAttack() => inputActions.Player.CounterAttack.WasPressedThisFrame();
+
 
     private void OnEnable()
     {

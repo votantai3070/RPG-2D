@@ -5,7 +5,7 @@ public class Entity_AnimationEvent : MonoBehaviour
     private Entity entity;
     private Entity_Combat combat;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponentInParent<Entity>();
         combat = GetComponentInParent<Entity_Combat>();
@@ -16,9 +16,8 @@ public class Entity_AnimationEvent : MonoBehaviour
         entity.CallAnimationEventAttackOver();
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
         combat.PerformAttack();
-
     }
 }

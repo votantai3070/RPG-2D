@@ -6,18 +6,22 @@ public class Entity_Combat : MonoBehaviour
 
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private LayerMask whatIsDamageable;
 
     public void PerformAttack()
     {
         foreach (var hit in AttackHits())
         {
-            hit.GetComponent<Entity_Health>().TakeDamaged(damage, transform);
+            if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
+                continue;
+
+            damageable.TakeDamaged(damage, transform);
         }
     }
 
-    private Collider2D[] AttackHits()
+    protected Collider2D[] AttackHits()
     {
-        return Physics2D.OverlapCircleAll(attackPoint.position, attackRadius);
+        return Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsDamageable);
     }
 
     private void OnDrawGizmos()

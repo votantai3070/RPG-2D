@@ -7,6 +7,7 @@ public class Enemy : Entity
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
     public Enemy_DeadState deadState;
+    public Enemy_CounterState counterState;
 
     public Player player { get; private set; }
 
@@ -27,6 +28,12 @@ public class Enemy : Entity
 
     [Header("Attack Info")]
     public float attackDuration = 2;
+
+    [Header("Counter Info")]
+    public float counterDuration = 1;
+    public Vector2 knockbackCounterPower = new(5, 5);
+    public bool canCounterAttack = false;
+    [SerializeField] protected GameObject attackAlert;
 
     protected override void Awake()
     {
@@ -94,6 +101,8 @@ public class Enemy : Entity
         Player.OnPlayerDead -= TryEnterIdleState;
     }
 
+    public void EnableAttackAlert(bool enable) => attackAlert.SetActive(enable);
+
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
@@ -105,4 +114,5 @@ public class Enemy : Entity
         Gizmos.color = Color.green;
         Gizmos.DrawLine(playerDetectedPoint.position, new Vector3(playerDetectedPoint.position.x + retreatDistance * faceDir, playerDetectedPoint.position.y));
     }
+
 }

@@ -1,4 +1,6 @@
-public class Enemy_Skeleton : Enemy
+using UnityEngine;
+
+public class Enemy_Skeleton : Enemy, ICounterable
 {
     protected override void Awake()
     {
@@ -9,6 +11,7 @@ public class Enemy_Skeleton : Enemy
         attackState = new Enemy_AttackState(this, stateMachine, "Attack");
         battleState = new Enemy_BattleState(this, stateMachine, "Battle");
         deadState = new Enemy_DeadState(this, stateMachine, "empty");
+        counterState = new Enemy_CounterState(this, stateMachine, "KnockbackCounter");
     }
 
     protected override void Start()
@@ -21,5 +24,19 @@ public class Enemy_Skeleton : Enemy
     protected override void Update()
     {
         base.Update();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            HandleCounter();
+    }
+
+
+    public void HandleCounter()
+    {
+        if (!canCounterAttack)
+            return;
+
+        EnableAttackAlert(false);
+        canCounterAttack = false;
+        stateMachine.ChangeState(counterState);
     }
 }
