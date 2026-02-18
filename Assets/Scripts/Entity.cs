@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public static Action OnFlipped;
     public StateMachine stateMachine { get; private set; }
     public ControlsManager controls { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -90,6 +92,8 @@ public class Entity : MonoBehaviour
         transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
         faceDir *= -1;
+
+        OnFlipped?.Invoke();
     }
 
     public void KnockBack(Transform damagedDealer, float averangeDamage)

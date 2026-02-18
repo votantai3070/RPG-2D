@@ -47,6 +47,9 @@ TagManager:
   - name: Chest
     uniqueID: 1576708187
     locked: 0
+  - name: UI
+    uniqueID: 3181658685
+    locked: 0
   - name: Enemy
     uniqueID: 2882099549
     locked: 0

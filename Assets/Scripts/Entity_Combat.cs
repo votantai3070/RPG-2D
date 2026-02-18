@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    private Entity_DamageVfx vfx;
+
     [SerializeField] private int damage = 10;
 
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask whatIsDamageable;
+
+    private void Awake()
+    {
+        vfx = GetComponent<Entity_DamageVfx>();
+    }
 
     public void PerformAttack()
     {
@@ -16,6 +23,7 @@ public class Entity_Combat : MonoBehaviour
                 continue;
 
             damageable.TakeDamaged(damage, transform);
+            vfx.GetImapctVfx(hit.transform);
         }
     }
 

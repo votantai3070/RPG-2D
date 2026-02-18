@@ -1,12 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
-    public Entity entity;
+    private Entity entity;
 
     [Header("Health Info")]
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+    [SerializeField] private Slider healthSlider;
 
     [Header("Damaged Info")]
     [SerializeField] private float damagedVfxDuration = .1f;
@@ -17,8 +19,10 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private void Awake()
     {
         entity = GetComponent<Entity>();
+        healthSlider = GetComponentInChildren<Slider>();
 
         currentHealth = maxHealth;
+        UpdateHealthBar();
     }
 
     public virtual void TakeDamaged(int damage, Transform damagedDealer)
@@ -37,9 +41,18 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private void ReduceHp(int damage)
     {
         currentHealth -= damage;
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
             Die();
+    }
+
+    private void UpdateHealthBar()
+    {
+        if (healthSlider == null)
+            return;
+
+        healthSlider.value = (float)currentHealth / maxHealth;
     }
 
     protected virtual void Die()
