@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 77885078}
   - component: {fileID: 77885079}
   - component: {fileID: 77885080}
+  - component: {fileID: 77885081}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -352,7 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2792459cb775e419583edbbf2dc792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   currentHealth: 0
   healthSlider: {fileID: 0}
   damagedVfxDuration: 0.1
@@ -369,7 +369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eccd4cca7780544aa788a89a78027de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactVfx: {fileID: 7272234010596343552, guid: ebf6e83f2f47b2d479a17149556c502c, type: 3}
+  critDamageVfx: {fileID: 7789713362003853818, guid: 6621afc856600e349b7a9a883f4b5403, type: 3}
+  critDamageColor: {r: 1, g: 1, b: 1, a: 1}
+  hitImpactVfx: {fileID: 7272234010596343552, guid: ebf6e83f2f47b2d479a17149556c502c, type: 3}
   impactColor: {r: 0.9811321, g: 0.29156283, b: 0.29156283, a: 0}
   damagedMat: {fileID: 2100000, guid: 6870e5285edd7da4c8bf40c70c721c98, type: 2}
 --- !u!114 &77885080
@@ -390,6 +392,53 @@ MonoBehaviour:
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 768
+--- !u!114 &77885081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77885070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240bbd1b26df80d4b9d178196b203ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 100
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 7
+  offense:
+    damage:
+      baseValue: 0
+    critDamage:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 100
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightninghResistance:
+      baseValue: 0
 --- !u!1 &119957801
 GameObject:
   m_ObjectHideFlags: 0
@@ -18400,6 +18449,7 @@ GameObject:
   - component: {fileID: 1552617133}
   - component: {fileID: 1552617134}
   - component: {fileID: 1552617135}
+  - component: {fileID: 1552617136}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -18564,7 +18614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea606ca694d78d41b60499aa6a74764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   currentHealth: 0
   healthSlider: {fileID: 0}
   damagedVfxDuration: 0.1
@@ -18581,9 +18630,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eccd4cca7780544aa788a89a78027de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactVfx: {fileID: 7272234010596343552, guid: ebf6e83f2f47b2d479a17149556c502c, type: 3}
+  critDamageVfx: {fileID: 7789713362003853818, guid: 6621afc856600e349b7a9a883f4b5403, type: 3}
+  critDamageColor: {r: 1, g: 1, b: 1, a: 1}
+  hitImpactVfx: {fileID: 7272234010596343552, guid: ebf6e83f2f47b2d479a17149556c502c, type: 3}
   impactColor: {r: 1, g: 1, b: 1, a: 0}
   damagedMat: {fileID: 2100000, guid: 6870e5285edd7da4c8bf40c70c721c98, type: 2}
+--- !u!114 &1552617136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552617128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240bbd1b26df80d4b9d178196b203ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 100
+  major:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offense:
+    damage:
+      baseValue: 0
+    critDamage:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightninghResistance:
+      baseValue: 0
 --- !u!1 &1612614021
 GameObject:
   m_ObjectHideFlags: 0

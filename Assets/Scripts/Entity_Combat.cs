@@ -3,6 +3,7 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_DamageVfx vfx;
+    private Entity_Stats stats;
 
     [SerializeField] private int damage = 10;
 
@@ -13,6 +14,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_DamageVfx>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -22,8 +24,10 @@ public class Entity_Combat : MonoBehaviour
             if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
                 continue;
 
-            damageable.TakeDamaged(damage, transform);
-            vfx.GetImapctVfx(hit.transform);
+            bool targetGoHit = damageable.TakeDamaged(Mathf.RoundToInt(stats.GetPhysicalDamage(out bool isCrit)), transform);
+
+            if (targetGoHit)
+                vfx.GetImapctVfx(hit.transform, isCrit);
         }
     }
 

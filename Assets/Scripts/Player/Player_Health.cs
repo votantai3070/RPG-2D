@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Player_Health : Entity_Health
 {
-    public override void TakeDamaged(int damage, Transform damagedDealer)
+    public override bool TakeDamaged(int damage, Transform damagedDealer)
     {
-        base.TakeDamaged(damage, damagedDealer);
+        return base.TakeDamaged(damage, damagedDealer);
     }
 }

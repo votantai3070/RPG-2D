@@ -17,12 +17,14 @@ public class Chest : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void TakeDamaged(int damage, Transform damageDealer)
+    public bool TakeDamaged(int damage, Transform damageDealer)
     {
         if (isOpen)
-            return;
+            return false;
 
         OpenChest();
+
+        return true;
     }
 
     private void OpenChest()

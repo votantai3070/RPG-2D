@@ -4,9 +4,14 @@ using UnityEngine;
 public class Entity_DamageVfx : MonoBehaviour
 {
     private SpriteRenderer sr;
+    private Entity entity;
+
+    [Header("Crit Damage Vfx")]
+    [SerializeField] private GameObject critDamageVfx;
+    [SerializeField] private Color critDamageColor = Color.white;
 
     [Header("Impact Vfx")]
-    [SerializeField] private GameObject impactVfx;
+    [SerializeField] private GameObject hitImpactVfx;
     [SerializeField] private Color impactColor = Color.white;
 
     [Header("Damage Vfx")]
@@ -14,17 +19,25 @@ public class Entity_DamageVfx : MonoBehaviour
     private Material originalMat;
     private Coroutine damageVfxCo;
 
+    private void Awake()
+    {
+        entity = GetComponent<Entity>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
     private void Start()
     {
-        sr = GetComponentInChildren<SpriteRenderer>();
         originalMat = sr.material;
     }
 
-    public void GetImapctVfx(Transform target)
+    public void GetImapctVfx(Transform target, bool isCrit)
     {
-        GameObject vfx = Instantiate(impactVfx, target.position, Quaternion.identity);
+        GameObject hitPrefab = isCrit ? critDamageVfx : hitImpactVfx;
+        GameObject vfx = Instantiate(hitPrefab, target.position, Quaternion.identity);
 
-        vfx.GetComponentInChildren<SpriteRenderer>().color = impactColor;
+        vfx.GetComponentInChildren<SpriteRenderer>().color = isCrit ? critDamageColor : impactColor;
+
+        RotateVFX(isCrit);
     }
 
     public void DamageVfx(float duration)
@@ -42,4 +55,10 @@ public class Entity_DamageVfx : MonoBehaviour
         sr.material = originalMat;
     }
 
+    private void RotateVFX(bool isCrit)
+    {
+        if (entity != null)
+            if (entity.faceDir == -1 && isCrit)
+                transform.Rotate(0, 180, 0);
+    }
 }

@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Entity entity;
+    private Entity_Stats stats;
 
     [Header("Health Info")]
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private Slider healthSlider;
 
     [Header("Damaged Info")]
@@ -19,23 +19,39 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private void Awake()
     {
         entity = GetComponent<Entity>();
+        stats = GetComponent<Entity_Stats>();
         healthSlider = GetComponentInChildren<Slider>();
 
-        currentHealth = maxHealth;
+        currentHealth = stats.GetMaxHealth();
         UpdateHealthBar();
     }
 
-    public virtual void TakeDamaged(int damage, Transform damagedDealer)
+    public virtual bool TakeDamaged(int damage, Transform damagedDealer)
     {
-        if (isDead) return;
+        if (isDead) return false;
+
+        if (AttackEvaded())
+        {
+            // Optionally, you can add some evasion VFX or sound here
+            Debug.Log($"{gameObject.name} evaded the attack!");
+            return false;
+        }
 
         ReduceHp(damage);
 
         transform.GetComponent<Entity_DamageVfx>().DamageVfx(damagedVfxDuration);
 
-        float averangeDamage = damage / maxHealth;
+        float averangeDamage = damage / stats.GetMaxHealth();
 
         entity.KnockBack(damagedDealer, averangeDamage);
+
+        return true;
+    }
+
+    private bool AttackEvaded()
+    {
+        float evasionChance = stats.GetEvasion();
+        return Random.value < evasionChance;
     }
 
     private void ReduceHp(int damage)
@@ -52,7 +68,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (healthSlider == null)
             return;
 
-        healthSlider.value = (float)currentHealth / maxHealth;
+        healthSlider.value = currentHealth / stats.GetMaxHealth();
     }
 
     protected virtual void Die()
