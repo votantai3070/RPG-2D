@@ -5,8 +5,6 @@ public class Entity_Combat : MonoBehaviour
     private Entity_DamageVfx vfx;
     private Entity_Stats stats;
 
-    [SerializeField] private int damage = 10;
-
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask whatIsDamageable;
@@ -24,10 +22,10 @@ public class Entity_Combat : MonoBehaviour
             if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
                 continue;
 
-            float elementDamage = stats.GetElementalDamage();
+            float elementDamage = stats.GetElementalDamage(out ElementType element);
             int damage = Mathf.RoundToInt(stats.GetPhysicalDamage(out bool isCrit));
 
-            bool targetGoHit = damageable.TakeDamaged(damage, elementDamage, transform);
+            bool targetGoHit = damageable.TakeDamaged(damage, elementDamage, element, transform);
 
             if (targetGoHit)
                 vfx.GetImapctVfx(hit.transform, isCrit);

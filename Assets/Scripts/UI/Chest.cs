@@ -17,7 +17,7 @@ public class Chest : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public bool TakeDamaged(int damage, float elementalDamage, Transform damageDealer)
+    public bool TakeDamaged(int damage, float elementalDamage, ElementType elementType, Transform damageDealer)
     {
         if (isOpen)
             return false;
