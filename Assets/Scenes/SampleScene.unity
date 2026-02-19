@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 77885070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.76, y: -0.653, z: 0}
+  m_LocalPosition: {x: -6.883, y: -0.653, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -370,9 +370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critDamageVfx: {fileID: 7789713362003853818, guid: 6621afc856600e349b7a9a883f4b5403, type: 3}
-  critDamageColor: {r: 1, g: 1, b: 1, a: 1}
+  critDamageColor: {r: 1, g: 0, b: 0, a: 1}
   hitImpactVfx: {fileID: 7272234010596343552, guid: ebf6e83f2f47b2d479a17149556c502c, type: 3}
-  impactColor: {r: 0.9811321, g: 0.29156283, b: 0.29156283, a: 0}
+  impactColor: {r: 1, g: 1, b: 1, a: 0}
   damagedMat: {fileID: 2100000, guid: 6870e5285edd7da4c8bf40c70c721c98, type: 2}
 --- !u!114 &77885080
 MonoBehaviour:
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 100
+    baseValue: 100000
   major:
     strength:
       baseValue: 0
@@ -414,13 +414,15 @@ MonoBehaviour:
     intelligence:
       baseValue: 0
     vitality:
-      baseValue: 7
+      baseValue: 0
   offense:
     damage:
       baseValue: 0
     critDamage:
       baseValue: 0
     critChance:
+      baseValue: 0
+    armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0
@@ -432,7 +434,7 @@ MonoBehaviour:
     armor:
       baseValue: 0
     evasion:
-      baseValue: 100
+      baseValue: 0
     fireResistance:
       baseValue: 0
     iceResistance:
@@ -16965,7 +16967,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.939895, y: -0.054121614, z: 3.3549194}
+  m_LocalPosition: {x: -6.0628943, y: -0.054121614, z: 3.3549194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17495,7 +17497,7 @@ Transform:
   m_GameObject: {fileID: 677842926}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.939895, y: -0.054121614, z: 3.3549194}
+  m_LocalPosition: {x: -6.0628943, y: -0.054121614, z: 3.3549194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18466,7 +18468,7 @@ Transform:
   m_GameObject: {fileID: 1552617128}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.02, y: -0.8, z: 0}
+  m_LocalPosition: {x: -10.704, y: -0.8, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18660,10 +18662,12 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 0
+      baseValue: 150
     critDamage:
       baseValue: 0
     critChance:
+      baseValue: 0
+    armorReduction:
       baseValue: 0
     fireDamage:
       baseValue: 0

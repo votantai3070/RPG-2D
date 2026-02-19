@@ -7,6 +7,53 @@ public class Entity_Stats : MonoBehaviour
     [SerializeField] private State_OffenseGroup offense;
     [SerializeField] private State_DefenseGroup defense;
 
+    public float GetElementalDamage()
+    {
+        float fireDamage = offense.fireDamage.GetValue();
+        float iceDamage = offense.iceDamage.GetValue();
+        float lightningDamage = offense.lightningDamage.GetValue();
+        float elementalDamageBonus = major.intelligence.GetValue() * 1f; // Assuming each point of INT gives 1 additional elemental damage
+
+        float hightestElementalDamage = Mathf.Max(fireDamage, iceDamage, lightningDamage); // Determine the highest elemental damage
+
+        if (hightestElementalDamage <= 0)
+            return 0;
+
+        float bonusFire = fireDamage == hightestElementalDamage ? 0 : fireDamage * 0.5f; // Weaker elements contribute 50% of their damage as bonus
+        float bonusIce = iceDamage == hightestElementalDamage ? 0 : iceDamage * 0.5f;
+        float bonusLightning = lightningDamage == hightestElementalDamage ? 0 : lightningDamage * 0.5f;
+
+        float weakerElementalDamageBonus = bonusFire + bonusIce + bonusLightning;
+
+        float totalElementalDamage = hightestElementalDamage + weakerElementalDamageBonus + elementalDamageBonus;
+
+        return totalElementalDamage;
+    }
+
+    public float GetArmorMigitation(float armorReduction)
+    {
+        float baseArmor = defense.armor.GetValue();
+        float bonusArmor = major.vitality.GetValue(); // Assuming each point of vitality gives 1 additional armor
+        float totalArmor = baseArmor + bonusArmor;
+
+        float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1); // Apply armor reduction to the total armor
+        float effectiveArmor = totalArmor * reductionMultiplier;
+
+        float mitigation = effectiveArmor / (effectiveArmor + 100); // Percentage damage reduction formula
+        float mitigationCap = 0.85f; // Cap mitigation at 85%
+
+        float finalMitigation = Mathf.Clamp(mitigation, 0, mitigationCap);
+
+        return finalMitigation;
+    }
+
+    public float GetArmorReduction()
+    {
+        float finalArmorReduction = offense.armorReduction.GetValue() / 100; // Convert percentage to decimal
+
+        return finalArmorReduction;
+    }
+
     public float GetPhysicalDamage(out bool isCriticalHit)
     {
         float baseDamage = offense.damage.GetValue();
@@ -27,26 +74,25 @@ public class Entity_Stats : MonoBehaviour
         return finalDamage;
     }
 
-    public float GetMaxHealth()
-    {
-        float baseHealth = maxHealth.GetValue();
-        float bonusHealth = major.vitality.GetValue() * 5; // Assuming each point of vitality gives 5 additional health
-
-        return baseHealth + bonusHealth;
-    }
-
     public float GetEvasion()
     {
         float baseEvasion = defense.evasion.GetValue();
         float bonusEvasion = major.agility.GetValue() * 0.5f; // Assuming each point of agility gives 0.5% evasion
 
         float totalEvasion = baseEvasion + bonusEvasion;
-        float evasionCap = 0.75f; // Cap evasion at 75%
+        float evasionCap = 0.85f; // Cap evasion at 85%
 
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
 
         return finalEvasion;
     }
 
+    public float GetMaxHealth()
+    {
+        float baseMaxHealth = maxHealth.GetValue();
+        float bonusMaxHealth = major.vitality.GetValue() * 5; // Assuming each point of vitality gives 5 additional health
+        float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
 
+        return finalMaxHealth;
+    }
 }

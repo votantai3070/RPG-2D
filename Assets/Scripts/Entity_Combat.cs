@@ -24,7 +24,10 @@ public class Entity_Combat : MonoBehaviour
             if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
                 continue;
 
-            bool targetGoHit = damageable.TakeDamaged(Mathf.RoundToInt(stats.GetPhysicalDamage(out bool isCrit)), transform);
+            float elementDamage = stats.GetElementalDamage();
+            int damage = Mathf.RoundToInt(stats.GetPhysicalDamage(out bool isCrit));
+
+            bool targetGoHit = damageable.TakeDamaged(damage, elementDamage, transform);
 
             if (targetGoHit)
                 vfx.GetImapctVfx(hit.transform, isCrit);

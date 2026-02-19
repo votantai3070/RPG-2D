@@ -26,7 +26,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         UpdateHealthBar();
     }
 
-    public virtual bool TakeDamaged(int damage, Transform damagedDealer)
+    public virtual bool TakeDamaged(int damage, float elementalDamage, Transform damagedDealer)
     {
         if (isDead) return false;
 
@@ -37,11 +37,20 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return false;
         }
 
-        ReduceHp(damage);
+        Entity_Stats attackerStats = damagedDealer.GetComponent<Entity_Stats>();
+
+        float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
+
+        float migitation = stats.GetArmorMigitation(armorReduction);
+        int finalDamage = Mathf.RoundToInt(damage * (1 - migitation));
+
+        Debug.Log("Final Element Damage: " + elementalDamage);
+
+        ReduceHp(finalDamage);
 
         transform.GetComponent<Entity_DamageVfx>().DamageVfx(damagedVfxDuration);
 
-        float averangeDamage = damage / stats.GetMaxHealth();
+        float averangeDamage = finalDamage / stats.GetMaxHealth();
 
         entity.KnockBack(damagedDealer, averangeDamage);
 
