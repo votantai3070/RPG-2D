@@ -57,7 +57,6 @@ public class Player : Entity
         counterAttackState = new(this, stateMachine, "CounterAttack");
     }
 
-
     protected override void Start()
     {
         base.Start();
@@ -67,6 +66,38 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+    }
+
+    protected override IEnumerator HandleChillCo(float duration, float elementalMultiplier)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalJumpForce = jumpForce;
+        float originalDashSpeed = dashSpeed;
+        float originalAnimSpeed = anim.speed;
+        Vector2[] originalAttackVelocity = attackVelocity;
+        Vector2 originalJumpAttackVelocity = jumpAttackVelocity;
+        Vector2 originalJumpForceDir = jumpForceDir;
+
+        moveSpeed *= elementalMultiplier;
+        jumpForce *= elementalMultiplier;
+        dashSpeed *= elementalMultiplier;
+        anim.speed *= elementalMultiplier;
+        for (int i = 0; i < attackVelocity.Length; i++)
+        {
+            attackVelocity[i] *= elementalMultiplier;
+        }
+        jumpAttackVelocity *= elementalMultiplier;
+        jumpForceDir *= elementalMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        jumpForce = originalJumpForce;
+        dashSpeed = originalDashSpeed;
+        anim.speed = originalAnimSpeed;
+        attackVelocity = originalAttackVelocity;
+        jumpAttackVelocity = originalJumpAttackVelocity;
+        jumpForceDir = originalJumpForceDir;
     }
 
     public override void TryEnterDeadState()

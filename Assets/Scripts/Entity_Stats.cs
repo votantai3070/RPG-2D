@@ -3,18 +3,16 @@ using UnityEngine;
 public class Entity_Stats : MonoBehaviour
 {
     [SerializeField] private Stat maxHealth;
-    [SerializeField] private Stat_MajorGroup major;
-    [SerializeField] private State_OffenseGroup offense;
-    [SerializeField] private State_DefenseGroup defense;
+    public Stat_MajorGroup major;
+    public State_OffenseGroup offense;
+    public State_DefenseGroup defense;
 
-    public float GetElementalDamage(out ElementType element)
+    public float GetElementalDamage(out ElementType element, float scaleFactor)
     {
         float fireDamage = offense.fireDamage.GetValue();
         float iceDamage = offense.iceDamage.GetValue();
         float lightningDamage = offense.lightningDamage.GetValue();
         float elementalDamageBonus = major.intelligence.GetValue() * 1f; // Assuming each point of INT gives 1 additional elemental damage
-
-
 
         float hightestElementalDamage = fireDamage;
         element = ElementType.Fire;
@@ -45,7 +43,7 @@ public class Entity_Stats : MonoBehaviour
 
         float totalElementalDamage = hightestElementalDamage + weakerElementalDamageBonus + elementalDamageBonus;
 
-        return totalElementalDamage;
+        return totalElementalDamage * scaleFactor;
     }
 
     public float GetElementalResistance(ElementType element)
@@ -100,7 +98,7 @@ public class Entity_Stats : MonoBehaviour
         return finalArmorReduction;
     }
 
-    public float GetPhysicalDamage(out bool isCriticalHit)
+    public float GetPhysicalDamage(out bool isCriticalHit, float scaleFactor)
     {
         float baseDamage = offense.damage.GetValue();
         float bonusDamage = major.strength.GetValue();
@@ -117,7 +115,7 @@ public class Entity_Stats : MonoBehaviour
         isCriticalHit = Random.Range(0, 100) < totalCritChance;
         float finalDamage = isCriticalHit ? totalBaseDamage * critDamage : totalBaseDamage;
 
-        return finalDamage;
+        return finalDamage * scaleFactor;
     }
 
     public float GetEvasion()

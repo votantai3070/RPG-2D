@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
+    <Compile Include="Assets\Scripts\Entity_ElementalStateHandler.cs" />
     <Compile Include="Assets\Scripts\Entity_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
@@ -103,12 +104,12 @@
     <Compile Include="Assets\Scripts\Stat\State_OffenseGroup.cs" />
     <Compile Include="Assets\Scripts\UI\VFX_Automatic.cs" />
     <Compile Include="Assets\Scripts\Player\Player_AnimationEvent.cs" />
-    <Compile Include="Assets\Scripts\Entity_DamageVfx.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_MajorGroup.cs" />
+    <Compile Include="Assets\Scripts\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Entity_Combat.cs" />

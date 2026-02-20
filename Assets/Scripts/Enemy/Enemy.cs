@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -59,6 +60,25 @@ public class Enemy : Entity
         anim.SetFloat("battleAnimMultilier", battleAnimMultilier);
         anim.SetFloat("moveAnimMultilier", moveAnimMultilier);
         anim.SetFloat("xVelocity", rb.linearVelocityX);
+    }
+
+    protected override IEnumerator HandleChillCo(float duration, float chillMultiplier)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalBattleSpeed = battleSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        moveSpeed *= chillMultiplier;
+        battleSpeed *= chillMultiplier;
+        anim.speed *= chillMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        stateHandler.SetElement(ElementType.None);
+
+        moveSpeed = originalMoveSpeed;
+        battleSpeed = originalBattleSpeed;
+        anim.speed = originalAnimSpeed;
     }
 
     public void TryEnterBattleState(Player player)

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public Entity_VFX vfx { get; private set; }
+    public Entity_ElementalStateHandler stateHandler { get; private set; }
+    public Entity_Health entityHealth { get; private set; }
+    public Entity_Stats stats { get; private set; }
+
     public static Action OnFlipped;
     public StateMachine stateMachine { get; private set; }
     public ControlsManager controls { get; private set; }
@@ -33,12 +38,20 @@ public class Entity : MonoBehaviour
     private Coroutine knockBackCo;
     [SerializeField] private float heavyKnockBackThreshold = .3f;
 
+    [Header("Elemental Info")]
+    private Coroutine elementalEffectCo;
+
+
     protected virtual void Awake()
     {
+        entityHealth = GetComponent<Entity_Health>();
+        vfx = GetComponent<Entity_VFX>();
         stateMachine = new StateMachine();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         controls = ControlsManager.instance;
+        stateHandler = GetComponent<Entity_ElementalStateHandler>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     protected virtual void Start()
@@ -56,14 +69,69 @@ public class Entity : MonoBehaviour
 
     }
 
-    public void SetVelocity(float x, float y)
-    {
-        if (isKnockBack)
-            return;
 
-        rb.linearVelocity = new(x, y);
-        HandleFlip(x);
+    #region Elemental Effects
+    public void ElementalVfx(float duration, ElementType element)
+    {
+        vfx.ElementVfx(duration, element); // Apply elemental VFX based on the element type and duration
     }
+
+    public virtual void TryEnterChillEffect(float duration, float elementalMultiplier)
+    {
+        if (elementalEffectCo != null)
+            StopCoroutine(elementalEffectCo);
+        elementalEffectCo = StartCoroutine(HandleChillCo(duration, elementalMultiplier));
+    }
+
+    public virtual void TryEnterBurnEffect(float duration, float damage, float scaleFactor)
+    {
+        if (elementalEffectCo != null)
+            StopCoroutine(elementalEffectCo);
+        elementalEffectCo = StartCoroutine(HandleBurnCo(duration, damage * scaleFactor));
+    }
+
+    public virtual void TryEnterShockEffect(float duration, float elementalMultiplier)
+    {
+        if (elementalEffectCo != null)
+            StopCoroutine(elementalEffectCo);
+        elementalEffectCo = StartCoroutine(HandleShockCo(duration, elementalMultiplier));
+    }
+
+
+    protected virtual IEnumerator HandleChillCo(float duration, float elementalMultiplier)
+    {
+        yield return null;
+    }
+
+    protected virtual IEnumerator HandleShockCo(float duration, float elementalMultiplier)
+    {
+        yield return null;
+    }
+
+    protected virtual IEnumerator HandleBurnCo(float duration, float damage)
+    {
+        stateHandler.SetElement(ElementType.Fire);
+
+        int ticksPerSecond = 2;
+        int tickCount = Mathf.RoundToInt(damage * duration);
+
+        float damagePerTick = damage / tickCount;
+        float tickInterval = 1f / ticksPerSecond;
+
+        float fireRes = stats.defense.fireResistance.GetValue();
+
+        float finalDamage = damagePerTick * (1 - fireRes);
+
+        for (int i = 0; i < tickCount; i++)
+        {
+            entityHealth.ReduceHp(Mathf.RoundToInt(finalDamage));
+            yield return new WaitForSeconds(tickInterval);
+        }
+
+        stateHandler.SetElement(ElementType.None);
+    }
+
+    #endregion
 
     private void HandleCollisionDetection()
     {
@@ -77,6 +145,16 @@ public class Entity : MonoBehaviour
         else
             wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * faceDir, wallCheckDistance, whatIsGround);
 
+    }
+
+    #region Movement and Flip
+    public void SetVelocity(float x, float y)
+    {
+        if (isKnockBack)
+            return;
+
+        rb.linearVelocity = new(x, y);
+        HandleFlip(x);
     }
 
     protected void HandleFlip(float xVelocity)
@@ -95,7 +173,9 @@ public class Entity : MonoBehaviour
 
         OnFlipped?.Invoke();
     }
+    #endregion
 
+    #region Knockback
     public void KnockBack(Transform damagedDealer, float averangeDamage)
     {
         if (knockBackCo != null)
@@ -125,6 +205,7 @@ public class Entity : MonoBehaviour
 
         return knockback;
     }
+    #endregion
 
     public void CallAnimationEventAttackOver() => attackTrigged = true;
 

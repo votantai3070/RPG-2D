@@ -37,7 +37,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return false;
         }
 
-        transform.GetComponent<Entity_DamageVfx>().DamageVfx(damagedVfxDuration);
+        transform.GetComponent<Entity_VFX>().DamageVfx(damagedVfxDuration);
 
         Entity_Stats attackerStats = damagedDealer.GetComponent<Entity_Stats>();
 
@@ -71,7 +71,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         return Random.value < evasionChance;
     }
 
-    private void ReduceHp(int damage)
+    public void ReduceHp(int damage)
     {
         currentHealth -= damage;
         UpdateHealthBar();
