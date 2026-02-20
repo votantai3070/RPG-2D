@@ -375,9 +375,15 @@ MonoBehaviour:
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 768
+  physicalDamageScaleFactor: 1
+  elementalDamageScaleFactor: 0.6
+  defaultDuration: 2
   chillVfxDuration: 2
-  burnVfxDuration: 1.5
   chillMultiplier: 0.4
+  burnVfxDuration: 1.5
+  shockDuration: 0.2
+  shockCharge: 0.4
+  shockScaleFactor: 1.5
 --- !u!114 &77885081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,11 +417,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 20
+      baseValue: 0
     iceDamage:
       baseValue: 0
     lightningDamage:
-      baseValue: 0
+      baseValue: 50
   defense:
     armor:
       baseValue: 0
@@ -447,6 +453,7 @@ MonoBehaviour:
   chillVfx: {r: 0, g: 0.33498383, b: 1, a: 1}
   fireVfx: {r: 1, g: 0.50792295, b: 0.3254717, a: 1}
   lightningVfx: {r: 1, g: 0.9783926, b: 0.10849059, a: 1}
+  thunderStrikePrefab: {fileID: 2832443357348112663, guid: 57c2e89b8fe22cc40b93847858d6cab8, type: 3}
 --- !u!114 &77885083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18647,9 +18654,15 @@ MonoBehaviour:
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
+  physicalDamageScaleFactor: 1
+  elementalDamageScaleFactor: 0.6
+  defaultDuration: 2
   chillVfxDuration: 2
+  chillMultiplier: 0.5
   burnVfxDuration: 1.5
-  chillMultiplier: 0.4
+  shockDuration: 0.2
+  shockCharge: 0.4
+  shockScaleFactor: 1.5
 --- !u!114 &1552617134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18679,7 +18692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 100
+    baseValue: 300
   major:
     strength:
       baseValue: 0
@@ -18691,7 +18704,7 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 150
+      baseValue: 0
     critDamage:
       baseValue: 0
     critChance:
@@ -18699,11 +18712,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 20
+      baseValue: 0
     iceDamage:
-      baseValue: 39.6
-    lightningDamage:
       baseValue: 10
+    lightningDamage:
+      baseValue: 0
   defense:
     armor:
       baseValue: 0
@@ -18735,6 +18748,7 @@ MonoBehaviour:
   chillVfx: {r: 0, g: 0.33498383, b: 1, a: 1}
   fireVfx: {r: 1, g: 0.50792295, b: 0.3254717, a: 1}
   lightningVfx: {r: 1, g: 0.9783926, b: 0.10849059, a: 1}
+  thunderStrikePrefab: {fileID: 2832443357348112663, guid: 57c2e89b8fe22cc40b93847858d6cab8, type: 3}
 --- !u!114 &1552617138
 MonoBehaviour:
   m_ObjectHideFlags: 0

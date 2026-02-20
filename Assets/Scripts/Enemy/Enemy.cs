@@ -64,6 +64,7 @@ public class Enemy : Entity
 
     protected override IEnumerator HandleChillCo(float duration, float chillMultiplier)
     {
+        stateHandler.SetElement(ElementType.Ice);
         float originalMoveSpeed = moveSpeed;
         float originalBattleSpeed = battleSpeed;
         float originalAnimSpeed = anim.speed;

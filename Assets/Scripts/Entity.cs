@@ -76,61 +76,17 @@ public class Entity : MonoBehaviour
         vfx.ElementVfx(duration, element); // Apply elemental VFX based on the element type and duration
     }
 
-    public virtual void TryEnterChillEffect(float duration, float elementalMultiplier)
+    public virtual void EnterChillEffect(float duration, float elementalMultiplier)
     {
         if (elementalEffectCo != null)
             StopCoroutine(elementalEffectCo);
         elementalEffectCo = StartCoroutine(HandleChillCo(duration, elementalMultiplier));
     }
 
-    public virtual void TryEnterBurnEffect(float duration, float damage, float scaleFactor)
-    {
-        if (elementalEffectCo != null)
-            StopCoroutine(elementalEffectCo);
-        elementalEffectCo = StartCoroutine(HandleBurnCo(duration, damage * scaleFactor));
-    }
-
-    public virtual void TryEnterShockEffect(float duration, float elementalMultiplier)
-    {
-        if (elementalEffectCo != null)
-            StopCoroutine(elementalEffectCo);
-        elementalEffectCo = StartCoroutine(HandleShockCo(duration, elementalMultiplier));
-    }
-
-
     protected virtual IEnumerator HandleChillCo(float duration, float elementalMultiplier)
     {
         yield return null;
     }
-
-    protected virtual IEnumerator HandleShockCo(float duration, float elementalMultiplier)
-    {
-        yield return null;
-    }
-
-    protected virtual IEnumerator HandleBurnCo(float duration, float damage)
-    {
-        stateHandler.SetElement(ElementType.Fire);
-
-        int ticksPerSecond = 2;
-        int tickCount = Mathf.RoundToInt(damage * duration);
-
-        float damagePerTick = damage / tickCount;
-        float tickInterval = 1f / ticksPerSecond;
-
-        float fireRes = stats.defense.fireResistance.GetValue();
-
-        float finalDamage = damagePerTick * (1 - fireRes);
-
-        for (int i = 0; i < tickCount; i++)
-        {
-            entityHealth.ReduceHp(Mathf.RoundToInt(finalDamage));
-            yield return new WaitForSeconds(tickInterval);
-        }
-
-        stateHandler.SetElement(ElementType.None);
-    }
-
     #endregion
 
     private void HandleCollisionDetection()

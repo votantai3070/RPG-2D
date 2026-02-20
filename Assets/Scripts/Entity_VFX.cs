@@ -26,6 +26,8 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private Color fireVfx;
     [SerializeField] private Color lightningVfx;
     private Coroutine elementalVfxCo;
+    [Space]
+    [SerializeField] private GameObject thunderStrikePrefab;
 
     private void Awake()
     {
@@ -40,6 +42,11 @@ public class Entity_VFX : MonoBehaviour
         chillVfx = new Color(0.5f, 0.5f, 1f, 0.5f); // Light blue with some transparency
         fireVfx = new Color(1f, 0.5f, 0.5f, 0.5f); // Light red with some transparency
         lightningVfx = new Color(1f, 1f, 0.5f, 0.5f); // Light yellow with some transparency
+    }
+
+    public void ThunderStrikeVfx(Transform target)
+    {
+        Instantiate(thunderStrikePrefab, target.position, Quaternion.identity);
     }
 
     public void GetImapctVfx(Transform target, bool isCrit)

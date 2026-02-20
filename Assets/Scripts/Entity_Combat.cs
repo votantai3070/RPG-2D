@@ -14,9 +14,16 @@ public class Entity_Combat : MonoBehaviour
 
     [Header("Elemental Info")]
     [SerializeField] private float elementalDamageScaleFactor = .6f;
+    [SerializeField] private float defaultDuration = 2f;
+    [Space]
     [SerializeField] private float chillVfxDuration = 2f;
-    [SerializeField] private float burnVfxDuration = 1.5f;
     [SerializeField] private float chillMultiplier = .4f;
+    [Space]
+    [SerializeField] private float burnVfxDuration = 1.5f;
+    [Space]
+    [SerializeField] private float shockDuration = 1f;
+    [SerializeField] private float shockCharge = .4f;
+    [SerializeField] private float shockScaleFactor = 1.5f;
 
 
     private void Awake()
@@ -43,7 +50,7 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGoHit)
             {
-                hit.GetComponent<Entity>().ElementalVfx(chillVfxDuration, element);
+                hit.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 vfx.GetImapctVfx(hit.transform, isCrit);
             }
         }
@@ -54,7 +61,7 @@ public class Entity_Combat : MonoBehaviour
         Entity_ElementalStateHandler elementalStateHandler = hit.GetComponent<Entity_ElementalStateHandler>();
 
         float fireDamage = stats.offense.fireDamage.GetValue();
-        //float shockDamage = stats.offense.lightningDamage.GetValue();
+        float shockDamage = stats.offense.lightningDamage.GetValue();
 
         if (element == ElementType.Ice && elementalStateHandler.ApplyElementalVfx(ElementType.Ice))
             elementalStateHandler.ApplyChilledEffect(chillVfxDuration, chillMultiplier);
@@ -62,8 +69,8 @@ public class Entity_Combat : MonoBehaviour
         if (element == ElementType.Fire && elementalStateHandler.ApplyElementalVfx(ElementType.Fire))
             elementalStateHandler.ApplyBurnedEffect(burnVfxDuration, fireDamage);
 
-        //if (element == ElementType.Lightning && elementalStateHandler.ApplyElementalVfx(ElementType.Lightning))
-        //    elementalStateHandler.ApplyShockEffect(vfxDuration, chillMultiplier);
+        if (element == ElementType.Lightning && elementalStateHandler.ApplyElementalVfx(ElementType.Lightning))
+            elementalStateHandler.ApplyShockEffect(shockDuration, shockDamage, shockCharge, shockScaleFactor);
     }
 
     protected Collider2D[] AttackHits()

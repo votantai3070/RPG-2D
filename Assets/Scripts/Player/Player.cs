@@ -60,6 +60,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+
         stateMachine.InitializeState(idleState);
     }
 
@@ -70,6 +71,8 @@ public class Player : Entity
 
     protected override IEnumerator HandleChillCo(float duration, float elementalMultiplier)
     {
+        stateHandler.SetElement(ElementType.Ice);
+
         float originalMoveSpeed = moveSpeed;
         float originalJumpForce = jumpForce;
         float originalDashSpeed = dashSpeed;
@@ -90,6 +93,8 @@ public class Player : Entity
         jumpForceDir *= elementalMultiplier;
 
         yield return new WaitForSeconds(duration);
+
+        stateHandler.SetElement(ElementType.None);
 
         moveSpeed = originalMoveSpeed;
         jumpForce = originalJumpForce;
