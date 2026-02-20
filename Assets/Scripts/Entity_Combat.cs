@@ -3,7 +3,7 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_VFX vfx;
-    private Entity_Stats stats;
+    private Entity_Stats entityStat;
 
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private Transform attackPoint;
@@ -29,7 +29,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
-        stats = GetComponent<Entity_Stats>();
+        entityStat = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -39,11 +39,16 @@ public class Entity_Combat : MonoBehaviour
             if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
                 continue;
 
-            float elementDamage = stats.GetElementalDamage(out ElementType element, elementalDamageScaleFactor);
+            float elementDamage = entityStat.GetElementalDamage(out ElementType element, elementalDamageScaleFactor);
 
-            int damage = Mathf.RoundToInt(stats.GetPhysicalDamage(out bool isCrit, physicalDamageScaleFactor));
+            int damage = Mathf.RoundToInt(entityStat.GetPhysicalDamage(out bool isCrit, physicalDamageScaleFactor));
 
             bool targetGoHit = damageable.TakeDamaged(damage, elementDamage, element, transform);
+
+            //if (element == ElementType.Lightning)
+            //    entityStat.offense.attackSpeed.SetValue(1.5f);
+            //else
+            //    entityStat.offense.attackSpeed.SetValue(1f);
 
             if (element != ElementType.None)
                 ApplyElementalEffect(hit, element);
@@ -60,8 +65,8 @@ public class Entity_Combat : MonoBehaviour
     {
         Entity_ElementalStateHandler elementalStateHandler = hit.GetComponent<Entity_ElementalStateHandler>();
 
-        float fireDamage = stats.offense.fireDamage.GetValue();
-        float shockDamage = stats.offense.lightningDamage.GetValue();
+        float fireDamage = entityStat.offense.fireDamage.GetValue();
+        float shockDamage = entityStat.offense.lightningDamage.GetValue();
 
         if (element == ElementType.Ice && elementalStateHandler.ApplyElementalVfx(ElementType.Ice))
             elementalStateHandler.ApplyChilledEffect(chillVfxDuration, chillMultiplier);

@@ -8,6 +8,9 @@ public class Enemy_AttackState : EnemyState
     {
         base.Enter();
         enemy.attackTrigged = false;
+
+        float attackSpeed = stats.offense.attackSpeed.GetValue();
+        anim.SetFloat("AttackSpeedMultiplier", attackSpeed);
     }
 
     public override void Update()

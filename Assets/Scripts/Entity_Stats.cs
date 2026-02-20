@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
-    [SerializeField] private Stat maxHealth;
+    public Stat_ResourceGroup resource;
     public Stat_MajorGroup major;
     public State_OffenseGroup offense;
     public State_DefenseGroup defense;
@@ -133,7 +133,7 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetMaxHealth()
     {
-        float baseMaxHealth = maxHealth.GetValue();
+        float baseMaxHealth = resource.maxHealth.GetValue();
         float bonusMaxHealth = major.vitality.GetValue() * 5; // Assuming each point of vitality gives 5 additional health
         float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
 

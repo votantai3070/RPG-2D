@@ -21,6 +21,10 @@ public class Player_BasicAttackState : PlayerState
     {
         base.Enter();
 
+        float attackSpeed = stats.offense.attackSpeed.GetValue();
+
+        anim.SetFloat("AttackSpeedMultiplier", attackSpeed);
+
         attackQueued = false;
         player.attackTrigged = false;
 

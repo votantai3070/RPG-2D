@@ -4,25 +4,46 @@ using UnityEngine.UI;
 public class Entity_Health : MonoBehaviour, IDamageable
 {
     private Entity entity;
-    private Entity_Stats stats;
+    private Entity_Stats entityStat;
 
     [Header("Health Info")]
     [SerializeField] private float currentHealth;
     [SerializeField] private Slider healthSlider;
+    [Space]
+    private bool canRegenerateHealth = true;
 
     [Header("Damaged Info")]
     [SerializeField] private float damagedVfxDuration = .1f;
-
 
     [SerializeField] protected bool isDead;
 
     private void Awake()
     {
         entity = GetComponent<Entity>();
-        stats = GetComponent<Entity_Stats>();
+        entityStat = GetComponent<Entity_Stats>();
         healthSlider = GetComponentInChildren<Slider>();
 
-        currentHealth = stats.GetMaxHealth();
+        currentHealth = entityStat.GetMaxHealth();
+        UpdateHealthBar();
+    }
+
+    public void Heal()
+    {
+        if (!canRegenerateHealth)
+            return;
+
+        float healRegenAmount = entityStat.resource.healthRegen.GetValue();
+        InsreaseHealth(healRegenAmount);
+    }
+
+    private void InsreaseHealth(float amount)
+    {
+        if (isDead) return;
+
+        currentHealth += amount;
+        float maxHealth = entityStat.GetMaxHealth();
+
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
         UpdateHealthBar();
     }
 
@@ -43,10 +64,10 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
 
-        float migitation = stats.GetArmorMigitation(armorReduction);
+        float migitation = entityStat.GetArmorMigitation(armorReduction);
         int physicalDamageTaken = Mathf.RoundToInt(damage * (1 - migitation));
 
-        float elementRes = stats.GetElementalResistance(elementType);
+        float elementRes = entityStat.GetElementalResistance(elementType);
         int elementalDamageTaken = Mathf.RoundToInt(elementalDamage * (1 - elementRes));
 
         int finalDamage = physicalDamageTaken + elementalDamageTaken;
@@ -60,14 +81,14 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     private void TakeKnockback(Transform damagedDealer, int finalDamage)
     {
-        float averangeDamage = finalDamage / stats.GetMaxHealth();
+        float averangeDamage = finalDamage / entityStat.GetMaxHealth();
 
         entity.KnockBack(damagedDealer, averangeDamage);
     }
 
     private bool AttackEvaded()
     {
-        float evasionChance = stats.GetEvasion();
+        float evasionChance = entityStat.GetEvasion();
         return Random.value < evasionChance;
     }
 
@@ -85,7 +106,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (healthSlider == null)
             return;
 
-        healthSlider.value = currentHealth / stats.GetMaxHealth();
+        healthSlider.value = currentHealth / entityStat.GetMaxHealth();
     }
 
     protected virtual void Die()

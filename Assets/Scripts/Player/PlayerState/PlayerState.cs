@@ -2,7 +2,7 @@ public class PlayerState : EntityState
 {
     protected Player player;
     protected ControlsManager controls;
-
+    protected Entity_Stats stats;
 
     public PlayerState(Player player, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
     {
@@ -11,6 +11,7 @@ public class PlayerState : EntityState
         anim = player.anim;
         rb = player.rb;
         controls = player.controls;
+        stats = player.entityStat;
     }
 
     public override void Enter()

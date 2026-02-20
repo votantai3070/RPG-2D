@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Entity_Stats.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />

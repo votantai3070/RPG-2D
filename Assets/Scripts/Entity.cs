@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     public Entity_VFX vfx { get; private set; }
     public Entity_ElementalStateHandler stateHandler { get; private set; }
     public Entity_Health entityHealth { get; private set; }
-    public Entity_Stats stats { get; private set; }
+    public Entity_Stats entityStat { get; private set; }
 
     public static Action OnFlipped;
     public StateMachine stateMachine { get; private set; }
@@ -51,7 +51,7 @@ public class Entity : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         controls = ControlsManager.instance;
         stateHandler = GetComponent<Entity_ElementalStateHandler>();
-        stats = GetComponent<Entity_Stats>();
+        entityStat = GetComponent<Entity_Stats>();
     }
 
     protected virtual void Start()

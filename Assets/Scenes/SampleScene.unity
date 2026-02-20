@@ -396,8 +396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240bbd1b26df80d4b9d178196b203ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 100000
+  resource:
+    maxHealth:
+      baseValue: 100000
+    healthRegen:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -408,6 +411,8 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 0
     critDamage:
@@ -18691,8 +18696,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240bbd1b26df80d4b9d178196b203ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    baseValue: 300
+  resource:
+    maxHealth:
+      baseValue: 100000
+    healthRegen:
+      baseValue: 0
   major:
     strength:
       baseValue: 0
@@ -18703,6 +18711,8 @@ MonoBehaviour:
     vitality:
       baseValue: 0
   offense:
+    attackSpeed:
+      baseValue: 1
     damage:
       baseValue: 0
     critDamage:
@@ -18714,7 +18724,7 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 10
+      baseValue: 0
     lightningDamage:
       baseValue: 0
   defense:
