@@ -145,7 +145,7 @@ public class Entity : MonoBehaviour
     private IEnumerator KnockBackCo(Vector2 knockbackDir, float duration)
     {
         isKnockBack = true;
-        rb.linearVelocity = knockbackDir;
+        rb.linearVelocity = new(knockbackDir.x, knockbackDir.y);
         yield return new WaitForSeconds(duration);
         rb.linearVelocity = Vector2.zero;
         isKnockBack = false;

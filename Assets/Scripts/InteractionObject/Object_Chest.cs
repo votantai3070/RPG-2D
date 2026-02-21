@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Chest : MonoBehaviour, IDamageable
+public class Object_Chest : MonoBehaviour, IDamageable
 {
     private Animator anim;
     private Rigidbody2D rb;
