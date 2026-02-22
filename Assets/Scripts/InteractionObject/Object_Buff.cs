@@ -17,7 +17,6 @@ public class Object_Buff : MonoBehaviour
     [Header("Buff info")]
     [SerializeField] private float buffDuration = 5f;
     private bool canBuff = true;
-    [SerializeField] private float buffAmount = 10f;
     [SerializeField] private string buffSourceName = "Buff Object";
     [Space]
     [SerializeField] private float floatSpeed = 1f;

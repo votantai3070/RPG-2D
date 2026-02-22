@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Skill_SO skillData;
+    private UI ui;
+    private RectTransform rect;
+
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
 
@@ -14,19 +17,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private bool isLocked;
     private bool isUnlocked;
 
-    private void OnValidate()
+
+    private void Awake()
     {
-        if (skillData != null)
-        {
-            skillName = skillData.displayName;
-            if (skillIcon != null)
-                skillIcon.sprite = skillData.icon;
-            gameObject.name = skillName + " Node";
-        }
+        ui = GetComponentInParent<UI>();
+        rect = GetComponent<RectTransform>();
     }
 
     private void Start()
     {
+
         skillIcon.color = lockColor;
     }
 
@@ -66,13 +66,24 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Tooltip: " + gameObject.name);
         UpdateIconColor(Color.white * .9f);
+        ui.tooltip.ShowTooltip(true, rect, skillData);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Hide Tooltip");
         UpdateIconColor(lastColor);
+        ui.tooltip.ShowTooltip(false, rect);
+    }
+
+    private void OnValidate()
+    {
+        if (skillData != null)
+        {
+            skillName = skillData.displayName;
+            if (skillIcon != null)
+                skillIcon.sprite = skillData.icon;
+            gameObject.name = skillName + " Node";
+        }
     }
 }
