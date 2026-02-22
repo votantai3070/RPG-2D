@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Skeleton.cs" />
@@ -120,9 +121,9 @@
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_MajorGroup.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
-    <Compile Include="Assets\Scripts\UI\Ui_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Tooltip.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>

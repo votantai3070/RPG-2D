@@ -1,0 +1,10 @@
+using UnityEngine;
+
+public class UI_SkillTree : MonoBehaviour
+{
+    public int skillPoints;
+
+    public bool EnoughSkillPoint(int cost) => skillPoints >= cost;
+
+    public void RemoveSkillPoint(int cost) => skillPoints -= cost;
+}
