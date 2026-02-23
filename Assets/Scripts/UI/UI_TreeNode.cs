@@ -8,6 +8,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private UI ui;
     private RectTransform rect;
     private UI_SkillTree skillTree;
+    private UI_TreeConnectHandler connectHandler;
 
     [Header("Unlock node details")]
     public UI_TreeNode[] neededNodes;
@@ -27,10 +28,19 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
         skillTree = GetComponentInParent<UI_SkillTree>();
+        connectHandler = GetComponent<UI_TreeConnectHandler>();
     }
 
     private void Start()
     {
+        skillIcon.color = lockColor;
+    }
+
+    public void Refund()
+    {
+        isUnlocked = false;
+        isLocked = false;
+        skillTree.AddSkillPoint(skillCost);
 
         skillIcon.color = lockColor;
     }
@@ -43,11 +53,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             UpdateIconColor(Color.white);
             skillTree.RemoveSkillPoint(skillCost);
             LockConflictNodes();
+            connectHandler.ConnectionImageUnlocked(true);
 
             Debug.Log("Node unlocked: " + gameObject.name);
         }
         else
+        {
+            ui.tooltip.LockedSkillEffect();
             Debug.Log("Cannot unlock this node.");
+        }
     }
 
     private void LockConflictNodes()
@@ -97,14 +111,28 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        UpdateIconColor(Color.white * .9f);
         ui.tooltip.ShowTooltip(true, rect, this);
+
+        if (!isLocked || !isUnlocked)
+            ToggleNodeHighlight(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UpdateIconColor(lastColor);
         ui.tooltip.ShowTooltip(false, rect);
+
+        if (!isLocked || !isUnlocked)
+            ToggleNodeHighlight(false);
+    }
+
+    private void ToggleNodeHighlight(bool highlight)
+    {
+        Color highlightedColor = Color.white * 0.9f;
+        highlightedColor.a = 1;
+
+        Color colorApply = highlight ? highlightedColor : lastColor;
+
+        UpdateIconColor(colorApply);
     }
 
     private void OnValidate()
