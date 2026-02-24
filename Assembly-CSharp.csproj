@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_AnimationEvent.cs" />
+    <Compile Include="Assets\Scripts\Enum\ElementType.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Buff.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeConnectHandler.cs" />
@@ -80,31 +81,35 @@
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_ElementalStateHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\Player\Player_VFX.cs" />
     <Compile Include="Assets\Scripts\Entity\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
+    <Compile Include="Assets\Scripts\SO\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_CounterState.cs" />
-    <Compile Include="Assets\Scripts\Stat\StatType.cs" />
+    <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_FallState.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Chest.cs" />
-    <Compile Include="Assets\Scripts\UI\ElementType.cs" />
+    <Compile Include="Assets\Scripts\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvent.cs" />
+    <Compile Include="Assets\Scripts\Enum\StatType.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
-    <Compile Include="Assets\Scripts\SO\Skill_SO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundedState.cs" />
@@ -125,6 +130,7 @@
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
+    <Compile Include="Assets\Scripts\Player\Player_SkillManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>

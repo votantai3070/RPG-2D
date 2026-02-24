@@ -1,6 +1,3 @@
-
-using UnityEngine;
-
 public class Player_MoveState : Player_GroundedState
 {
     public Player_MoveState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
@@ -12,12 +9,11 @@ public class Player_MoveState : Player_GroundedState
     {
         base.Update();
 
-        Vector2 input = controls.moveInput;
 
-        if (!controls.PressedAttack())
-            player.SetVelocity(input.x * player.moveSpeed, rb.linearVelocityY);
+        if (!controls.PressedAttack() || stateMachine.currentState != player.jumpState)
+            player.SetVelocity(controls.moveInput.x * player.moveSpeed, rb.linearVelocityY);
 
-        if (input.x == 0 || player.wallDetected)
+        if (controls.moveInput.x == 0 || player.wallDetected)
             stateMachine.ChangeState(player.idleState);
     }
 }

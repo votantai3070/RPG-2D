@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public Skill_SO skillData;
+    public Skill_DataSO skillData;
     private UI ui;
     private RectTransform rect;
     private UI_SkillTree skillTree;
@@ -51,9 +51,12 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         {
             isUnlocked = true;
             UpdateIconColor(Color.white);
-            skillTree.RemoveSkillPoint(skillCost);
             LockConflictNodes();
+
+            skillTree.RemoveSkillPoint(skillCost);
             connectHandler.ConnectionImageUnlocked(true);
+
+            skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUpgrades(skillData.upgradeData);
 
             Debug.Log("Node unlocked: " + gameObject.name);
         }
@@ -113,16 +116,20 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     {
         ui.tooltip.ShowTooltip(true, rect, this);
 
-        if (!isLocked || !isUnlocked)
-            ToggleNodeHighlight(true);
+        if (isLocked || isUnlocked)
+            return;
+
+        ToggleNodeHighlight(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.tooltip.ShowTooltip(false, rect);
 
-        if (!isLocked || !isUnlocked)
-            ToggleNodeHighlight(false);
+        if (isLocked || isUnlocked)
+            return;
+
+        ToggleNodeHighlight(false);
     }
 
     private void ToggleNodeHighlight(bool highlight)
@@ -133,6 +140,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         Color colorApply = highlight ? highlightedColor : lastColor;
 
         UpdateIconColor(colorApply);
+    }
+
+    private void OnEnable()
+    {
+        if (!isLocked && isUnlocked)
+            UpdateIconColor(Color.white);
+
+        if (isLocked && !isUnlocked)
+            UpdateIconColor(lockColor);
     }
 
     private void OnValidate()

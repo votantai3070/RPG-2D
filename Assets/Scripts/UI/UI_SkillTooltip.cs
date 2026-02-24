@@ -32,7 +32,7 @@ public class UI_SkillTooltip : UI_Tooltip
         skillTree = ui.skillTree;
     }
 
-    public override void ShowTooltip(bool show, RectTransform target)
+    public override void ShowTooltip(bool show, RectTransform target = null)
     {
         base.ShowTooltip(show, target);
     }
@@ -76,24 +76,32 @@ public class UI_SkillTooltip : UI_Tooltip
         sb.AppendLine("Requirements:");
 
         string costColor = skillTree.EnoughSkillPoint(skillCost) ? metConditionHex : notMetConditionHex;
+        string costText = $"- {skillCost} skill point(s) </color>";
+        string finalCostText = GetColoredText(costColor, costText);
 
-        sb.AppendLine($"<color={costColor}>- {skillCost} skill point(s) </color>");
+        sb.AppendLine(finalCostText);
 
         foreach (var node in neededNodes)
         {
             string nodeColor = node.isUnlocked ? metConditionHex : notMetConditionHex;
-            sb.AppendLine($"<color={nodeColor}>- {node.skillData.displayName} </color>");
+            string nodeText = $"- {node.skillData.displayName} </color>";
+            string finalNodeText = GetColoredText(nodeColor, nodeText);
+
+            sb.AppendLine(finalNodeText);
         }
 
         if (conflictNodes.Length <= 0)
             return sb.ToString();
 
         sb.AppendLine();
-        sb.AppendLine($"<color={importantConditionHex}>- Lock out:");
+        sb.AppendLine($"<color={importantConditionHex}>- Lock out: ");
 
         foreach (var node in conflictNodes)
         {
-            sb.AppendLine($"<color={importantConditionHex}>- {node.skillData.displayName} </color>");
+            string nodeText = $"- {node.skillData.displayName} </color>";
+            string finalNodeText = GetColoredText(importantConditionHex, nodeText);
+
+            sb.AppendLine(finalNodeText);
         }
 
         return sb.ToString();

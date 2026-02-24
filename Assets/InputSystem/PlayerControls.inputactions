@@ -43,9 +43,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CounterAttack",
+                    "name": "Counter Attack",
                     "type": "Button",
                     "id": "03640f83-8f76-4827-a970-fcd0ab8f1db2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle Skill Tree UI",
+                    "type": "Button",
+                    "id": "367c17b2-bf5f-4df7-8518-318d28429098",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -148,7 +157,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CounterAttack",
+                    "action": "Counter Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6d7dd92-bed0-4bfb-afa2-3bb4e70d8a3c",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle Skill Tree UI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

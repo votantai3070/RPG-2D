@@ -5,7 +5,10 @@ using UnityEngine;
 public class Player : Entity
 {
     public static Action OnPlayerDead;
+    public Player_SkillManager skillManager { get; private set; }
+    public Player_VFX playerVFX { get; private set; }
 
+    #region State
     public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
@@ -17,7 +20,7 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_DeadState deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
-
+    #endregion
 
     [Header("Player Movement Info")]
     public Vector2 jumpForceDir;
@@ -43,6 +46,9 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
+
+        skillManager = GetComponent<Player_SkillManager>();
+        playerVFX = GetComponent<Player_VFX>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");

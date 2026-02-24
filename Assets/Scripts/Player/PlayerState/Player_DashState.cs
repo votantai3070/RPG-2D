@@ -11,20 +11,21 @@ public class Player_DashState : PlayerState
     {
         base.Enter();
 
-        stateTimer = player.durationDash;
+        skills.skillDash.OnStartEffect();
+        vfx.DoImageEchoEffect(player.durationDash);
 
-        this.dashDir = player.faceDir;
+        stateTimer = player.durationDash;
         orginalGravity = rb.gravityScale;
         rb.gravityScale = 0;
 
         dashDir = controls.moveInput.x != 0 ? (int)controls.moveInput.x : player.faceDir;
-
-        player.SetVelocity(player.dashSpeed * dashDir, 0);
     }
 
     public override void Update()
     {
         base.Update();
+
+        player.SetVelocity(player.dashSpeed * dashDir, 0);
 
         CancelDashIfNeeded();
 
@@ -43,6 +44,8 @@ public class Player_DashState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
+        skills.skillDash.OnEndEffect();
 
         player.SetVelocity(0, 0);
         rb.gravityScale = orginalGravity;

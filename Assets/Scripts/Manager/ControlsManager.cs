@@ -5,7 +5,7 @@ public class ControlsManager : MonoBehaviour
     public static ControlsManager instance { get; private set; }
 
     public PlayerControls inputActions;
-    //private Player player;
+    private UI ui;
 
     public Vector2 moveInput { get; private set; }
 
@@ -14,7 +14,7 @@ public class ControlsManager : MonoBehaviour
         instance = this;
 
         inputActions = new PlayerControls();
-        //player = FindAnyObjectByType<Player>();
+        ui = FindAnyObjectByType<UI>();
     }
 
     private void Start()
@@ -27,6 +27,7 @@ public class ControlsManager : MonoBehaviour
         // Movement
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+        inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
@@ -36,7 +37,6 @@ public class ControlsManager : MonoBehaviour
     public bool PressedJump() => inputActions.Player.Jump.WasPressedThisFrame();
 
     public bool PressedCounterAttack() => inputActions.Player.CounterAttack.WasPressedThisFrame();
-
 
     private void OnEnable()
     {
