@@ -20,10 +20,18 @@ public class Skill_Base : MonoBehaviour
         cooldown = upgrade.cooldown;
     }
 
+    protected virtual void TryUseSkill()
+    {
+        if (upgradeType == SkillUpgradeType.None) return;
+    }
+
     protected bool Unlocked(SkillUpgradeType upgradeToCheck) => upgradeType == upgradeToCheck;
 
     public bool CanBeUsedSkill()
     {
+        if (upgradeType == SkillUpgradeType.None)
+            return false;
+
         if (OnCoolDown())
         {
             Debug.Log("On Cooldown");

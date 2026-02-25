@@ -5,6 +5,7 @@ public class ControlsManager : MonoBehaviour
     public static ControlsManager instance { get; private set; }
 
     public PlayerControls inputActions;
+    public Player player;
     private UI ui;
 
     public Vector2 moveInput { get; private set; }
@@ -12,7 +13,7 @@ public class ControlsManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        player = FindAnyObjectByType<Player>();
         inputActions = new PlayerControls();
         ui = FindAnyObjectByType<UI>();
     }
@@ -28,6 +29,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
         inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.CreateShard();
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

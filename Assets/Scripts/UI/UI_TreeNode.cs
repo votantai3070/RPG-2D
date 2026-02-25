@@ -33,6 +33,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     private void Start()
     {
+        if (skillData.unlockedByDefault)
+            Unlock();
+
         skillIcon.color = lockColor;
     }
 
@@ -72,7 +75,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         foreach (var node in conflictNodes)
         {
             node.isLocked = true;
+            node.LockChildNode();
         }
+    }
+
+    private void LockChildNode()
+    {
+        isLocked = true;
+
+        foreach (var node in connectHandler.GetChildNode())
+            node.LockChildNode();
     }
 
     private bool CanBeUnlock()
