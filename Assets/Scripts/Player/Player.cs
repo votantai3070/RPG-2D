@@ -75,6 +75,8 @@ public class Player : Entity
         base.Update();
     }
 
+    public void TeleportPlayer(Vector3 position) => transform.position = position;
+
     protected override IEnumerator HandleChillCo(float duration, float elementalMultiplier)
     {
         stateHandler.SetElement(ElementType.Ice);

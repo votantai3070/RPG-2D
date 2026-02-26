@@ -4,9 +4,10 @@ using UnityEngine;
 public class Skill_Shard : Skill_Base
 {
     private SkillObject_Shard currentShard;
+    private Player_Health playerHealth;
 
     [SerializeField] private GameObject shardPrefab;
-    [SerializeField] private float destinationTime = 2;
+    [SerializeField] private float detonateTime = 2;
 
     [Header("Moving Shard upgrade")]
     [SerializeField] private float speed = 2;
@@ -15,6 +16,19 @@ public class Skill_Shard : Skill_Base
     [SerializeField] private int maxCharges = 3;
     [SerializeField] private int currentCharges = 0;
     [SerializeField] private bool isRecharging;
+
+    [Header("Teleport Shard upgrade")]
+    [SerializeField] private float shardExistDuration = 10;
+
+    [Header("Health Rewind Shard upgrade")]
+    [SerializeField] private float savedHealthPercent;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        playerHealth = GetComponentInParent<Player_Health>();
+    }
 
     public override void TryUseSkill()
     {
@@ -29,6 +43,51 @@ public class Skill_Shard : Skill_Base
 
         if (Unlocked(SkillUpgradeType.Shard_TripleCast))
             SkillShardMulticast();
+
+        if (Unlocked(SkillUpgradeType.Shard_Teleport))
+            SkillShardTeleport();
+
+        if (Unlocked(SkillUpgradeType.Shard_TeleportAndHeal))
+            SkillShardHealRewind();
+    }
+
+    private void SkillShardHealRewind()
+    {
+        if (currentShard == null)
+        {
+            CreateShard();
+            savedHealthPercent = playerHealth.GetHealthPercent();
+        }
+        else
+        {
+            SwapPlayerAndShard();
+            playerHealth.SetHealthPercent(savedHealthPercent);
+            SetSkillCooldown();
+        }
+    }
+
+    private void SkillShardTeleport()
+    {
+        if (currentShard == null)
+        {
+            CreateShard();
+        }
+        else
+        {
+            SwapPlayerAndShard();
+            SetSkillCooldown();
+        }
+    }
+
+    private void SwapPlayerAndShard()
+    {
+        Vector3 shardPos = currentShard.transform.position;
+        Vector3 playerPos = player.transform.position;
+
+        currentShard.transform.position = playerPos;
+        currentShard.ShardExplosion();
+
+        player.TeleportPlayer(shardPos);
     }
 
     private void SkillShardMulticast()
@@ -75,8 +134,30 @@ public class Skill_Shard : Skill_Base
         if (upgradeType == SkillUpgradeType.None)
             return;
 
+        float detonationTime = GetDetonationTime();
+
         GameObject shardClone = Instantiate(shardPrefab, transform.position, Quaternion.identity);
         currentShard = shardClone.GetComponent<SkillObject_Shard>();
-        currentShard.SetupShard(destinationTime);
+        currentShard.SetupShard(detonationTime);
+
+        if (Unlocked(SkillUpgradeType.Shard_Teleport) || Unlocked(SkillUpgradeType.Shard_TeleportAndHeal))
+            currentShard.OnExplode += ForceCooldown;
+    }
+
+    public float GetDetonationTime()
+    {
+        if (Unlocked(SkillUpgradeType.Shard_Teleport) || Unlocked(SkillUpgradeType.Shard_TeleportAndHeal))
+            return shardExistDuration;
+
+        return detonateTime;
+    }
+
+    private void ForceCooldown()
+    {
+        if (!OnCoolDown())
+        {
+            SetSkillCooldown();
+            currentShard.OnExplode -= ForceCooldown;
+        }
     }
 }

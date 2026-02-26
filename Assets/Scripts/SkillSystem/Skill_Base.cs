@@ -3,14 +3,18 @@ using static Skill_DataSO;
 
 public class Skill_Base : MonoBehaviour
 {
+    public Player player { get; private set; }
+
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        player = GetComponentInParent<Player>();
+
         lastTimeUsed -= cooldown;
     }
 
@@ -41,7 +45,7 @@ public class Skill_Base : MonoBehaviour
         return true;
     }
 
-    private bool OnCoolDown() => Time.time < lastTimeUsed + cooldown;
+    protected bool OnCoolDown() => Time.time < lastTimeUsed + cooldown;
     public void SetSkillCooldown() => lastTimeUsed = Time.time;
     public void ResetCooldownBy(float cooldownReduction) => lastTimeUsed += cooldownReduction;
     public void ResetCooldown() => lastTimeUsed = Time.time;
