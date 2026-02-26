@@ -29,7 +29,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
         inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
-        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.CreateShard();
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

@@ -6,7 +6,7 @@ public class Skill_Base : MonoBehaviour
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
-    [SerializeField] private float cooldown;
+    [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
     private void Awake()
@@ -20,9 +20,9 @@ public class Skill_Base : MonoBehaviour
         cooldown = upgrade.cooldown;
     }
 
-    protected virtual void TryUseSkill()
+    public virtual void TryUseSkill()
     {
-        if (upgradeType == SkillUpgradeType.None) return;
+
     }
 
     protected bool Unlocked(SkillUpgradeType upgradeToCheck) => upgradeType == upgradeToCheck;

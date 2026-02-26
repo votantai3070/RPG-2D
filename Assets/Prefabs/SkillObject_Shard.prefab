@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6183536413019826955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5126214, y: -0.75472957, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -49,7 +49,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   targetCheck: {fileID: 6213960424320119867}
-  checkRadius: 1.1
+  checkDamageRadius: 1.5
+  checkEnemyRadius: 8
   vfxPrefab: {fileID: 3071873228611225509, guid: 61b28b6f28004c0479cf4f145d8ed236, type: 3}
 --- !u!1 &7837462165560990192
 GameObject:
