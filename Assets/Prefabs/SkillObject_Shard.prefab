@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6213960424320119867}
   - component: {fileID: 5737953227404557283}
+  - component: {fileID: 1806108322947410285}
   m_Layer: 0
   m_Name: SkillObject_Shard
   m_TagString: Untagged
@@ -49,9 +50,47 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   targetCheck: {fileID: 6213960424320119867}
-  checkDamageRadius: 1.5
+  checkDamageRadius: 2
   checkEnemyRadius: 8
+  defaultDuration: 0.5
+  shardManager: {fileID: 0}
   vfxPrefab: {fileID: 3071873228611225509, guid: 61b28b6f28004c0479cf4f145d8ed236, type: 3}
+--- !u!58 &1806108322947410285
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183536413019826955}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.5
 --- !u!1 &7837462165560990192
 GameObject:
   m_ObjectHideFlags: 0

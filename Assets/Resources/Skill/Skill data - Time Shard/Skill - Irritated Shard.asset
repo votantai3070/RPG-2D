@@ -10,15 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78cf78b8766dc424b8a412ad72a91752, type: 3}
-  m_Name: Skill - Vital Anchor
+  m_Name: Skill - Irritated Shard
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  cost: 3
+  cost: 2
   unlockedByDefault: 0
   skillType: 1
   upgradeData:
-    upgradeType: 10
+    upgradeType: 7
     cooldown: 4
-  displayName: Vital Anchor
-  description: When you swap places with the Time Shard, your health reverts to the
-    amount you had when the Time Shard was create.
-  icon: {fileID: -2116484204, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
+    damageScale:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 0.2
+      shockDamageScale: 1.2
+      shockCharge: 0.4
+  displayName: Irritated Shard
+  description: A shard move toward to closest enemy and explosion.
+  icon: {fileID: 29176868, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}

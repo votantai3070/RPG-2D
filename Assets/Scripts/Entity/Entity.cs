@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     public Entity_VFX vfx { get; private set; }
     public Entity_ElementalStateHandler stateHandler { get; private set; }
     public Entity_Health entityHealth { get; private set; }
-    public Entity_Stats entityStat { get; private set; }
+    public Entity_Stats entityStats { get; private set; }
 
     public static Action OnFlipped;
     public StateMachine stateMachine { get; private set; }
@@ -51,7 +51,7 @@ public class Entity : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         controls = ControlsManager.instance;
         stateHandler = GetComponent<Entity_ElementalStateHandler>();
-        entityStat = GetComponent<Entity_Stats>();
+        entityStats = GetComponent<Entity_Stats>();
     }
 
     protected virtual void Start()
@@ -73,7 +73,7 @@ public class Entity : MonoBehaviour
     #region Elemental Effects
     public void ElementalVfx(float duration, ElementType element)
     {
-        vfx.ElementVfx(duration, element); // Apply elemental VFX based on the element type and duration
+        vfx.GetElementVfx(duration, element); // Apply elemental VFX based on the element type and duration
     }
 
     public virtual void EnterChillEffect(float duration, float elementalMultiplier)

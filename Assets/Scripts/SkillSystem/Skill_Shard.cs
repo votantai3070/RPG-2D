@@ -7,7 +7,7 @@ public class Skill_Shard : Skill_Base
     private Player_Health playerHealth;
 
     [SerializeField] private GameObject shardPrefab;
-    [SerializeField] private float detonateTime = 2;
+    [SerializeField] private float detonateTime = 1;
 
     [Header("Moving Shard upgrade")]
     [SerializeField] private float speed = 2;
@@ -134,14 +134,20 @@ public class Skill_Shard : Skill_Base
         if (upgradeType == SkillUpgradeType.None)
             return;
 
-        float detonationTime = GetDetonationTime();
-
         GameObject shardClone = Instantiate(shardPrefab, transform.position, Quaternion.identity);
         currentShard = shardClone.GetComponent<SkillObject_Shard>();
-        currentShard.SetupShard(detonationTime);
+        currentShard.SetupShard(this);
 
         if (Unlocked(SkillUpgradeType.Shard_Teleport) || Unlocked(SkillUpgradeType.Shard_TeleportAndHeal))
             currentShard.OnExplode += ForceCooldown;
+    }
+
+    public void CreateRawShard()
+    {
+        bool canMove = Unlocked(SkillUpgradeType.Shard_MoveToEnemy) || Unlocked(SkillUpgradeType.Shard_TripleCast);
+
+        GameObject shardClone = Instantiate(shardPrefab, transform.position, Quaternion.identity);
+        shardClone.GetComponent<SkillObject_Shard>().SetupShard(this, detonateTime, canMove, speed);
     }
 
     public float GetDetonationTime()

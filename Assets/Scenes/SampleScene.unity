@@ -787,20 +787,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff70c5499a4ef347bb2765d52fd39a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicAttackScale:
+    physical: 1
+    elemental: 0.4
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 0.2
+    shockDamageScale: 1
+    shockCharge: 0.4
   attackRadius: 0.78
   attackPoint: {fileID: 639016698}
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 768
   physicalDamageScaleFactor: 1
-  elementalDamageScaleFactor: 0.6
   defaultDuration: 2
-  chillVfxDuration: 2
-  chillMultiplier: 0.4
-  burnVfxDuration: 1.5
-  shockDuration: 0.2
-  shockCharge: 0.4
-  shockScaleFactor: 1.5
 --- !u!114 &77885081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,10 +839,10 @@ MonoBehaviour:
       modifiers: []
   offense:
     attackSpeed:
-      baseValue: 1
+      baseValue: 1.2
       modifiers: []
     damage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     critDamage:
       baseValue: 0
@@ -857,7 +860,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 50
       modifiers: []
   defense:
     armor:
@@ -888,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_ElementalStateHandler
   currentElement: 0
+  defaultDuration: 0
 --- !u!114 &77885084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21430,10 +21434,6 @@ PrefabInstance:
     - target: {fileID: 4659001542954708271, guid: 7fc322d99226b0a459bae0e11630907b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5783547100769612965, guid: 7fc322d99226b0a459bae0e11630907b, type: 3}
-      propertyPath: offense.damage.baseValue
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6364185845386276666, guid: 7fc322d99226b0a459bae0e11630907b, type: 3}
       propertyPath: m_AnchorMax.x

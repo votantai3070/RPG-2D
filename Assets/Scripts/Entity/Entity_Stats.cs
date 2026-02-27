@@ -4,10 +4,16 @@ public class Entity_Stats : MonoBehaviour
 {
     public Stat_SO defaultStatSetup;
 
+    [Header("Stats")]
     public Stat_ResourceGroup resource;
     public Stat_MajorGroup major;
     public State_OffenseGroup offense;
     public State_DefenseGroup defense;
+
+    public AttackData GetAttackData(DamageScaleData scaleData)
+    {
+        return new AttackData(this, scaleData);
+    }
 
     public float GetElementalDamage(out ElementType element, float scaleFactor)
     {

@@ -59,7 +59,7 @@ public class Entity_VFX : MonoBehaviour
         RotateVFX(isCrit);
     }
 
-    public void ElementVfx(float duration, ElementType element)
+    public void GetElementVfx(float duration, ElementType element)
     {
         if (element == ElementType.None)
             return;
@@ -67,8 +67,14 @@ public class Entity_VFX : MonoBehaviour
         if (elementalVfxCo != null)
             StopCoroutine(elementalVfxCo);
 
-        Color elementColor = Color.white;
+        Color elementColor = GetElementColorVfx(element);
 
+        elementalVfxCo = StartCoroutine(ElementVfxCo(duration, elementColor));
+    }
+
+    public Color GetElementColorVfx(ElementType element)
+    {
+        Color elementColor = Color.white;
 
         switch (element)
         {
@@ -83,7 +89,7 @@ public class Entity_VFX : MonoBehaviour
                 break;
         }
 
-        elementalVfxCo = StartCoroutine(ElementVfxCo(duration, elementColor));
+        return elementColor;
     }
 
     private IEnumerator ElementVfxCo(float duration, Color effectColor)

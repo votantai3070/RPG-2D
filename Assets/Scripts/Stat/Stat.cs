@@ -35,7 +35,7 @@ public class Stat
         isDirty = true;
     }
 
-    public float GetFinalValue()
+    private float GetFinalValue()
     {
         float finalValue = baseValue;
         foreach (StatModifier modifier in modifiers)

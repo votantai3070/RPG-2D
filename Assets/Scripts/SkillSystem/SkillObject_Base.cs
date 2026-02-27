@@ -7,16 +7,42 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected float checkDamageRadius = 1;
     [SerializeField] protected float checkEnemyRadius = 3;
 
+    [SerializeField] private float defaultDuration = 2f;
+
+    protected Entity_Stats playerStats;
+    protected DamageScaleData damageScale;
+    protected ElementType currentElement;
+
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
-        foreach (var targert in EnemyAround(t, radius))
+        foreach (var target in EnemyAround(t, radius))
         {
-            IDamageable damageable = targert.GetComponent<IDamageable>();
+            Debug.Log("Target: " + target.gameObject.name);
 
-            if (damageable == null)
+            if (!target.CompareTag("Enemy"))
                 continue;
 
-            damageable.TakeDamaged(1, 1, ElementType.None, transform);
+            IDamageable damageable = target.GetComponent<IDamageable>();
+
+            if (damageable == null) continue;
+
+            AttackData attackData = playerStats.GetAttackData(damageScale);
+            ElementType element = attackData.element;
+
+            int physicalDamage = (int)attackData.physicalDamage;
+            int elementalDamage = (int)attackData.elementalDamage;
+
+            bool targetGoHit = damageable.TakeDamaged(physicalDamage, elementalDamage, element, transform);
+
+            if (element != ElementType.None)
+                target.GetComponent<Entity_ElementalStateHandler>().ApplyStatusEffect(element, attackData.effectData);
+
+            if (targetGoHit)
+            {
+                target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
+            }
+
+            currentElement = element;
         }
     }
 
@@ -38,7 +64,6 @@ public class SkillObject_Base : MonoBehaviour
                 target = enemy.transform;
                 closestDistance = distance;
             }
-
         }
 
         return target;

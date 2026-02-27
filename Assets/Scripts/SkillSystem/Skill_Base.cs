@@ -4,6 +4,8 @@ using static Skill_DataSO;
 public class Skill_Base : MonoBehaviour
 {
     public Player player { get; private set; }
+    public Player_SkillManager skillManager { get; private set; }
+    public DamageScaleData damageScaleData { get; private set; }
 
     [Header("General details")]
     [SerializeField] protected SkillType skillType;
@@ -11,9 +13,11 @@ public class Skill_Base : MonoBehaviour
     [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
+
     protected virtual void Awake()
     {
         player = GetComponentInParent<Player>();
+        skillManager = GetComponentInParent<Player_SkillManager>();
 
         lastTimeUsed -= cooldown;
     }
@@ -22,6 +26,7 @@ public class Skill_Base : MonoBehaviour
     {
         upgradeType = upgrade.upgradeType;
         cooldown = upgrade.cooldown;
+        damageScaleData = upgrade.damageScale;
     }
 
     public virtual void TryUseSkill()

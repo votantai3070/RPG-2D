@@ -66,9 +66,9 @@ public class Object_Buff : MonoBehaviour
         foreach (var buff in buffs)
         {
             if (enable)
-                player.entityStat.GetStatByType(buff.type).AddModifier(buff.value, buffSourceName);
+                player.entityStats.GetStatByType(buff.type).AddModifier(buff.value, buffSourceName);
             else
-                player.entityStat.GetStatByType(buff.type).RemoveModifier(buffSourceName);
+                player.entityStats.GetStatByType(buff.type).RemoveModifier(buffSourceName);
         }
     }
 

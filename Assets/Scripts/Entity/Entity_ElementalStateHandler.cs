@@ -13,9 +13,7 @@ public class Entity_ElementalStateHandler : MonoBehaviour
     private float currentCharge;
     private float maxCharge = 1f;
     private Coroutine elementalEffectCo;
-
-
-
+    [SerializeField] private float defaultDuration;
     private void Awake()
     {
         entity = GetComponent<Entity>();
@@ -29,6 +27,18 @@ public class Entity_ElementalStateHandler : MonoBehaviour
         currentElement = ElementType.None;
     }
 
+    public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
+    {
+        if (element == ElementType.Ice && CanBeApplyEffect(ElementType.Ice))
+            ApplyChilledEffect(effectData.chillDuration, effectData.chillSlowMultiplier);
+
+        if (element == ElementType.Fire && CanBeApplyEffect(ElementType.Fire))
+            ApplyBurnedEffect(effectData.burnDuration, effectData.burnDamage);
+
+        if (element == ElementType.Lightning && CanBeApplyEffect(ElementType.Lightning))
+            ApplyShockEffect(effectData.shockDuration, effectData.shockDamage, effectData.shockCharge);
+    }
+
     public void SetElement(ElementType element)
     {
         currentElement = element;
@@ -39,14 +49,14 @@ public class Entity_ElementalStateHandler : MonoBehaviour
         entity.EnterChillEffect(duration, chillMultiplier);
     }
 
-    public void ApplyShockEffect(float duration, float damage, float charge, float shockScaleFactor)
+    public void ApplyShockEffect(float duration, float damage, float charge)
     {
         if (elementalEffectCo != null)
             StopCoroutine(elementalEffectCo);
-        elementalEffectCo = StartCoroutine(HandleShockCo(duration, damage, charge, shockScaleFactor));
+        elementalEffectCo = StartCoroutine(HandleShockCo(duration, damage, charge));
     }
 
-    public IEnumerator HandleShockCo(float duration, float damage, float charge, float shockScaleFactor)
+    public IEnumerator HandleShockCo(float duration, float damage, float charge)
     {
         float lightninghRes = entityStat.defense.lightninghResistance.GetValue();
 
@@ -55,22 +65,23 @@ public class Entity_ElementalStateHandler : MonoBehaviour
         SetElement(ElementType.Lightning);
         currentCharge += charge;
 
+
         if (currentCharge >= maxCharge)
         {
-            currentCharge = 0f;
             entityVFX.ThunderStrikeVfx(transform);
-            entityHealth.ReduceHp(Mathf.RoundToInt(finalDamage * shockScaleFactor));
+            entityHealth.ReduceHp(Mathf.RoundToInt(finalDamage));
+            currentCharge = 0f;
         }
         yield return new WaitForSeconds(duration);
 
         SetElement(ElementType.None);
     }
 
-    public void ApplyBurnedEffect(float duration, float fireDamage, float scaleFactor = 1)
+    public void ApplyBurnedEffect(float duration, float fireDamage)
     {
         if (elementalEffectCo != null)
             StopCoroutine(elementalEffectCo);
-        elementalEffectCo = StartCoroutine(HandleBurnCo(duration, fireDamage * scaleFactor));
+        elementalEffectCo = StartCoroutine(HandleBurnCo(duration, fireDamage));
     }
 
     public IEnumerator HandleBurnCo(float duration, float damage)
@@ -96,7 +107,7 @@ public class Entity_ElementalStateHandler : MonoBehaviour
         SetElement(ElementType.None);
     }
 
-    public bool ApplyElementalVfx(ElementType element)
+    public bool CanBeApplyEffect(ElementType element)
     {
         if (currentElement == element)
             return false;

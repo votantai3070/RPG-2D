@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 3360114521153427645}
   m_Layer: 8
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -813,20 +813,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1401eb749fb324683171af2643eeab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicAttackScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultiplier: 0.2
+    burnDuration: 3
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   attackRadius: 0.67
   attackPoint: {fileID: 6753114855698399281}
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
   physicalDamageScaleFactor: 1
-  elementalDamageScaleFactor: 0.6
   defaultDuration: 2
-  chillVfxDuration: 2
-  chillMultiplier: 0.5
-  burnVfxDuration: 1.5
-  shockDuration: 0.2
-  shockCharge: 0.4
-  shockScaleFactor: 1.5
 --- !u!114 &1696689599281564532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,7 +882,7 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 0}
   resource:
     maxHealth:
-      baseValue: 100000
+      baseValue: 200
       modifiers: []
     healthRegen:
       baseValue: 0
@@ -902,7 +905,7 @@ MonoBehaviour:
       baseValue: 1
       modifiers: []
     damage:
-      baseValue: 0
+      baseValue: 5
       modifiers: []
     critDamage:
       baseValue: 0
@@ -951,6 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_ElementalStateHandler
   currentElement: 0
+  defaultDuration: 0
 --- !u!1 &9203562861907207463
 GameObject:
   m_ObjectHideFlags: 0

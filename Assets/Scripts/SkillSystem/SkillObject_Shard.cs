@@ -4,6 +4,7 @@ using UnityEngine;
 public class SkillObject_Shard : SkillObject_Base
 {
     public event Action OnExplode;
+    public Skill_Shard shardManager;
 
     [SerializeField] private GameObject vfxPrefab;
     private Transform target;
@@ -24,15 +25,38 @@ public class SkillObject_Shard : SkillObject_Base
     }
 
 
-    public void SetupShard(float detinationTime)
+    public void SetupShard(Skill_Shard shardManager)
     {
+        this.shardManager = shardManager;
+        playerStats = shardManager.player.entityStats;
+        damageScale = shardManager.damageScaleData;
+
+        float detinationTime = shardManager.GetDetonationTime();
+
+        Invoke(nameof(ShardExplosion), detinationTime);
+    }
+
+    public void SetupShard(Skill_Shard shardManager, float detinationTime, bool canMove, float shardSpeed)
+    {
+        this.shardManager = shardManager;
+        playerStats = shardManager.player.entityStats;
+        damageScale = shardManager.damageScaleData;
+
+        if (canMove)
+            MoveTowardsClosestTarget(shardSpeed);
+
         Invoke(nameof(ShardExplosion), detinationTime);
     }
 
     public void ShardExplosion()
     {
         DamageEnemiesInRadius(transform, checkDamageRadius);
-        Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+        SpriteRenderer sr = vfx.GetComponentInChildren<SpriteRenderer>();
+
+        Debug.Log("Current elemental: " + currentElement);
+
+        sr.color = shardManager.player.vfx.GetElementColorVfx(currentElement);
 
         OnExplode?.Invoke();
         Destroy(gameObject);
@@ -40,7 +64,7 @@ public class SkillObject_Shard : SkillObject_Base
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>() == null)
+        if (!collision.CompareTag("Enemy"))
             return;
 
         ShardExplosion();

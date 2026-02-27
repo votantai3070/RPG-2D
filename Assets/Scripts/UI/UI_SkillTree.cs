@@ -11,6 +11,11 @@ public class UI_SkillTree : MonoBehaviour
         skillManager = FindAnyObjectByType<Player_SkillManager>();
     }
 
+    private void Start()
+    {
+        UpdateAllConnection();
+    }
+
     [ContextMenu("Refund All Skills")]
     public void RefundAllSkills()
     {
