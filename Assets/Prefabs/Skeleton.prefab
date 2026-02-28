@@ -442,7 +442,7 @@ RectTransform:
   m_Father: {fileID: 655096343008348358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.214, y: 1}
   m_AnchoredPosition: {x: -0.000015258789, y: -0.096000195}
   m_SizeDelta: {x: -0.000015259, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -666,14 +666,15 @@ GameObject:
   - component: {fileID: 1696689599281564532}
   - component: {fileID: 2378903822137315881}
   - component: {fileID: 5783547100769612965}
-  - component: {fileID: 3360114521153427645}
+  - component: {fileID: 8513079298469742247}
+  - component: {fileID: 137822653596522388}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4659001542954708271
 Transform:
   m_ObjectHideFlags: 0
@@ -828,7 +829,6 @@ MonoBehaviour:
   whatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
-  physicalDamageScaleFactor: 1
   defaultDuration: 2
 --- !u!114 &1696689599281564532
 MonoBehaviour:
@@ -941,7 +941,7 @@ MonoBehaviour:
     lightninghResistance:
       baseValue: 0
       modifiers: []
---- !u!114 &3360114521153427645
+--- !u!114 &8513079298469742247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -950,9 +950,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8578266101326930509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79510d0194c9b24daf5bf7e1a6f8342, type: 3}
+  m_Script: {fileID: 11500000, guid: b98aafa3657b0d440834063e930450c8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_ElementalStateHandler
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
+  currentElement: 0
+  defaultDuration: 2
+--- !u!114 &137822653596522388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578266101326930509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98aafa3657b0d440834063e930450c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
   currentElement: 0
   defaultDuration: 0
 --- !u!1 &9203562861907207463

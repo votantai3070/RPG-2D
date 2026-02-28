@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\SO\Stat_SO.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeConnection.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Base.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Sword.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeNode.cs" />
@@ -72,16 +73,17 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Data\ElementalEffectData.cs" />
+    <Compile Include="Assets\Scripts\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Enum\ElementType.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Buff.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordSpin.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
-    <Compile Include="Assets\Scripts\Entity\Entity_ElementalStateHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_VFX.cs" />
     <Compile Include="Assets\Scripts\Entity\StateMachine.cs" />
@@ -89,11 +91,13 @@
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\SO\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordPierce.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_CounterState.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerState\Player_ThrowSwordState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Assets\Scripts\UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_SkillManager.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_ThrowSword.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,16 +9,21 @@ public class SkillObject_Base : MonoBehaviour
 
     [SerializeField] private float defaultDuration = 2f;
 
+    protected Animator anim;
+    protected Player player;
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScale;
     protected ElementType currentElement;
+
+    protected virtual void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         foreach (var target in EnemyAround(t, radius))
         {
-            Debug.Log("Target: " + target.gameObject.name);
-
             if (!target.CompareTag("Enemy"))
                 continue;
 
@@ -35,11 +40,12 @@ public class SkillObject_Base : MonoBehaviour
             bool targetGoHit = damageable.TakeDamaged(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
-                target.GetComponent<Entity_ElementalStateHandler>().ApplyStatusEffect(element, attackData.effectData);
+                target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGoHit)
             {
                 target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
+                player.vfx.GetImapctVfx(target.transform, attackData.isCrit);
             }
 
             currentElement = element;

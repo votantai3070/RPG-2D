@@ -18,6 +18,7 @@ public class Skill_Base : MonoBehaviour
     {
         player = GetComponentInParent<Player>();
         skillManager = GetComponentInParent<Player_SkillManager>();
+        damageScaleData = new DamageScaleData();
 
         lastTimeUsed -= cooldown;
     }
@@ -36,7 +37,7 @@ public class Skill_Base : MonoBehaviour
 
     protected bool Unlocked(SkillUpgradeType upgradeToCheck) => upgradeType == upgradeToCheck;
 
-    public bool CanBeUsedSkill()
+    public virtual bool CanBeUsedSkill()
     {
         if (upgradeType == SkillUpgradeType.None)
             return false;

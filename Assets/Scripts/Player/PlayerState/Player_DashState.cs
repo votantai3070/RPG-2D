@@ -11,7 +11,7 @@ public class Player_DashState : PlayerState
     {
         base.Enter();
 
-        skills.skillDash.OnStartEffect();
+        skillManager.skillDash.OnStartEffect();
         vfx.DoImageEchoEffect(player.durationDash);
 
         stateTimer = player.durationDash;
@@ -45,7 +45,7 @@ public class Player_DashState : PlayerState
     {
         base.Exit();
 
-        skills.skillDash.OnEndEffect();
+        skillManager.skillDash.OnEndEffect();
 
         player.SetVelocity(0, 0);
         rb.gravityScale = orginalGravity;

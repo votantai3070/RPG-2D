@@ -30,6 +30,7 @@ public class SkillObject_Shard : SkillObject_Base
         this.shardManager = shardManager;
         playerStats = shardManager.player.entityStats;
         damageScale = shardManager.damageScaleData;
+        player = shardManager.player;
 
         float detinationTime = shardManager.GetDetonationTime();
 

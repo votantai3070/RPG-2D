@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Entity_ElementalStateHandler : MonoBehaviour
+public class Entity_StatusHandler : MonoBehaviour
 {
     private Entity entity;
     private Entity_Stats entityStat;

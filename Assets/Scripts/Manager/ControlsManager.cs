@@ -9,6 +9,7 @@ public class ControlsManager : MonoBehaviour
     private UI ui;
 
     public Vector2 moveInput { get; private set; }
+    public Vector2 mousePosition { get; private set; }
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
         inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
+        inputActions.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
@@ -39,6 +41,9 @@ public class ControlsManager : MonoBehaviour
     public bool PressedJump() => inputActions.Player.Jump.WasPressedThisFrame();
 
     public bool PressedCounterAttack() => inputActions.Player.CounterAttack.WasPressedThisFrame();
+
+    public bool PressedRangeAttack() => inputActions.Player.RangeAttack.WasPressedThisFrame();
+
 
     private void OnEnable()
     {

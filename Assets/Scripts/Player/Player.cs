@@ -7,6 +7,8 @@ public class Player : Entity
     public static Action OnPlayerDead;
     public Player_SkillManager skillManager { get; private set; }
     public Player_VFX playerVFX { get; private set; }
+    public Entity_Health health { get; private set; }
+    public Entity_StatusHandler statusHandler { get; private set; }
 
     #region State
     public Player_IdleState idleState { get; private set; }
@@ -20,6 +22,7 @@ public class Player : Entity
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_DeadState deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
+    public Player_ThrowSwordState throwSwordState { get; private set; }
     #endregion
 
     [Header("Player Movement Info")]
@@ -49,6 +52,8 @@ public class Player : Entity
 
         skillManager = GetComponent<Player_SkillManager>();
         playerVFX = GetComponent<Player_VFX>();
+        health = GetComponent<Entity_Health>();
+        statusHandler = GetComponent<Entity_StatusHandler>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");
@@ -61,6 +66,7 @@ public class Player : Entity
         jumpAttackState = new(this, stateMachine, "JumpAttack");
         deadState = new(this, stateMachine, "Dead");
         counterAttackState = new(this, stateMachine, "CounterAttack");
+        throwSwordState = new(this, stateMachine, "ThrowSword");
     }
 
     protected override void Start()

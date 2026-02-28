@@ -3,7 +3,7 @@ public class PlayerState : EntityState
     protected Player player;
     protected ControlsManager controls;
     protected Entity_Stats stats;
-    protected Player_SkillManager skills;
+    protected Player_SkillManager skillManager;
     protected Player_VFX vfx;
 
     public PlayerState(Player player, StateMachine stateMachine, string animBoolName) : base(stateMachine, animBoolName)
@@ -14,7 +14,7 @@ public class PlayerState : EntityState
         rb = player.rb;
         controls = player.controls;
         stats = player.entityStats;
-        skills = player.skillManager;
+        skillManager = player.skillManager;
         vfx = player.playerVFX;
     }
 
@@ -32,7 +32,7 @@ public class PlayerState : EntityState
 
         if (controls.PressedDash() && CanDash())
         {
-            skills.skillDash.SetSkillCooldown();
+            skillManager.skillDash.SetSkillCooldown();
             stateMachine.ChangeState(player.dashState);
         }
     }
@@ -44,7 +44,7 @@ public class PlayerState : EntityState
 
     private bool CanDash()
     {
-        if (!skills.skillDash.CanBeUsedSkill())
+        if (!skillManager.skillDash.CanBeUsedSkill())
             return false;
 
         if (stateMachine.currentState == player.dashState)

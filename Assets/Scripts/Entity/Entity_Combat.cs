@@ -28,7 +28,7 @@ public class Entity_Combat : MonoBehaviour
                 continue;
 
             AttackData attackData = entityStats.GetAttackData(basicAttackScale);
-            Entity_ElementalStateHandler handler = hit.GetComponent<Entity_ElementalStateHandler>();
+            Entity_StatusHandler handler = hit.GetComponent<Entity_StatusHandler>();
             ElementType element = attackData.element;
 
             float elementDamage = attackData.elementalDamage;

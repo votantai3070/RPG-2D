@@ -7,4 +7,6 @@ public class Player_AnimationEvent : Entity_AnimationEvent
         base.Awake();
         player = GetComponentInParent<Player>();
     }
+
+    private void ThrowSword() => player.skillManager.skillThrowSword.ThrowSword();
 }

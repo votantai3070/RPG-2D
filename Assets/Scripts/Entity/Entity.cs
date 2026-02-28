@@ -5,7 +5,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public Entity_VFX vfx { get; private set; }
-    public Entity_ElementalStateHandler stateHandler { get; private set; }
+    public Entity_StatusHandler stateHandler { get; private set; }
     public Entity_Health entityHealth { get; private set; }
     public Entity_Stats entityStats { get; private set; }
 
@@ -50,7 +50,7 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         controls = ControlsManager.instance;
-        stateHandler = GetComponent<Entity_ElementalStateHandler>();
+        stateHandler = GetComponent<Entity_StatusHandler>();
         entityStats = GetComponent<Entity_Stats>();
     }
 
@@ -113,7 +113,7 @@ public class Entity : MonoBehaviour
         HandleFlip(x);
     }
 
-    protected void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && !isFacingRight)
             Flip();
