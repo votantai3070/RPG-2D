@@ -22,7 +22,7 @@ public class SkillObject_Base : MonoBehaviour
 
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
-        foreach (var target in EnemyAround(t, radius))
+        foreach (var target in GetEnemyAround(t, radius))
         {
             if (!target.CompareTag("Enemy"))
                 continue;
@@ -57,7 +57,7 @@ public class SkillObject_Base : MonoBehaviour
         Transform target = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (var enemy in EnemyAround(transform, checkEnemyRadius))
+        foreach (var enemy in GetEnemyAround(transform, checkEnemyRadius))
         {
 
             if (enemy.GetComponent<Enemy>() == null)
@@ -75,7 +75,7 @@ public class SkillObject_Base : MonoBehaviour
         return target;
     }
 
-    protected Collider2D[] EnemyAround(Transform t, float radius)
+    protected Collider2D[] GetEnemyAround(Transform t, float radius)
     {
         return Physics2D.OverlapCircleAll(t.position, radius);
     }

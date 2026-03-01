@@ -18,13 +18,11 @@ public class Player_ThrowSwordState : PlayerState
 
         if (mainCamera != Camera.main)
             mainCamera = Camera.main;
-
     }
 
     public override void Update()
     {
         base.Update();
-
         Vector2 dirToMouse = DirectionToMouse();
 
         player.SetVelocity(0, rb.linearVelocityY);
@@ -60,6 +58,4 @@ public class Player_ThrowSwordState : PlayerState
 
         return direction.normalized;
     }
-
-
 }
