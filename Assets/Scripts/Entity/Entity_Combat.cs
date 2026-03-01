@@ -40,7 +40,8 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGoHit)
             {
-                hit.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
+                if (hit.GetComponent<Entity>() != null)
+                    hit.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 vfx.GetImapctVfx(hit.transform, attackData.isCrit);
             }
         }

@@ -5,12 +5,14 @@ public class Player_SkillManager : MonoBehaviour
     public Skill_Dash skillDash { get; private set; }
     public Skill_Shard skillShard { get; private set; }
     public Skill_ThrowSword skillThrowSword { get; private set; }
+    public Skill_TimeEcho skillTimeEcho { get; private set; }
 
     private void Awake()
     {
         skillDash = GetComponentInChildren<Skill_Dash>();
         skillShard = GetComponentInChildren<Skill_Shard>();
         skillThrowSword = GetComponentInChildren<Skill_ThrowSword>();
+        skillTimeEcho = GetComponentInChildren<Skill_TimeEcho>();
     }
 
     public Skill_Base GetSkillByType(SkillType skillType)
@@ -22,6 +24,12 @@ public class Player_SkillManager : MonoBehaviour
 
             case SkillType.TimeShard:
                 return skillShard;
+
+            case SkillType.SwordThrow:
+                return skillThrowSword;
+
+            case SkillType.TimeEcho:
+                return skillTimeEcho;
 
             default:
                 Debug.Log($"Skill type {skillType} is not implement yet");

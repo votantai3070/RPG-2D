@@ -1,16 +1,34 @@
 using UnityEngine;
 
-public class SkillObject_TimeEcho : MonoBehaviour
+public class SkillObject_TimeEcho : SkillObject_Base
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject onDeadVfx;
+    [SerializeField] private LayerMask whatIsGround;
+    private Skill_TimeEcho timeEchoManager;
+
+    private void Update()
     {
-        
+        anim.SetFloat("yVelocity", rb.linearVelocityY);
+        StopHorizontalMovement();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleDie()
     {
-        
+        Instantiate(onDeadVfx, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+    public virtual void SetupTimeEcho(Skill_TimeEcho timeEchoManager)
+    {
+        this.timeEchoManager = timeEchoManager;
+        Invoke(nameof(HandleDie), timeEchoManager.GetTimeEchoDuration());
+    }
+
+    private void StopHorizontalMovement()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, whatIsGround);
+
+        if (hit.collider != null)
+            rb.linearVelocity = new(0, rb.linearVelocityY);
     }
 }

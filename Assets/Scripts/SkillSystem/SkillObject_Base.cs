@@ -9,6 +9,7 @@ public class SkillObject_Base : MonoBehaviour
 
     [SerializeField] private float defaultDuration = 2f;
 
+    protected Rigidbody2D rb;
     protected Animator anim;
     protected Player player;
     protected Entity_Stats playerStats;
@@ -18,6 +19,7 @@ public class SkillObject_Base : MonoBehaviour
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected void DamageEnemiesInRadius(Transform t, float radius)

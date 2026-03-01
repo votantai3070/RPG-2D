@@ -29,9 +29,13 @@ public class ControlsManager : MonoBehaviour
         // Movement
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
+
         inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
-        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
         inputActions.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
+
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillTimeEcho.TryUseSkill();
+
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();
