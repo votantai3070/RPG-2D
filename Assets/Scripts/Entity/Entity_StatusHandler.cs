@@ -27,6 +27,13 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = ElementType.None;
     }
 
+    public void RemoveAllNegativeEffects()
+    {
+        StopAllCoroutines();
+        currentElement = ElementType.None;
+        entityVFX.StopAllCoroutines();
+    }
+
     public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
     {
         if (element == ElementType.Ice && CanBeApplyEffect(ElementType.Ice))
@@ -44,12 +51,12 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = element;
     }
 
-    public void ApplyChilledEffect(float duration, float chillMultiplier)
+    private void ApplyChilledEffect(float duration, float chillMultiplier)
     {
         entity.EnterChillEffect(duration, chillMultiplier);
     }
 
-    public void ApplyShockEffect(float duration, float damage, float charge)
+    private void ApplyShockEffect(float duration, float damage, float charge)
     {
         if (elementalEffectCo != null)
             StopCoroutine(elementalEffectCo);
@@ -77,7 +84,7 @@ public class Entity_StatusHandler : MonoBehaviour
         SetElement(ElementType.None);
     }
 
-    public void ApplyBurnedEffect(float duration, float fireDamage)
+    private void ApplyBurnedEffect(float duration, float fireDamage)
     {
         if (elementalEffectCo != null)
             StopCoroutine(elementalEffectCo);

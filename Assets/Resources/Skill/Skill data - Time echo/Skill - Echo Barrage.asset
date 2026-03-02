@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78cf78b8766dc424b8a412ad72a91752, type: 3}
-  m_Name: Skill - Quick thinking
+  m_Name: Skill - Echo Barrage
   m_EditorClassIdentifier: Assembly-CSharp::Skill_SO
-  displayName: Quick thinking
-  description: The healing wisp reduces cooldowns of your other skills by 1 seconds.
-  icon: {fileID: -339574631, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
-  cost: 0
+  displayName: Echo Barrage
+  description: The Time echo can perform 3 attacks.
+  icon: {fileID: -272569704, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
+  cost: 2
   unlockedByDefault: 0
   skillType: 2
   upgradeData:
-    upgradeType: 21
+    upgradeType: 17
     cooldown: 0
     damageScale:
       physical: 1

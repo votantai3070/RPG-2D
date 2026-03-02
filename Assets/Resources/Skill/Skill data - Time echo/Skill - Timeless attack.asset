@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cf78b8766dc424b8a412ad72a91752, type: 3}
   m_Name: Skill - Timeless attack
   m_EditorClassIdentifier: Assembly-CSharp::Skill_SO
-  cost: 2
   displayName: Timelass attacak
   description: The Time echo can perform 1 attack.
   icon: {fileID: 2074395346, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
+  cost: 2
+  unlockedByDefault: 0
+  skillType: 2
+  upgradeData:
+    upgradeType: 16
+    cooldown: 0
+    damageScale:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      shockDuration: 0.4
+      shockDamageScale: 1
+      shockCharge: 0.4

@@ -6,7 +6,6 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkDamageRadius = 1;
     [SerializeField] protected float checkEnemyRadius = 3;
-
     [SerializeField] private float defaultDuration = 2f;
 
     protected Rigidbody2D rb;
@@ -15,6 +14,8 @@ public class SkillObject_Base : MonoBehaviour
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScale;
     protected ElementType currentElement;
+    protected Transform lastTarget;
+    protected bool targetGoHit;
 
     protected virtual void Awake()
     {
@@ -39,13 +40,14 @@ public class SkillObject_Base : MonoBehaviour
             int physicalDamage = (int)attackData.physicalDamage;
             int elementalDamage = (int)attackData.elementalDamage;
 
-            bool targetGoHit = damageable.TakeDamaged(physicalDamage, elementalDamage, element, transform);
+            targetGoHit = damageable.TakeDamaged(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
                 target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGoHit)
             {
+                lastTarget = target.transform;
                 target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 player.vfx.GetImapctVfx(target.transform, attackData.isCrit);
             }

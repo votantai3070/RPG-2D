@@ -9,12 +9,11 @@ public class Entity_Health : MonoBehaviour, IDamageable
     [Header("Health Info")]
     [SerializeField] private float currentHealth;
     [SerializeField] private Slider healthSlider;
-    [Space]
-    private bool canRegenerateHealth = true;
+    [SerializeField] private bool canRegenerateHealth;
+    public int lastDamageTaken { get; private set; }
 
     [Header("Damaged Info")]
     [SerializeField] private float damagedVfxDuration = .1f;
-
     [SerializeField] protected bool isDead;
 
     private void Awake()
@@ -50,10 +49,10 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return;
 
         float healRegenAmount = entityStats.resource.healthRegen.GetValue();
-        InsreaseHealth(healRegenAmount);
+        IncreaseHealth(healRegenAmount);
     }
 
-    private void InsreaseHealth(float amount)
+    public void IncreaseHealth(float amount)
     {
         if (isDead)
             return;
@@ -91,6 +90,8 @@ public class Entity_Health : MonoBehaviour, IDamageable
         int finalDamage = physicalDamageTaken + elementalDamageTaken;
 
         ReduceHp(finalDamage);
+
+        lastDamageTaken = finalDamage;
 
         TakeKnockback(damagedDealer, physicalDamageTaken);
 
