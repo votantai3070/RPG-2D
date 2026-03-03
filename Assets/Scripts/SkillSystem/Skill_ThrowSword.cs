@@ -66,6 +66,8 @@ public class Skill_ThrowSword : Skill_Base
 
         currentSword = newSword.GetComponent<SkillObject_Sword>();
         currentSword.SetupSword(this, GetThrowPower());
+
+        SetSkillCooldown();
     }
 
     private GameObject GetSwordPrefab()

@@ -11,6 +11,8 @@ public class Enemy : Entity
     public Enemy_CounterState counterState;
 
     public Player player { get; private set; }
+    public Enemy_Health health { get; private set; }
+    public float activeSlowMultiplier { get; private set; } = 1;
 
     [Header("Enemy Movement Info")]
     public float idleDuration = 2;
@@ -39,6 +41,7 @@ public class Enemy : Entity
     protected override void Awake()
     {
         base.Awake();
+        health = GetComponent<Enemy_Health>();
     }
 
     protected override void Start()
@@ -65,21 +68,22 @@ public class Enemy : Entity
     protected override IEnumerator HandleChillCo(float duration, float chillMultiplier)
     {
         stateHandler.SetElement(ElementType.Ice);
-        float originalMoveSpeed = moveSpeed;
-        float originalBattleSpeed = battleSpeed;
-        float originalAnimSpeed = anim.speed;
 
-        moveSpeed *= chillMultiplier;
-        battleSpeed *= chillMultiplier;
-        anim.speed *= chillMultiplier;
+        activeSlowMultiplier = 1 - chillMultiplier;
+        anim.speed *= activeSlowMultiplier;
 
         yield return new WaitForSeconds(duration);
 
         stateHandler.SetElement(ElementType.None);
+        StopSlowDown();
+    }
 
-        moveSpeed = originalMoveSpeed;
-        battleSpeed = originalBattleSpeed;
-        anim.speed = originalAnimSpeed;
+    public override void StopSlowDown()
+    {
+        anim.speed = 1;
+        activeSlowMultiplier = 1;
+
+        base.StopSlowDown();
     }
 
     public void TryEnterBattleState(Player player)

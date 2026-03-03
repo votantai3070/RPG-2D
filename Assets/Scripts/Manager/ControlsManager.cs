@@ -48,6 +48,8 @@ public class ControlsManager : MonoBehaviour
 
     public bool PressedRangeAttack() => inputActions.Player.RangeAttack.WasPressedThisFrame();
 
+    public bool PressedUltimateSpell() => inputActions.Player.UltimateSpell.WasPressedThisFrame();
+
 
     private void OnEnable()
     {

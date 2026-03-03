@@ -39,6 +39,7 @@ public class Entity_StatusHandler : MonoBehaviour
         if (element == ElementType.Ice && CanBeApplyEffect(ElementType.Ice))
             ApplyChilledEffect(effectData.chillDuration, effectData.chillSlowMultiplier);
 
+
         if (element == ElementType.Fire && CanBeApplyEffect(ElementType.Fire))
             ApplyBurnedEffect(effectData.burnDuration, effectData.burnDamage);
 
@@ -53,7 +54,7 @@ public class Entity_StatusHandler : MonoBehaviour
 
     private void ApplyChilledEffect(float duration, float chillMultiplier)
     {
-        entity.EnterChillEffect(duration, chillMultiplier);
+        entity.SlowDownEffect(duration, chillMultiplier);
     }
 
     private void ApplyShockEffect(float duration, float damage, float charge)

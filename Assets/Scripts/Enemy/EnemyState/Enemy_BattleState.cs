@@ -41,7 +41,9 @@ public class Enemy_BattleState : EnemyState
         if (AttackPlayer() && enemy.DetectedPlayer())
             stateMachine.ChangeState(enemy.attackState);
         else
-            enemy.SetVelocity(enemy.battleSpeed * AttackDir(), rb.linearVelocityY);
+        {
+            enemy.SetVelocity(enemy.battleSpeed * enemy.activeSlowMultiplier * AttackDir(), rb.linearVelocityY);
+        }
 
     }
 

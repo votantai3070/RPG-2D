@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Skill_Dash : Skill_Base
 {
     public void OnStartEffect()
@@ -27,6 +25,6 @@ public class Skill_Dash : Skill_Base
 
     private void CreateClone()
     {
-        Debug.Log("Create time echo!");
+        skillManager.skillTimeEcho.CreateTimeEcho();
     }
 }

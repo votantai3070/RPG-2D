@@ -35,6 +35,19 @@ public class PlayerState : EntityState
             skillManager.skillDash.SetSkillCooldown();
             stateMachine.ChangeState(player.dashState);
         }
+
+        if (controls.PressedUltimateSpell() && skillManager.skillDomain.CanBeUsedSkill())
+        {
+            if (skillManager.skillDomain.InstantDomain())
+            {
+                skillManager.skillDomain.CreateDomain();
+            }
+            else
+            {
+                stateMachine.ChangeState(player.domainExpansionState);
+            }
+            skillManager.skillDomain.SetSkillCooldown();
+        }
     }
 
     public override void Exit()
@@ -47,7 +60,7 @@ public class PlayerState : EntityState
         if (!skillManager.skillDash.CanBeUsedSkill())
             return false;
 
-        if (stateMachine.currentState == player.dashState)
+        if (stateMachine.currentState == player.dashState || stateMachine.currentState == player.domainExpansionState)
             return false;
 
         if (player.wallDetected)

@@ -33,10 +33,10 @@ public class Entity_Combat : MonoBehaviour
 
             float elementDamage = attackData.elementalDamage;
             int physicalDamage = (int)attackData.physicalDamage;
-            bool targetGoHit = damageable.TakeDamaged(physicalDamage, elementDamage, element, transform);
+            bool targetGoHit = damageable.TakeDamage(physicalDamage, elementDamage, element, transform);
 
             if (element != ElementType.None)
-                handler?.ApplyStatusEffect(element, attackData.effectData);
+                handler.ApplyStatusEffect(element, attackData.effectData);
 
             if (targetGoHit)
             {

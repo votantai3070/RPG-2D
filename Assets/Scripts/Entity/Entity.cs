@@ -19,9 +19,8 @@ public class Entity : MonoBehaviour
     public int faceDir { get; private set; } = 1;
     [HideInInspector] public bool attackTrigged;
 
-
     [Header("Collision Check")]
-    [SerializeField] protected LayerMask whatIsGround;
+    public LayerMask whatIsGround;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private Transform primaryWallCheck;
@@ -40,7 +39,6 @@ public class Entity : MonoBehaviour
 
     [Header("Elemental Info")]
     private Coroutine elementalEffectCo;
-
 
     protected virtual void Awake()
     {
@@ -66,9 +64,7 @@ public class Entity : MonoBehaviour
 
     public virtual void TryEnterDeadState()
     {
-
     }
-
 
     #region Elemental Effects
     public void ElementalVfx(float duration, ElementType element)
@@ -76,16 +72,25 @@ public class Entity : MonoBehaviour
         vfx.GetElementVfx(duration, element); // Apply elemental VFX based on the element type and duration
     }
 
-    public virtual void EnterChillEffect(float duration, float elementalMultiplier)
+    public virtual void SlowDownEffect(float duration, float elementalMultiplier, bool canOverrideCoroutine = false)
     {
         if (elementalEffectCo != null)
-            StopCoroutine(elementalEffectCo);
+            if (canOverrideCoroutine)
+                StopCoroutine(elementalEffectCo);
+            else
+                return;
+
         elementalEffectCo = StartCoroutine(HandleChillCo(duration, elementalMultiplier));
     }
 
     protected virtual IEnumerator HandleChillCo(float duration, float elementalMultiplier)
     {
         yield return null;
+    }
+
+    public virtual void StopSlowDown()
+    {
+        StopCoroutine(elementalEffectCo);
     }
     #endregion
 

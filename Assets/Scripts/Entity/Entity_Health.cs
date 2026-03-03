@@ -11,10 +11,11 @@ public class Entity_Health : MonoBehaviour, IDamageable
     [SerializeField] private Slider healthSlider;
     [SerializeField] private bool canRegenerateHealth;
     public int lastDamageTaken { get; private set; }
+    protected bool canTakeDamage = true;
 
     [Header("Damaged Info")]
     [SerializeField] private float damagedVfxDuration = .1f;
-    [SerializeField] protected bool isDead;
+    public bool isDead;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         SetupHealth();
     }
+
+    public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
 
     private void SetupHealth()
     {
@@ -41,7 +44,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
         currentHealth = entityStats.GetMaxHealth() * Mathf.Clamp01(percent);
         UpdateHealthBar();
     }
-
 
     public void Heal()
     {
@@ -64,9 +66,10 @@ public class Entity_Health : MonoBehaviour, IDamageable
         UpdateHealthBar();
     }
 
-    public virtual bool TakeDamaged(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
+    public virtual bool TakeDamage(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
     {
-        if (isDead) return false;
+        if (isDead || canTakeDamage == false)
+            return false;
 
         if (AttackEvaded())
         {

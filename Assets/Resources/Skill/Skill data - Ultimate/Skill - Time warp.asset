@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78cf78b8766dc424b8a412ad72a91752, type: 3}
-  m_Name: Skill - Cleanse
-  m_EditorClassIdentifier: Assembly-CSharp::Skill_SO
-  displayName: Cleanse
-  description: 'The healing wisp remove '
-  icon: {fileID: -161262058, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
-  cost: 3
+  m_Name: Skill - Time warp
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
+  displayName: Time warp
+  description: Create a field that drastically slows all enemies caught within.
+  icon: {fileID: 773451970, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
+  cost: 4
   unlockedByDefault: 0
-  skillType: 2
+  skillType: 4
   upgradeData:
-    upgradeType: 20
-    cooldown: 0
+    upgradeType: 22
+    cooldown: 120
     damageScale:
       physical: 1
       elemental: 1

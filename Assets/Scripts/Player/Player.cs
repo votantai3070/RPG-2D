@@ -23,6 +23,7 @@ public class Player : Entity
     public Player_DeadState deadState { get; private set; }
     public Player_CounterAttackState counterAttackState { get; private set; }
     public Player_ThrowSwordState throwSwordState { get; private set; }
+    public Player_DomainExpansionState domainExpansionState { get; private set; }
     #endregion
 
     [Header("Player Movement Info")]
@@ -42,6 +43,10 @@ public class Player : Entity
     private Coroutine basicAttackCo;
     public float durationAttack = 1;
     public int cooldownAttack = 2;
+
+    [Header("Ultimate ability details")]
+    public float riseSpeed = 25;
+    public float riseMaxDistance = 3;
 
     [Header("Counter Attack Info")]
     public float counterAttackDuration = 1;
@@ -67,6 +72,7 @@ public class Player : Entity
         deadState = new(this, stateMachine, "Dead");
         counterAttackState = new(this, stateMachine, "CounterAttack");
         throwSwordState = new(this, stateMachine, "ThrowSword");
+        domainExpansionState = new(this, stateMachine, "JumpFall");
     }
 
     protected override void Start()

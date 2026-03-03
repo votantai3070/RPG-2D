@@ -9,10 +9,12 @@ public class Enemy_Health : Entity_Health
         enemy = GetComponent<Enemy>();
     }
 
-    public override bool TakeDamaged(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
+    public override bool TakeDamage(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
     {
+        if (canTakeDamage == false)
+            return false;
 
-        bool wasHit = base.TakeDamaged(damage, elementalDamage, elementType, damagedDealer);
+        bool wasHit = base.TakeDamage(damage, elementalDamage, elementType, damagedDealer);
 
         if (!wasHit)
             return false;

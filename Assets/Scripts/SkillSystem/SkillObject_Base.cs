@@ -40,7 +40,7 @@ public class SkillObject_Base : MonoBehaviour
             int physicalDamage = (int)attackData.physicalDamage;
             int elementalDamage = (int)attackData.elementalDamage;
 
-            targetGoHit = damageable.TakeDamaged(physicalDamage, elementalDamage, element, transform);
+            targetGoHit = damageable.TakeDamage(physicalDamage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
                 target.GetComponent<Entity_StatusHandler>().ApplyStatusEffect(element, attackData.effectData);
@@ -49,7 +49,7 @@ public class SkillObject_Base : MonoBehaviour
             {
                 lastTarget = target.transform;
                 target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
-                player.vfx.GetImapctVfx(target.transform, attackData.isCrit);
+                player?.vfx.GetImapctVfx(target.transform, attackData.isCrit);
             }
 
             currentElement = element;

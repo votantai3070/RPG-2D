@@ -10,6 +10,7 @@ public class UI_SkillTooltip : UI_Tooltip
 
     [SerializeField] private TextMeshProUGUI skillName;
     [SerializeField] private TextMeshProUGUI skillDescription;
+    [SerializeField] private TextMeshProUGUI skillCooldown;
     [SerializeField] private TextMeshProUGUI skillRequirements;
     [Space]
     [SerializeField] private string metConditionHex;
@@ -43,6 +44,7 @@ public class UI_SkillTooltip : UI_Tooltip
 
         skillName.text = node.skillData.displayName;
         skillDescription.text = node.skillData.description;
+        skillCooldown.text = $"Cooldown: {node.skillData.upgradeData.cooldown} s";
 
         string skillLockText = $"<color={importantConditionHex}>{lockedSkillText} </color>";
         string requirements = node.isLocked ? skillLockText : GetRequirements(node.skillData.cost, node.neededNodes, node.conflictNodes);

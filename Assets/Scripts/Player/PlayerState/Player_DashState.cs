@@ -19,6 +19,8 @@ public class Player_DashState : PlayerState
         rb.gravityScale = 0;
 
         dashDir = controls.moveInput.x != 0 ? (int)controls.moveInput.x : player.faceDir;
+
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Update()
@@ -49,6 +51,8 @@ public class Player_DashState : PlayerState
 
         player.SetVelocity(0, 0);
         rb.gravityScale = orginalGravity;
+
+        player.health.SetCanTakeDamage(true);
     }
 
     private void CancelDashIfNeeded()
