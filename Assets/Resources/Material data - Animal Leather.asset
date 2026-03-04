@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Animal Leather
   itemIcon: {fileID: 265735480, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
   itemType: 0
+  maxStackSize: 2

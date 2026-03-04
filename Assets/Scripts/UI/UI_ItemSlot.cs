@@ -25,6 +25,6 @@ public class UI_ItemSlot : MonoBehaviour
         color.a = .9f;
         itemIcon.color = color;
         itemIcon.sprite = itemInSlot.itemData.itemIcon;
-        //itemStackSize.text = itemInSlot.itemData.stackSize;
+        itemStackSize.text = itemInSlot.stackSize > 1 ? (itemInSlot.stackSize).ToString() : "";
     }
 }
