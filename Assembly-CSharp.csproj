@@ -87,6 +87,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_ItemSlot.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Inventory.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemDataSO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_VFX.cs" />
     <Compile Include="Assets\Scripts\Entity\StateMachine.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Assets\Scripts\SO\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_TimeEcho.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_ItemPickup.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordPierce.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Chest.cs" />
+    <Compile Include="Assets\Scripts\Enum\ItemType.cs" />
     <Compile Include="Assets\Scripts\Data\DamageScaleData.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Shard.cs" />
@@ -125,9 +130,11 @@
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
     <Compile Include="Assets\Scripts\Data\AttackData.cs" />
+    <Compile Include="Assets\Scripts\ItemSystem\Inventory_Base.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\ItemSystem\Inventory_Item.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_DomainExpansion.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_IdleState.cs" />

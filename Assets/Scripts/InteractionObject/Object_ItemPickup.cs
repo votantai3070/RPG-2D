@@ -1,0 +1,37 @@
+using UnityEngine;
+
+public class Object_ItemPickup : MonoBehaviour
+{
+    private SpriteRenderer sr;
+
+    [SerializeField] private ItemDataSO itemData;
+
+    private Inventory_Base inventory;
+    private Inventory_Item inventoryItem;
+
+    private void Awake()
+    {
+        inventoryItem = new(itemData);
+    }
+
+    private void OnValidate()
+    {
+        if (itemData == null)
+            return;
+
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = itemData.itemIcon;
+        gameObject.name = $"Item - {itemData.itemName}";
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        inventory = collision.GetComponent<Inventory_Base>();
+
+        if (inventory != null && inventory.CanAddItem())
+        {
+            inventory.AddItem(inventoryItem);
+            Destroy(gameObject);
+        }
+    }
+}

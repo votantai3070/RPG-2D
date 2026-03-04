@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Skill", menuName = "ScriptableObjects/Skill")]
+[CreateAssetMenu(fileName = "Skill - ", menuName = "RPG Setup/Skill")]
 public class Skill_DataSO : ScriptableObject
 {
     [Header("Skill Description")]
