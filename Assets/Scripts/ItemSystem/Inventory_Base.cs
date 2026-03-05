@@ -7,15 +7,11 @@ public class Inventory_Base : MonoBehaviour
     public event Action OnInventoryChange;
 
     public List<Inventory_Item> itemList = new();
-    public UI_Inventory inventoryUI;
 
-    private int maxInventorySlots = 10;
+    private int maxInventorySlots = 12;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        inventoryUI = FindAnyObjectByType<UI_Inventory>();
-
-        maxInventorySlots = inventoryUI.itemSlots.Length;
     }
 
     public bool CanAddItem() => itemList.Count <= maxInventorySlots;
@@ -24,7 +20,7 @@ public class Inventory_Base : MonoBehaviour
     {
         Inventory_Item itemInInventory = FindItem(item.itemData);
 
-        if (itemInInventory != null)
+        if (itemInInventory != null && itemInInventory.CanStackSize())
             itemInInventory.AddStack();
         else
             itemList.Add(item);
@@ -32,8 +28,15 @@ public class Inventory_Base : MonoBehaviour
         OnInventoryChange?.Invoke();
     }
 
+    public void RemoveItem(Inventory_Item item)
+    {
+        itemList.Remove(FindItem(item.itemData));
+
+        OnInventoryChange?.Invoke();
+    }
+
     public Inventory_Item FindItem(ItemDataSO itemData)
     {
-        return itemList.Find(item => item.itemData == itemData && item.CanStackSize());
+        return itemList.Find(item => item.itemData == itemData);
     }
 }

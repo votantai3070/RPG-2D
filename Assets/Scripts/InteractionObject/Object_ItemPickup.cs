@@ -11,7 +11,7 @@ public class Object_ItemPickup : MonoBehaviour
 
     private void Awake()
     {
-        inventoryItem = new(itemData);
+        inventoryItem = new Inventory_Item(itemData);
     }
 
     private void OnValidate()

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Material data - Animal Leather
   m_EditorClassIdentifier: Assembly-CSharp::ItemDataSO
   itemName: Animal Leather
-  itemIcon: {fileID: 265735480, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
+  itemIcon: {fileID: 494696919, guid: 454e1de67eded2442bb65c8a1c54255e, type: 3}
   itemType: 0
   maxStackSize: 2
