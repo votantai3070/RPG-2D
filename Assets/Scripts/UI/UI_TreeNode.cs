@@ -65,7 +65,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         }
         else
         {
-            ui.tooltip.LockedSkillEffect();
+            ui.skillTooltip.LockedSkillEffect();
             Debug.Log("Cannot unlock this node.");
         }
     }
@@ -126,7 +126,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.tooltip.ShowTooltip(true, rect, this);
+        ui.skillTooltip.ShowTooltip(true, rect, this);
 
         if (isLocked || isUnlocked)
             return;
@@ -136,7 +136,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ui.tooltip.ShowTooltip(false, rect);
+        ui.skillTooltip.ShowTooltip(false, rect);
 
         if (isLocked || isUnlocked)
             return;

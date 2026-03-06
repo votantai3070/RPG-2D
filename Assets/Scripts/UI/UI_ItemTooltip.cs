@@ -30,7 +30,7 @@ public class UI_ItemTooltip : UI_Tooltip
         {
             string modType = GetStatNameByType(modifier.statType);
             string modValue = IsPercentageStat(modifier.statType) ? modifier.value.ToString() + "%" : modifier.value.ToString();
-            sb.Append("+ " + modValue + " " + modType);
+            sb.Append("+ " + modValue + " " + modType + "\n");
         }
 
         return sb.ToString();

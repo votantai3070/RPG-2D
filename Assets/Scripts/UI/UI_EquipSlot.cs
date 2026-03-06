@@ -4,6 +4,7 @@ public class UI_EquipSlot : UI_ItemSlot
 {
     public ItemType slotType;
 
+
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (itemInSlot == null)
@@ -11,4 +12,6 @@ public class UI_EquipSlot : UI_ItemSlot
 
         inventory.UnequipItem(itemInSlot);
     }
+
+
 }
