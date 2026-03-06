@@ -19,11 +19,8 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Click");
         if (itemInSlot == null)
             return;
-
-        Debug.Log("Click!");
 
         inventory.TryEquipItem(itemInSlot);
     }

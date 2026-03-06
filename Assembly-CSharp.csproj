@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\Data\AttackData.cs" />
     <Compile Include="Assets\Scripts\ItemSystem\Inventory_Base.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />

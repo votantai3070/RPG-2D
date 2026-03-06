@@ -7,11 +7,11 @@ public class Object_ItemPickup : MonoBehaviour
     [SerializeField] private ItemDataSO itemData;
 
     private Inventory_Base inventory;
-    private Inventory_Item inventoryItem;
+    private Inventory_Item itemToAdd;
 
     private void Awake()
     {
-        inventoryItem = new Inventory_Item(itemData);
+        itemToAdd = new Inventory_Item(itemData);
     }
 
     private void OnValidate()
@@ -28,9 +28,14 @@ public class Object_ItemPickup : MonoBehaviour
     {
         inventory = collision.GetComponent<Inventory_Base>();
 
-        if (inventory != null && inventory.CanAddItem())
+        if (inventory == null)
+            return;
+
+        bool canAddItem = inventory.CanAddToStack(itemToAdd) || inventory.CanAddItem();
+
+        if (canAddItem)
         {
-            inventory.AddItem(inventoryItem);
+            inventory.AddItem(itemToAdd);
             Destroy(gameObject);
         }
     }

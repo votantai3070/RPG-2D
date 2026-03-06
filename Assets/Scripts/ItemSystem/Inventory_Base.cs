@@ -14,6 +14,19 @@ public class Inventory_Base : MonoBehaviour
     {
     }
 
+    public bool CanAddToStack(Inventory_Item itemToAdd)
+    {
+        List<Inventory_Item> stackableItem = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
+
+        foreach (var stack in stackableItem)
+        {
+            if (stack.CanStackSize())
+                return true;
+        }
+
+        return false;
+    }
+
     public bool CanAddItem() => itemList.Count <= maxInventorySlots;
 
     public void AddItem(Inventory_Item item)

@@ -15,7 +15,7 @@ public class Inventory_Item
         this.itemData = itemData;
 
         itemModifiers = EquipmentData()?.modifiers;
-        itemID = itemData.itemName + Guid.NewGuid();
+        itemID = itemData.itemName + " - " + Guid.NewGuid();
     }
 
     private EquipmentDataSO EquipmentData()
