@@ -25,7 +25,7 @@ public class SkillObject_Sword : SkillObject_Base
 
         player = swordManger.player;
 
-        playerStats = swordManger.player.entityStats;
+        playerStats = swordManger.player.playerStats;
         damageScale = swordManger.damageScaleData;
     }
 

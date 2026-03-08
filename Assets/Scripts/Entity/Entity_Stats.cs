@@ -82,14 +82,12 @@ public class Entity_Stats : MonoBehaviour
         return finalResistance;
     }
 
-    public float GetArmorMigitation(float armorReduction)
+    public float GetArmorMitigation(float armorReduction)
     {
-        float baseArmor = defense.armor.GetValue();
-        float bonusArmor = major.vitality.GetValue(); // Assuming each point of vitality gives 1 additional armor
-        float totalArmor = baseArmor + bonusArmor;
+        float baseArmor = GetBaseArmor();
 
         float reductionMultiplier = Mathf.Clamp(1 - armorReduction, 0, 1); // Apply armor reduction to the total armor
-        float effectiveArmor = totalArmor * reductionMultiplier;
+        float effectiveArmor = baseArmor * reductionMultiplier;
 
         float mitigation = effectiveArmor / (effectiveArmor + 100); // Percentage damage reduction formula
         float mitigationCap = 0.85f; // Cap mitigation at 85%
@@ -98,6 +96,9 @@ public class Entity_Stats : MonoBehaviour
 
         return finalMitigation;
     }
+
+    // Assuming each point of vitality gives 1 additional armor
+    public float GetBaseArmor() => defense.armor.GetValue() + major.vitality.GetValue();
 
     public float GetArmorReduction()
     {
@@ -108,28 +109,27 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetPhysicalDamage(out bool isCriticalHit, float scaleFactor)
     {
-        float baseDamage = offense.damage.GetValue();
-        float bonusDamage = major.strength.GetValue();
-        float totalBaseDamage = baseDamage + bonusDamage;
+        float baseDamage = GetBasePhysicalDamage();
+        float baseCritChance = GetCritChance();
+        float baseCritDamage = GetCritDamage();
 
-        float baseCritChance = offense.critChance.GetValue();
-        float bonusCritChance = major.agility.GetValue() * 0.3f; // Assuming each point of AGI gives 0.3% additional crit chance
-        float totalCritChance = baseCritChance + bonusCritChance;
-
-        float baseCritDamage = offense.critDamage.GetValue();
-        float bonusCritDamage = major.strength.GetValue() * 0.5f; // Assuming each point of STR gives 0.5% additional crit damage
-        float critDamage = (baseCritDamage + bonusCritDamage) / 100;
-
-        isCriticalHit = Random.Range(0, 100) < totalCritChance;
-        float finalDamage = isCriticalHit ? totalBaseDamage * critDamage : totalBaseDamage;
+        isCriticalHit = Random.Range(0, 100) < baseCritChance;
+        float finalDamage = isCriticalHit ? baseDamage * baseCritDamage : baseDamage;
 
         return finalDamage * scaleFactor;
     }
 
+    // Bonus damage from Strength: +1 per STR
+    public float GetBasePhysicalDamage() => offense.damage.GetValue() + major.strength.GetValue();
+    // Assuming each point of AGI gives 0.3% additional crit chance
+    public float GetCritChance() => offense.critChance.GetValue() + (major.agility.GetValue() * .3f);
+    // Assuming each point of STR gives 0.5% additional crit damage
+    public float GetCritDamage() => offense.critDamage.GetValue() + (major.strength.GetValue() * .5f);
+
     public float GetEvasion()
     {
         float baseEvasion = defense.evasion.GetValue();
-        float bonusEvasion = major.agility.GetValue() * 0.5f; // Assuming each point of agility gives 0.5% evasion
+        float bonusEvasion = major.agility.GetValue() * 0.5f;
 
         float totalEvasion = baseEvasion + bonusEvasion;
         float evasionCap = 0.85f; // Cap evasion at 85%

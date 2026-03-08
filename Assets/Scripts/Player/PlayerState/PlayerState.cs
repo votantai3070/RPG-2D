@@ -13,7 +13,7 @@ public class PlayerState : EntityState
         anim = player.anim;
         rb = player.rb;
         controls = player.controls;
-        stats = player.entityStats;
+        stats = player.playerStats;
         skillManager = player.skillManager;
         vfx = player.playerVFX;
     }

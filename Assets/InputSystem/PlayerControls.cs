@@ -181,6 +181,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Toggle Character UI"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ac0f992-deec-4855-8d2b-092e5b88e168"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -480,6 +489,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""UltimateSpell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78c24524-947b-48da-998c-8320cc76f6d8"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Toggle Character UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -498,6 +518,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_RangeAttack = m_Player.FindAction("RangeAttack", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_UltimateSpell = m_Player.FindAction("UltimateSpell", throwIfNotFound: true);
+        m_Player_ToggleCharacterUI = m_Player.FindAction("Toggle Character UI", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -588,6 +609,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RangeAttack;
     private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_UltimateSpell;
+    private readonly InputAction m_Player_ToggleCharacterUI;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -639,6 +661,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/UltimateSpell".
         /// </summary>
         public InputAction @UltimateSpell => m_Wrapper.m_Player_UltimateSpell;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleCharacterUI".
+        /// </summary>
+        public InputAction @ToggleCharacterUI => m_Wrapper.m_Player_ToggleCharacterUI;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -695,6 +721,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @UltimateSpell.started += instance.OnUltimateSpell;
             @UltimateSpell.performed += instance.OnUltimateSpell;
             @UltimateSpell.canceled += instance.OnUltimateSpell;
+            @ToggleCharacterUI.started += instance.OnToggleCharacterUI;
+            @ToggleCharacterUI.performed += instance.OnToggleCharacterUI;
+            @ToggleCharacterUI.canceled += instance.OnToggleCharacterUI;
         }
 
         /// <summary>
@@ -736,6 +765,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @UltimateSpell.started -= instance.OnUltimateSpell;
             @UltimateSpell.performed -= instance.OnUltimateSpell;
             @UltimateSpell.canceled -= instance.OnUltimateSpell;
+            @ToggleCharacterUI.started -= instance.OnToggleCharacterUI;
+            @ToggleCharacterUI.performed -= instance.OnToggleCharacterUI;
+            @ToggleCharacterUI.canceled -= instance.OnToggleCharacterUI;
         }
 
         /// <summary>
@@ -846,5 +878,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUltimateSpell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Toggle Character UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleCharacterUI(InputAction.CallbackContext context);
     }
 }

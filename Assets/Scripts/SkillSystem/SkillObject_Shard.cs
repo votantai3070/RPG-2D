@@ -28,7 +28,7 @@ public class SkillObject_Shard : SkillObject_Base
     public void SetupShard(Skill_Shard shardManager)
     {
         this.shardManager = shardManager;
-        playerStats = shardManager.player.entityStats;
+        playerStats = shardManager.player.playerStats;
         damageScale = shardManager.damageScaleData;
         player = shardManager.player;
 
@@ -40,7 +40,7 @@ public class SkillObject_Shard : SkillObject_Base
     public void SetupShard(Skill_Shard shardManager, float detinationTime, bool canMove, float shardSpeed, Transform target)
     {
         this.shardManager = shardManager;
-        playerStats = shardManager.player.entityStats;
+        playerStats = shardManager.player.playerStats;
         damageScale = shardManager.damageScaleData;
 
         Invoke(nameof(ShardExplosion), detinationTime);

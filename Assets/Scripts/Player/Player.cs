@@ -7,8 +7,9 @@ public class Player : Entity
     public static Action OnPlayerDead;
     public Player_SkillManager skillManager { get; private set; }
     public Player_VFX playerVFX { get; private set; }
-    public Entity_Health health { get; private set; }
+    public Player_Health health { get; private set; }
     public Entity_StatusHandler statusHandler { get; private set; }
+    public Player_Stats playerStats { get; private set; }
 
     #region State
     public Player_IdleState idleState { get; private set; }
@@ -57,8 +58,9 @@ public class Player : Entity
 
         skillManager = GetComponent<Player_SkillManager>();
         playerVFX = GetComponent<Player_VFX>();
-        health = GetComponent<Entity_Health>();
+        health = GetComponent<Player_Health>();
         statusHandler = GetComponent<Entity_StatusHandler>();
+        playerStats = GetComponent<Player_Stats>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");

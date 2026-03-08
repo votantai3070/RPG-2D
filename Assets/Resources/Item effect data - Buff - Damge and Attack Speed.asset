@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26260299d378ee54cb2aa7571417f41b, type: 3}
+  m_Name: Item effect data - Buff - Damge and Attack Speed
+  m_EditorClassIdentifier: Assembly-CSharp::ItemEffect_Buff
+  effectionDiscription: Grants +40 Damage and +15% Attack speed for 20 seconds.
+  buffsToApply:
+  - type: 11
+    value: 40
+  - type: 14
+    value: 0.15
+  duration: 20
+  source: 0cfe4370-ea2a-47d7-a8c4-464810657936

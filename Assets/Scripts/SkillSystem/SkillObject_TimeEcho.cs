@@ -31,7 +31,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
     {
         echoManager = timeEchoManager;
         maxAttacks = timeEchoManager.GetMaxAttacks();
-        playerStats = timeEchoManager.player.entityStats;
+        playerStats = timeEchoManager.player.playerStats;
         player = timeEchoManager.player;
         damageScale = timeEchoManager.damageScaleData;
         playerHealth = timeEchoManager.player.entityHealth;

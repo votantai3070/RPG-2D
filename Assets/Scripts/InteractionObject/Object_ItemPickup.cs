@@ -31,7 +31,7 @@ public class Object_ItemPickup : MonoBehaviour
         if (inventory == null)
             return;
 
-        bool canAddItem = inventory.CanAddToStack(itemToAdd) || inventory.CanAddItem();
+        bool canAddItem = inventory.CanAddItem() || inventory.FindStackableItem(itemToAdd) != null;
 
         if (canAddItem)
         {

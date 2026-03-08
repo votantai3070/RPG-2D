@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Inventory_Base : MonoBehaviour
+{
+    public event Action OnInventoryChange;
+
+    public List<Inventory_Item> itemList = new();
+
+    private int maxInventorySlots = 12;
+
+    protected virtual void Awake()
+    {
+    }
+
+    public void TryUseItem(Inventory_Item itemToUse)
+    {
+        Inventory_Item consumable = itemList.Find(item => item == itemToUse);
+
+        if (consumable == null)
+            return;
+
+        consumable.itemEffect.ExecuteEffect();
+
+        if (consumable.stackSize > 1)
+            consumable.RemoveStack();
+        else
+            RemoveItem(consumable);
+
+        OnInventoryChange?.Invoke();
+    }
+
+    public Inventory_Item FindStackableItem(Inventory_Item itemToAdd)
+    {
+        List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
+
+        foreach (var stackableItem in stackableItems)
+        {
+            if (stackableItem.CanStackSize())
+                return stackableItem;
+        }
+
+        return null;
+    }
+
+    public bool CanAddItem() => itemList.Count <= maxInventorySlots;
+
+    public void AddItem(Inventory_Item item)
+    {
+        Inventory_Item itemInInventory = FindItem(item.itemData);
+
+        if (itemInInventory != null)
+            itemInInventory.AddStack();
+        else
+            itemList.Add(item);
+
+        OnInventoryChange?.Invoke();
+    }
+
+    public void RemoveItem(Inventory_Item itemToRemove)
+    {
+        itemList.Remove(itemToRemove);
+
+        OnInventoryChange?.Invoke();
+    }
+
+    public Inventory_Item FindItem(ItemDataSO itemData)
+    {
+        return itemList.Find(item => item.itemData == itemData);
+    }
+}

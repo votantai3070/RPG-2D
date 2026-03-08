@@ -8,7 +8,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     [Header("Health Info")]
     [SerializeField] private float currentHealth;
-    [SerializeField] private Slider healthSlider;
+    private Slider healthSlider;
     [SerializeField] private bool canRegenerateHealth;
     public int lastDamageTaken { get; private set; }
     protected bool canTakeDamage = true;
@@ -84,7 +84,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         Entity_Stats attackerStats = damagedDealer.GetComponent<Entity_Stats>();
 
         float armorReduction = attackerStats != null ? attackerStats.GetArmorReduction() : 0f;
-        float migitation = entityStats != null ? entityStats.GetArmorMigitation(armorReduction) : 0;
+        float migitation = entityStats != null ? entityStats.GetArmorMitigation(armorReduction) : 0;
         float elementRes = entityStats != null ? entityStats.GetElementalResistance(elementType) : 0;
 
         int physicalDamageTaken = Mathf.RoundToInt(damage * (1 - migitation));

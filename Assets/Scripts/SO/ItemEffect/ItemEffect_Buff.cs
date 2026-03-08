@@ -1,0 +1,31 @@
+using System;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Item effect data - Buff", menuName = "RPG Setup/Item Data/Item Effect/Buff Effect")]
+public class ItemEffect_Buff : ItemEffectDataSO
+{
+    [SerializeField] private BuffEffectData[] buffsToApply;
+    [SerializeField] private float duration;
+    [SerializeField] private string source = Guid.NewGuid().ToString();
+
+    private Player_Stats playerStats;
+
+    public override bool CanBeUsed()
+    {
+        if (playerStats == null)
+            return playerStats = FindFirstObjectByType<Player_Stats>();
+
+        if (playerStats.CanApplyBuffOf(source))
+            return true;
+        else
+        {
+            Debug.Log("Same buff effect cannot be apllied twice!");
+            return false;
+        }
+    }
+
+    public override void ExecuteEffect()
+    {
+        playerStats.ApplyBuff(buffsToApply, duration, source);
+    }
+}
