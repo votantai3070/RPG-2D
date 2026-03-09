@@ -1,7 +1,4 @@
 using UnityEngine;
-
-
-
 public class Object_Buff : MonoBehaviour
 {
     [SerializeField] private BuffEffectData[] buffs;

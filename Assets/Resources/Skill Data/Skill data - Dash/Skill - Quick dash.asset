@@ -18,7 +18,7 @@ MonoBehaviour:
     You cannot take damage while dashing.'
   icon: {fileID: -2043213981, guid: de4d233e787f4bb4583cbb00b43f8849, type: 3}
   cost: 0
-  unlockedByDefault: 1
+  unlockedByDefault: 0
   skillType: 0
   upgradeData:
     upgradeType: 1

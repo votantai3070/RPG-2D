@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a9e489bb124c4e9e0ca6c72669dfb, type: 3}
+  m_Name: Item effect data - Thunder strike on damage
+  m_EditorClassIdentifier: Assembly-CSharp::ItemEffect_ThunderStrikeOnDamage
+  effectionDiscription: Attack will have 15% chance damaged enemy by a thunder strike.
+  chance: 0.15
+  thunderStrike: {fileID: 2832443357348112663, guid: 57c2e89b8fe22cc40b93847858d6cab8, type: 3}
+  ThunderDamage: 30
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0

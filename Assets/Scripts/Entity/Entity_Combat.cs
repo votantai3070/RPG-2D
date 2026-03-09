@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    public event Action<float> OnDoingPhysicalDamage;
+    public event Action OnDoingThunderStrikeDamage;
+
     private Entity_VFX vfx;
     private Entity_Stats entityStats;
 
@@ -40,6 +44,9 @@ public class Entity_Combat : MonoBehaviour
 
             if (targetGoHit)
             {
+                OnDoingPhysicalDamage?.Invoke(physicalDamage);
+                OnDoingThunderStrikeDamage?.Invoke();
+
                 if (hit.GetComponent<Entity>() != null)
                     hit.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 vfx.GetImapctVfx(hit.transform, attackData.isCrit);

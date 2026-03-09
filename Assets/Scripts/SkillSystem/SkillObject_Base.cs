@@ -49,7 +49,7 @@ public class SkillObject_Base : MonoBehaviour
             {
                 lastTarget = target.transform;
                 target.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
-                player?.vfx.GetImapctVfx(target.transform, attackData.isCrit);
+                player?.playerVfx.GetImapctVfx(target.transform, attackData.isCrit);
             }
 
             currentElement = element;

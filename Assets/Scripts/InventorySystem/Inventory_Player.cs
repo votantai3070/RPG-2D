@@ -35,7 +35,7 @@ public class Inventory_Player : Inventory_Base
         var itemToUnequip = slotToReplace.equipedItem;
 
         EquipItem(inventoryItem, slotToReplace);
-        UnequipItem(itemToUnequip);
+        UnequipItem(itemToUnequip, slotToReplace != null);
     }
 
     private void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slotToEquip)
@@ -44,14 +44,15 @@ public class Inventory_Player : Inventory_Base
 
         slotToEquip.equipedItem = itemToEquip;
         slotToEquip.equipedItem.AddModifier(player.playerStats);
+        slotToEquip.equipedItem.AddItemEffect(player);
 
         player.health.SetHealthPercent(savedHealthPercent);
         RemoveItem(itemToEquip);
     }
 
-    public void UnequipItem(Inventory_Item itemToUnequip)
+    public void UnequipItem(Inventory_Item itemToUnequip, bool replacingItem = false)
     {
-        if (CanAddItem() == false)
+        if (CanAddItem() == false && replacingItem == false)
         {
             Debug.Log("No space");
             return;
@@ -64,8 +65,11 @@ public class Inventory_Player : Inventory_Base
         if (slotToUnequip != null)
             slotToUnequip.equipedItem = null;
 
-        player.health.SetHealthPercent(savedHealthPercent);
         itemToUnequip.RemoveModifier(player.playerStats);
+        itemToUnequip.RemoveItemEffect();
+
+        player.health.SetHealthPercent(savedHealthPercent);
+
         AddItem(itemToUnequip);
     }
 }

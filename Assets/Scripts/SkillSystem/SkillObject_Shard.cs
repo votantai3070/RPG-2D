@@ -57,7 +57,7 @@ public class SkillObject_Shard : SkillObject_Base
 
         Debug.Log("Current elemental: " + currentElement);
 
-        sr.color = shardManager.player.vfx.GetElementColorVfx(currentElement);
+        sr.color = shardManager.player.playerVfx.GetElementColorVfx(currentElement);
 
         OnExplode?.Invoke();
         Destroy(gameObject);

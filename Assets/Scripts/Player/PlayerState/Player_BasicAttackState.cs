@@ -21,6 +21,8 @@ public class Player_BasicAttackState : PlayerState
     {
         base.Enter();
 
+        Debug.Log("Vao day");
+
         float attackSpeed = stats.offense.attackSpeed.GetValue();
 
         anim.SetFloat("AttackSpeedMultiplier", attackSpeed);
@@ -38,6 +40,8 @@ public class Player_BasicAttackState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Vao day!!");
+
 
         comboIndex++;
         lastAttackTime = Time.time;

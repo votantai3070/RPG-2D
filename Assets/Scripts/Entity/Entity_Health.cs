@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
+    public event Action OnTakingDamage;
+
     private Entity entity;
     private Entity_Stats entityStats;
 
@@ -98,6 +101,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
         TakeKnockback(damagedDealer, physicalDamageTaken);
 
+        OnTakingDamage?.Invoke();
         return true;
     }
 
@@ -116,7 +120,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         if (entityStats == null)
             return false;
         else
-            return Random.value < entityStats.GetEvasion();
+            return UnityEngine.Random.value < entityStats.GetEvasion();
     }
 
     public void ReduceHp(int damage)

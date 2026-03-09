@@ -79,8 +79,8 @@
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Player.cs" />
     <Compile Include="Assets\Scripts\Data\ElementalEffectData.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_TimeEcho.cs" />
-    <Compile Include="Assets\Scripts\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_EquipmentSlot.cs" />
+    <Compile Include="Assets\Scripts\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Scripts\UI\UI_PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_AnimationEvent.cs" />
@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_IceBlastOnTakingDamage.cs" />
     <Compile Include="Assets\Scripts\UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Inventory.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
@@ -102,10 +103,12 @@
     <Compile Include="Assets\Scripts\SO\ItemEffectDataSO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Item.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_HealOnDoingDamage.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordBounce.cs" />
     <Compile Include="Assets\Scripts\SO\Skill_DataSO.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_GrantSkillPoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_TimeEcho.cs" />
     <Compile Include="Assets\Scripts\UI\UI_StatTooltip.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Enum\StatType.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_ThunderStrikeOnDamage.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_CounterAttackState.cs" />

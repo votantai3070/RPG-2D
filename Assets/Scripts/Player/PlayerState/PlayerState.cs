@@ -15,7 +15,7 @@ public class PlayerState : EntityState
         controls = player.controls;
         stats = player.playerStats;
         skillManager = player.skillManager;
-        vfx = player.playerVFX;
+        vfx = player.playerVfx;
     }
 
     public override void Enter()
