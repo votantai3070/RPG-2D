@@ -37,6 +37,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillTimeEcho.TryUseSkill();
 
+        inputActions.Player.Interaction.performed += ctx => player.TryInteract();
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

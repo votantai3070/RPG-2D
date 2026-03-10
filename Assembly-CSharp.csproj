@@ -117,11 +117,13 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemDataSO.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_NPC.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\SO\ConsumableDataSO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_CounterState.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_ThrowSwordState.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_Merchant.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Stats.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpState.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Base.cs" />
@@ -172,6 +175,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Shard.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Tooltip.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_Blacksmith.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_SkillManager.cs" />

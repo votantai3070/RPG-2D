@@ -585,6 +585,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: artdecoUI_PIPO_tr_18
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 583
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168a6f0a4a73d7a4b892d558001fbfb8
+      internalID: 81358886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -609,6 +631,7 @@ TextureImporter:
       artdecoUI_PIPO_tr_15: -8315971036930536292
       artdecoUI_PIPO_tr_16: -8366100132398584210
       artdecoUI_PIPO_tr_17: -4395108056127522735
+      artdecoUI_PIPO_tr_18: 81358886
       artdecoUI_PIPO_tr_2: 5667886818184199621
       artdecoUI_PIPO_tr_3: 8873148660884924651
       artdecoUI_PIPO_tr_4: -4337061765396970221

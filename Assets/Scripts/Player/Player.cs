@@ -91,6 +91,36 @@ public class Player : Entity
         base.Update();
     }
 
+    public void TryInteract()
+    {
+        float closestDistance = Mathf.Infinity;
+        Transform closestTarget = null;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f);
+
+
+        foreach (var target in hits)
+        {
+            if (!target.TryGetComponent<IInteractable>(out var interactable))
+                continue;
+
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestTarget = target.transform;
+            }
+        }
+
+        Debug.Log("Closest:  " + closestTarget);
+
+        if (closestTarget == null)
+            return;
+
+        closestTarget.GetComponent<IInteractable>().Interact();
+    }
+
     public void TeleportPlayer(Vector3 position) => transform.position = position;
 
     protected override IEnumerator HandleChillCo(float duration, float elementalMultiplier)
