@@ -44,7 +44,12 @@ public class Inventory_Base : MonoBehaviour
         return null;
     }
 
-    public bool CanAddItem() => itemList.Count <= maxInventorySlots;
+    public bool CanAddItem(Inventory_Item itemToAdd)
+    {
+        bool hasStackable = FindStackableItem(itemToAdd) != null;
+        return hasStackable || itemList.Count < maxInventorySlots;
+    }
+
 
     public void AddItem(Inventory_Item item)
     {
@@ -68,5 +73,10 @@ public class Inventory_Base : MonoBehaviour
     public Inventory_Item FindItem(ItemDataSO itemData)
     {
         return itemList.Find(item => item.itemData == itemData);
+    }
+
+    public void TriggerUpdateUI()
+    {
+        OnInventoryChange?.Invoke();
     }
 }

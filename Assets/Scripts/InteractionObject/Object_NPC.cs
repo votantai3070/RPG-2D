@@ -60,13 +60,13 @@ public class Object_NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         player = collision.transform;
         interactTooltip.SetActive(true);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         player = null;
         interactTooltip.SetActive(false);

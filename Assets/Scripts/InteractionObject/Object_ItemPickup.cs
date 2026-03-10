@@ -31,9 +31,7 @@ public class Object_ItemPickup : MonoBehaviour
         if (inventory == null)
             return;
 
-        bool canAddItem = inventory.CanAddItem() || inventory.FindStackableItem(itemToAdd) != null;
-
-        if (canAddItem)
+        if (inventory.CanAddItem(itemToAdd))
         {
             inventory.AddItem(itemToAdd);
             Destroy(gameObject);

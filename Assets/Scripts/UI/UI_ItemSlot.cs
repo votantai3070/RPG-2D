@@ -72,6 +72,4 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         itemIcon.sprite = itemInSlot.itemData.itemIcon;
         itemStackSize.text = itemInSlot.stackSize > 1 ? (itemInSlot.stackSize).ToString() : "";
     }
-
-
 }
