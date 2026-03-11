@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UI_StorageSlot : UI_ItemSlot
@@ -14,11 +15,15 @@ public class UI_StorageSlot : UI_ItemSlot
         if (itemInSlot == null)
             return;
 
+        bool stacked = Input.GetKey(KeyCode.LeftControl);
+
+        Debug.Log("Hold control: " + stacked);
+
         if (slotType == StorageSlotType.PlayerInventorySlot)
-            storage.FromPlayerToStorage(itemInSlot);
+            storage.FromPlayerToStorage(itemInSlot, stacked);
 
         if (slotType == StorageSlotType.StorageSlot)
-            storage.FromStorageToPlayer(itemInSlot);
+            storage.FromStorageToPlayer(itemInSlot, stacked);
 
         ui.itemTooltip.ShowTooltip(false, null);
     }

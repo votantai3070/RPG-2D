@@ -7,6 +7,7 @@ public class UI_Storage : MonoBehaviour
 
     [SerializeField] private UI_ItemSlotParent inventorySlotParent;
     [SerializeField] private UI_ItemSlotParent storageSlotParent;
+    [SerializeField] private UI_ItemSlotParent materialStashParent;
 
     public void SetupStorage(Inventory_Player inventory, Inventory_Storage storage)
     {
@@ -17,15 +18,15 @@ public class UI_Storage : MonoBehaviour
         UpdateUI();
 
         UI_StorageSlot[] storageSlots = GetComponentsInChildren<UI_StorageSlot>(true);
+
         foreach (var slot in storageSlots)
-        {
             slot.SetStorage(storage);
-        }
     }
 
     private void UpdateUI()
     {
         storageSlotParent.UpdateSlots(storage.itemList);
         inventorySlotParent.UpdateSlots(inventory.itemList);
+        materialStashParent.UpdateSlots(storage.materialStash);
     }
 }

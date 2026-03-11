@@ -6,7 +6,7 @@ public class Inventory_Base : MonoBehaviour
 {
     public event Action OnInventoryChange;
 
-    public List<Inventory_Item> itemList = new();
+    public List<Inventory_Item> itemList { get; private set; } = new();
 
     private int maxInventorySlots = 12;
 
@@ -26,7 +26,7 @@ public class Inventory_Base : MonoBehaviour
         if (consumable.stackSize > 1)
             consumable.RemoveStack();
         else
-            RemoveItem(consumable);
+            RemoveOneItem(consumable);
 
         OnInventoryChange?.Invoke();
     }
@@ -63,9 +63,14 @@ public class Inventory_Base : MonoBehaviour
         OnInventoryChange?.Invoke();
     }
 
-    public void RemoveItem(Inventory_Item itemToRemove)
+    public void RemoveOneItem(Inventory_Item itemToRemove)
     {
-        itemList.Remove(itemToRemove);
+        Inventory_Item itemRemove = FindItem(itemToRemove.itemData);
+
+        if (itemRemove.stackSize > 1)
+            itemRemove.RemoveStack();
+        else
+            itemList.Remove(itemToRemove);
 
         OnInventoryChange?.Invoke();
     }
