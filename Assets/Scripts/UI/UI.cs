@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
     public Player player { get; private set; }
     public UI_Inventory inventory { get; private set; }
     public UI_Storage storage { get; private set; }
+    public UI_Craft craft { get; private set; }
 
     bool skillTreeEnabled;
     bool inventoriesEnabled;
@@ -22,6 +23,7 @@ public class UI : MonoBehaviour
         skillTree = GetComponentInChildren<UI_SkillTree>(true);
         inventory = GetComponentInChildren<UI_Inventory>(true);
         storage = GetComponentInChildren<UI_Storage>(true);
+        craft = GetComponentInChildren<UI_Craft>(true);
 
         player = FindAnyObjectByType<Player>();
     }

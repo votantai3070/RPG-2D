@@ -15,8 +15,11 @@ public class Object_Blacksmith : Object_NPC, IInteractable
     public void Interact()
     {
         Debug.Log("Interact Blacksmith");
-        ui.storage.SetupStorage(inventory, storage);
-        ui.storage.gameObject.SetActive(true);
+        ui.storage.SetupStorageUI(storage);
+        ui.craft.SetupCraftUI(storage);
+
+        //ui.storage.gameObject.SetActive(true);
+        ui.craft.gameObject.SetActive(true);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
