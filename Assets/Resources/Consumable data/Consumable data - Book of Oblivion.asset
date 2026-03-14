@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e7019bace2b494c9c9b9e75abc61ba, type: 3}
   m_Name: Consumable data - Book of Oblivion
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemEffect: {fileID: 11400000, guid: 93e61d29ab32f4e4d96a6328bb232c7e, type: 2}
   itemName: Book of Oblivion
   itemIcon: {fileID: 939822925, guid: 454e1de67eded2442bb65c8a1c54255e, type: 3}
   itemType: 4
   maxStackSize: 1
-  itemEffect: {fileID: 11400000, guid: 93e61d29ab32f4e4d96a6328bb232c7e, type: 2}
+  craftRecipe: []

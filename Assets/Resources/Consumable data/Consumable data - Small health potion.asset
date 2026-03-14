@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e7019bace2b494c9c9b9e75abc61ba, type: 3}
   m_Name: Consumable data - Small health potion
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 5
+  itemEffect: {fileID: 11400000, guid: 1f6fb40bf1f35b14785dba5e9ac5503c, type: 2}
   itemName: Small health potion
   itemIcon: {fileID: -1155510943, guid: 454e1de67eded2442bb65c8a1c54255e, type: 3}
   itemType: 4
   maxStackSize: 5
-  itemEffect: {fileID: 11400000, guid: 1f6fb40bf1f35b14785dba5e9ac5503c, type: 2}
+  craftRecipe: []

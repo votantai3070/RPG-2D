@@ -6,9 +6,9 @@ public class Inventory_Base : MonoBehaviour
 {
     public event Action OnInventoryChange;
 
-    public List<Inventory_Item> itemList { get; private set; } = new();
+    public List<Inventory_Item> itemList = new();
 
-    private int maxInventorySlots = 12;
+    public int maxInventorySlots = 12;
 
     protected virtual void Awake()
     {

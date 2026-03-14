@@ -27,7 +27,7 @@ public class Object_NPC : MonoBehaviour
         interactTooltip.SetActive(false);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         HandleFlip();
         HandleTooltipFloat();
