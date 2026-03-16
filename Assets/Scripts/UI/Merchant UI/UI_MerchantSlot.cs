@@ -43,5 +43,15 @@ public class UI_MerchantSlot : UI_ItemSlot
         merchant.TriggerUpdateUI();
     }
 
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+        if (itemInSlot == null) return;
+
+        if (slotType == MerchantSlotType.MerchantSlot)
+            ui.itemTooltip.ShowTooltip(true, rect, itemInSlot, true, true);
+        else
+            ui.itemTooltip.ShowTooltip(true, rect, itemInSlot, false, true);
+    }
+
     public void SetMerchantUI(Inventory_Merchant merchant) => this.merchant = merchant;
 }

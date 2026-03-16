@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8105799469305004373}
   - component: {fileID: 211569283993726991}
   - component: {fileID: 979672913510868124}
+  - component: {fileID: -5729763637251834104}
   m_Layer: 11
   m_Name: Item - Small health potion
   m_TagString: Untagged
@@ -56,6 +57,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Object_ItemPickup
   itemData: {fileID: 11400000, guid: 457b794e5a73f784aae32f692f29beb1, type: 2}
+  dropForce: {x: 3, y: 10}
+  rb: {fileID: 0}
+  col: {fileID: 0}
 --- !u!212 &211569283993726991
 SpriteRenderer:
   serializedVersion: 2
@@ -161,3 +165,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-5729763637251834104
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775249474585033405}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

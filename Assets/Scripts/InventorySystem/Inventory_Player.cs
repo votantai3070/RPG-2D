@@ -38,8 +38,8 @@ public class Inventory_Player : Inventory_Base
         var slotToReplace = matchingSlots[0];
         var itemToUnequip = slotToReplace.equipedItem;
 
-        EquipItem(inventoryItem, slotToReplace);
         UnequipItem(itemToUnequip, slotToReplace != null);
+        EquipItem(inventoryItem, slotToReplace);
     }
 
     private void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slotToEquip)

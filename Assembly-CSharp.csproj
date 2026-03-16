@@ -177,6 +177,7 @@
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\Data\BuffEffectData.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_EquipSlotParent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />
