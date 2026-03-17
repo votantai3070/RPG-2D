@@ -160,6 +160,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Ingame.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Merchant.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Stats.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpState.cs" />

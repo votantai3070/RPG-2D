@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Entity_Health : MonoBehaviour, IDamageable
 {
     public event Action OnTakingDamage;
+    public event Action OnHealthChange;
 
     private Entity entity;
     private Entity_Stats entityStats;
@@ -39,6 +40,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
             return;
 
         currentHealth = entityStats.GetMaxHealth();
+        OnHealthChange += UpdateHealthBar;
         UpdateHealthBar();
     }
 
@@ -47,7 +49,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     public void SetHealthPercent(float percent)
     {
         currentHealth = entityStats.GetMaxHealth() * Mathf.Clamp01(percent);
-        UpdateHealthBar();
+        OnHealthChange?.Invoke();
     }
 
     public void Heal()
@@ -68,7 +70,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         float maxHealth = entityStats.GetMaxHealth();
 
         currentHealth = Mathf.Min(currentHealth, maxHealth);
-        UpdateHealthBar();
+        OnHealthChange?.Invoke();
     }
 
     public virtual bool TakeDamage(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
@@ -128,7 +130,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     public void ReduceHp(int damage)
     {
         currentHealth -= damage;
-        UpdateHealthBar();
+        OnHealthChange?.Invoke();
 
         if (currentHealth <= 0)
             Die();
@@ -149,4 +151,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entity.TryEnterDeadState();
         dropManager?.DropItems();
     }
+
+    public float GetCurrentHealth() => currentHealth;
 }
