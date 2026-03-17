@@ -21,11 +21,8 @@ public class UI_CraftPreview : MonoBehaviour
             return;
         }
 
-        if (storage.HasEnoughMaterials(itemToCraft) && storage.playerInventory.CanAddItem(itemToCraft))
-        {
-            storage.ConsumeMaterials(itemToCraft);
-            storage.playerInventory.AddItem(itemToCraft);
-        }
+        if (storage.CanCraftItem(itemToCraft))
+            storage.CraftItem(itemToCraft);
 
         UpdateCraftPreviewSlots();
     }

@@ -8,6 +8,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     private Entity entity;
     private Entity_Stats entityStats;
+    private Entity_DropManager dropManager;
 
     [Header("Health Info")]
     [SerializeField] private float currentHealth;
@@ -25,6 +26,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         entity = GetComponent<Entity>();
         entityStats = GetComponent<Entity_Stats>();
         healthSlider = GetComponentInChildren<Slider>();
+        dropManager = GetComponent<Entity_DropManager>();
 
         SetupHealth();
     }
@@ -145,5 +147,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
         isDead = true;
 
         entity.TryEnterDeadState();
+        dropManager?.DropItems();
     }
 }

@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b8c6c824301d049b3ae94ea30eb45e, type: 3}
   m_Name: Equipment data - Dracula's Fang
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 926
+  dropChance: 7.5
+  maxDropChance: 65
+  itemEffect: {fileID: 11400000, guid: 1a95403dea3c6b64d9c48615aac13d30, type: 2}
   itemName: Dracula's Fang
   itemIcon: {fileID: 493832755, guid: 454e1de67eded2442bb65c8a1c54255e, type: 3}
   itemType: 1
   maxStackSize: 1
-  itemEffect: {fileID: 11400000, guid: 1a95403dea3c6b64d9c48615aac13d30, type: 2}
   craftRecipe:
   - itemData: {fileID: 11400000, guid: 669f4048fd3ef0f48a8642c71c88fd9a, type: 2}
     stackSize: 1

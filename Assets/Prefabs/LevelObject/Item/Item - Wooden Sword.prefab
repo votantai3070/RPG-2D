@@ -58,8 +58,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Object_ItemPickup
   itemData: {fileID: 11400000, guid: 669f4048fd3ef0f48a8642c71c88fd9a, type: 2}
   dropForce: {x: 3, y: 10}
-  rb: {fileID: 0}
-  col: {fileID: 0}
 --- !u!212 &6388698012741571202
 SpriteRenderer:
   serializedVersion: 2
@@ -180,7 +178,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -5,23 +5,28 @@ public class Object_Chest : MonoBehaviour, IDamageable
 {
     private Animator anim;
     private Rigidbody2D rb;
+    private Entity_DropManager dropManager;
 
     private Coroutine openChestCo;
     [SerializeField] private Vector3 knockback = new(0, 3);
     [SerializeField] private float openChestDuration = .5f;
     private bool isOpen;
+    private bool canDropItem = true;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        dropManager = GetComponent<Entity_DropManager>();
     }
 
     public bool TakeDamage(int damage, float elementalDamage, ElementType elementType, Transform damageDealer)
     {
-        if (isOpen)
+        if (isOpen || canDropItem == false)
             return false;
 
+        canDropItem = false;
+        dropManager?.DropItems();
         OpenChest();
 
         return true;

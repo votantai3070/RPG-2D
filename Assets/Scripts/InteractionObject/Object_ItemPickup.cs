@@ -9,7 +9,7 @@ public class Object_ItemPickup : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
-    private void OnValidate()
+    private void Awake()
     {
         if (itemData == null)
             return;

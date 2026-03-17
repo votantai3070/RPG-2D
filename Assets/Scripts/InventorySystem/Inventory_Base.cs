@@ -44,6 +44,14 @@ public class Inventory_Base : MonoBehaviour
         return null;
     }
 
+    public void RemoveFullStack(Inventory_Item item)
+    {
+        for (int i = 0; i < item.stackSize; i++)
+        {
+            RemoveOneItem(item);
+        }
+    }
+
     public bool CanAddItem(Inventory_Item itemToAdd)
     {
         bool hasStackable = FindStackableItem(itemToAdd) != null;
@@ -53,7 +61,7 @@ public class Inventory_Base : MonoBehaviour
 
     public void AddItem(Inventory_Item item)
     {
-        Inventory_Item itemInInventory = FindItem(item.itemData);
+        Inventory_Item itemInInventory = FindItem(item);
 
         if (itemInInventory != null)
             itemInInventory.AddStack();
@@ -65,7 +73,7 @@ public class Inventory_Base : MonoBehaviour
 
     public void RemoveOneItem(Inventory_Item itemToRemove)
     {
-        Inventory_Item itemRemove = FindItem(itemToRemove.itemData);
+        Inventory_Item itemRemove = FindItem(itemToRemove);
 
         if (itemRemove.stackSize > 1)
             itemRemove.RemoveStack();
@@ -75,9 +83,9 @@ public class Inventory_Base : MonoBehaviour
         OnInventoryChange?.Invoke();
     }
 
-    public Inventory_Item FindItem(ItemDataSO itemData)
+    public Inventory_Item FindItem(Inventory_Item itemToFind)
     {
-        return itemList.Find(item => item.itemData == itemData);
+        return itemList.Find(item => item == itemToFind);
     }
 
     public void TriggerUpdateUI()

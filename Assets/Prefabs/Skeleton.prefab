@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 2378903822137315881}
   - component: {fileID: 5783547100769612965}
   - component: {fileID: 8513079298469742247}
+  - component: {fileID: 1755156173415213639}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Enemy
@@ -842,7 +843,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  healthSlider: {fileID: 0}
   canRegenerateHealth: 0
   damagedVfxDuration: 0.1
   isDead: 0
@@ -882,14 +882,14 @@ MonoBehaviour:
   defaultStatSetup: {fileID: 0}
   resource:
     maxHealth:
-      baseValue: 300
+      baseValue: 160
       modifiers: []
     healthRegen:
       baseValue: 0
       modifiers: []
   major:
     strength:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     agility:
       baseValue: 0
@@ -955,6 +955,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
   currentElement: 0
   defaultDuration: 2
+--- !u!114 &1755156173415213639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578266101326930509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c3cfa235cc6a044963c04b74591915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_DropManager
+  itemDropPrefab: {fileID: 1955497342736062119, guid: e202925e9a66b8a4997d5345c64b2d86, type: 3}
+  dropData: {fileID: 11400000, guid: a5474b66e070bce4abaf975c16a36763, type: 2}
+  maxRarityAmount: 1200
+  maxItemToDrop: 2
 --- !u!1 &9203562861907207463
 GameObject:
   m_ObjectHideFlags: 0

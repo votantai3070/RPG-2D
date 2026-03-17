@@ -22,7 +22,7 @@ public class Inventory_Player : Inventory_Base
         if (item.itemData.itemType == ItemType.Material)
             return;
 
-        var inventoryItem = FindItem(item.itemData);
+        var inventoryItem = FindItem(item);
 
         var matchingSlots = equipList.FindAll(slot => slot.slotType == item.itemData.itemType);
 

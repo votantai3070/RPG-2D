@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7917295327093413716}
   - component: {fileID: 3479006717680109992}
   - component: {fileID: 3934949024688145126}
+  - component: {fileID: 2410572013523187180}
   m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Object_Chest
   knockback: {x: 0, y: 3, z: 0}
   openChestDuration: 0.5
+--- !u!114 &2410572013523187180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656054285227640433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c3cfa235cc6a044963c04b74591915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_DropManager
+  itemDropPrefab: {fileID: 1955497342736062119, guid: e202925e9a66b8a4997d5345c64b2d86, type: 3}
+  dropData: {fileID: 11400000, guid: a5474b66e070bce4abaf975c16a36763, type: 2}
+  maxRarityAmount: 1200
+  maxItemToDrop: 3
 --- !u!1 &5213292624537670061
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1576708187
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: eeda28ca1e2b48e4d90ca60b3a442b2b, type: 3}
