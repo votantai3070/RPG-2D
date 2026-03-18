@@ -23,20 +23,27 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     [SerializeField] private Color lockColor;
     private Color lastColor;
 
-    private void Awake()
+    private void Start()
+    {
+        UpdateIconColor(lockColor);
+        UnlockDefaultSkills();
+        //skillIcon.color = lockColor;
+    }
+
+    public void UnlockDefaultSkills()
+    {
+        GetNeededComponents();
+
+        if (skillData.unlockedByDefault)
+            Unlock();
+    }
+
+    private void GetNeededComponents()
     {
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
-        skillTree = GetComponentInParent<UI_SkillTree>();
+        skillTree = GetComponentInParent<UI_SkillTree>(true);
         connectHandler = GetComponent<UI_TreeConnectHandler>();
-    }
-
-    private void Start()
-    {
-        if (skillData.unlockedByDefault)
-            Unlock();
-
-        skillIcon.color = lockColor;
     }
 
     public void Refund()
@@ -62,7 +69,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             skillTree.RemoveSkillPoint(skillCost);
             connectHandler.ConnectionImageUnlocked(true);
 
-            skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUpgrades(skillData.upgradeData);
+            skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUpgrades(skillData);
 
             Debug.Log("Node unlocked: " + gameObject.name);
         }
@@ -93,7 +100,10 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private bool CanBeUnlock()
     {
         if (isLocked || isUnlocked)
+        {
+            Debug.Log("Skill is ready unlocked!");
             return false;
+        }
 
         if (!skillTree.EnoughSkillPoint(skillCost))
             return false;
@@ -129,7 +139,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillTooltip.ShowTooltip(true, rect, this);
+        ui.skillTooltip.ShowTooltip(true, rect, skillData, this);
 
         if (isLocked || isUnlocked)
             return;

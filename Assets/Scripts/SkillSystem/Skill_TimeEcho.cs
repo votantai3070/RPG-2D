@@ -65,6 +65,7 @@ public class Skill_TimeEcho : Skill_Base
         if (!CanBeUsedSkill()) return;
 
         CreateTimeEcho();
+        SetSkillCooldown();
     }
 
     public void CreateTimeEcho(Vector3? targetPosition = null)
