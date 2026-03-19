@@ -38,6 +38,9 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillTimeEcho.TryUseSkill();
 
         inputActions.Player.Interaction.performed += ctx => player.TryInteract();
+
+        inputActions.Player.QuickItemSlot1.performed += ctx => player.inventory.TryUseQuickItemInSlot(1);
+        inputActions.Player.QuickItemSlot2.performed += ctx => player.inventory.TryUseQuickItemInSlot(2);
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

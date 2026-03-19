@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Heal.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_QuickItemSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Merchant UI\UI_MerchantSlot.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftListButton.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_ItemSlot.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_QuickItemSlotSelection.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordBounce.cs" />
     <Compile Include="Assets\Scripts\SO\Skill_DataSO.cs" />
