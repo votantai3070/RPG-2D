@@ -11,9 +11,9 @@ public class Player_Stats : Entity_Stats
         return activeBuff.Contains(source) == false;
     }
 
-    public void ApplyBuff(BuffEffectData[] buffsToAplly, float duration, string source)
+    public void ApplyBuff(BuffEffectData[] buffsToApply, float duration, string source)
     {
-        StartCoroutine(BuffCo(buffsToAplly, duration, source));
+        StartCoroutine(BuffCo(buffsToApply, duration, source));
     }
 
     private IEnumerator BuffCo(BuffEffectData[] buffsToApply, float duration, string source)

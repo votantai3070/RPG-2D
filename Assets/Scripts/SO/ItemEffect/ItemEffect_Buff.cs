@@ -8,15 +8,13 @@ public class ItemEffect_Buff : ItemEffectDataSO
     [SerializeField] private float duration;
     [SerializeField] private string source = Guid.NewGuid().ToString();
 
-    private Player_Stats playerStats;
-
-    public override bool CanBeUsed()
+    public override bool CanBeUsed(Player player)
     {
-        if (playerStats == null)
-            return playerStats = FindFirstObjectByType<Player_Stats>();
-
-        if (playerStats.CanApplyBuffOf(source))
+        if (player.playerStats.CanApplyBuffOf(source))
+        {
+            this.player = player;
             return true;
+        }
         else
         {
             Debug.Log("Same buff effect cannot be apllied twice!");
@@ -26,6 +24,6 @@ public class ItemEffect_Buff : ItemEffectDataSO
 
     public override void ExecuteEffect()
     {
-        playerStats.ApplyBuff(buffsToApply, duration, source);
+        player.playerStats.ApplyBuff(buffsToApply, duration, source);
     }
 }
