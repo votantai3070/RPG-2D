@@ -140,7 +140,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     private void UpdateHealthBar()
     {
-        if (healthSlider == null && healthSlider.transform.parent.gameObject.activeSelf)
+        if (healthSlider == null && healthSlider.transform.parent.gameObject.activeSelf == false)
             return;
 
         healthSlider.value = currentHealth / entityStats.GetMaxHealth();

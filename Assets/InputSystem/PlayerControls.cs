@@ -138,15 +138,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Toggle Skill Tree UI"",
-                    ""type"": ""Button"",
-                    ""id"": ""367c17b2-bf5f-4df7-8518-318d28429098"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""CastSpell"",
                     ""type"": ""Button"",
                     ""id"": ""d47fb51c-efdf-4e0f-9d46-522a525188b6"",
@@ -420,28 +411,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b6d7dd92-bed0-4bfb-afa2-3bb4e70d8a3c"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Toggle Skill Tree UI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cca21375-4e20-4e06-8183-4a630a69393f"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Toggle Skill Tree UI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b4dd3b20-8d3f-4331-b528-2e71fa884ab5"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -562,6 +531,105 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""4132c666-85de-4b20-83ee-48b0df67073e"",
+            ""actions"": [
+                {
+                    ""name"": ""Option UI"",
+                    ""type"": ""Button"",
+                    ""id"": ""52059785-2cb4-4b89-a52b-809b5d3734dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory UI"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ff83dc5-3ae9-42e4-a994-a3e81cb059d7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill Tree UI"",
+                    ""type"": ""Button"",
+                    ""id"": ""51910922-65d5-49e7-85ce-0503694aea10"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AlternativeInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4be3a32-b7f5-47ed-93e4-3194933bb744"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""741f1f9a-05ac-47b8-913d-e69a82291b5b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Option UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dadcd54-319a-40a0-a1bd-59b108512e23"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0075e0aa-d319-4d8e-aba9-a73c593c904b"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill Tree UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8eb53c39-21b1-4a97-8631-b20129e8ba9c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill Tree UI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d56ec67-0b84-49cb-bc9f-e2c813e6038c"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AlternativeInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -573,7 +641,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_CounterAttack = m_Player.FindAction("Counter Attack", throwIfNotFound: true);
-        m_Player_ToggleSkillTreeUI = m_Player.FindAction("Toggle Skill Tree UI", throwIfNotFound: true);
         m_Player_CastSpell = m_Player.FindAction("CastSpell", throwIfNotFound: true);
         m_Player_RangeAttack = m_Player.FindAction("RangeAttack", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
@@ -582,11 +649,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         m_Player_QuickItemSlot1 = m_Player.FindAction("Quick Item Slot 1", throwIfNotFound: true);
         m_Player_QuickItemSlot2 = m_Player.FindAction("Quick Item Slot 2", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_OptionUI = m_UI.FindAction("Option UI", throwIfNotFound: true);
+        m_UI_InventoryUI = m_UI.FindAction("Inventory UI", throwIfNotFound: true);
+        m_UI_SkillTreeUI = m_UI.FindAction("Skill Tree UI", throwIfNotFound: true);
+        m_UI_AlternativeInput = m_UI.FindAction("AlternativeInput", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerControls.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerControls.UI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -667,7 +741,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_CounterAttack;
-    private readonly InputAction m_Player_ToggleSkillTreeUI;
     private readonly InputAction m_Player_CastSpell;
     private readonly InputAction m_Player_RangeAttack;
     private readonly InputAction m_Player_Mouse;
@@ -707,10 +780,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/CounterAttack".
         /// </summary>
         public InputAction @CounterAttack => m_Wrapper.m_Player_CounterAttack;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/ToggleSkillTreeUI".
-        /// </summary>
-        public InputAction @ToggleSkillTreeUI => m_Wrapper.m_Player_ToggleSkillTreeUI;
         /// <summary>
         /// Provides access to the underlying input action "Player/CastSpell".
         /// </summary>
@@ -784,9 +853,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CounterAttack.started += instance.OnCounterAttack;
             @CounterAttack.performed += instance.OnCounterAttack;
             @CounterAttack.canceled += instance.OnCounterAttack;
-            @ToggleSkillTreeUI.started += instance.OnToggleSkillTreeUI;
-            @ToggleSkillTreeUI.performed += instance.OnToggleSkillTreeUI;
-            @ToggleSkillTreeUI.canceled += instance.OnToggleSkillTreeUI;
             @CastSpell.started += instance.OnCastSpell;
             @CastSpell.performed += instance.OnCastSpell;
             @CastSpell.canceled += instance.OnCastSpell;
@@ -837,9 +903,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CounterAttack.started -= instance.OnCounterAttack;
             @CounterAttack.performed -= instance.OnCounterAttack;
             @CounterAttack.canceled -= instance.OnCounterAttack;
-            @ToggleSkillTreeUI.started -= instance.OnToggleSkillTreeUI;
-            @ToggleSkillTreeUI.performed -= instance.OnToggleSkillTreeUI;
-            @ToggleSkillTreeUI.canceled -= instance.OnToggleSkillTreeUI;
             @CastSpell.started -= instance.OnCastSpell;
             @CastSpell.performed -= instance.OnCastSpell;
             @CastSpell.canceled -= instance.OnCastSpell;
@@ -897,6 +960,135 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_OptionUI;
+    private readonly InputAction m_UI_InventoryUI;
+    private readonly InputAction m_UI_SkillTreeUI;
+    private readonly InputAction m_UI_AlternativeInput;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "UI".
+    /// </summary>
+    public struct UIActions
+    {
+        private @PlayerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "UI/OptionUI".
+        /// </summary>
+        public InputAction @OptionUI => m_Wrapper.m_UI_OptionUI;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/InventoryUI".
+        /// </summary>
+        public InputAction @InventoryUI => m_Wrapper.m_UI_InventoryUI;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/SkillTreeUI".
+        /// </summary>
+        public InputAction @SkillTreeUI => m_Wrapper.m_UI_SkillTreeUI;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/AlternativeInput".
+        /// </summary>
+        public InputAction @AlternativeInput => m_Wrapper.m_UI_AlternativeInput;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @OptionUI.started += instance.OnOptionUI;
+            @OptionUI.performed += instance.OnOptionUI;
+            @OptionUI.canceled += instance.OnOptionUI;
+            @InventoryUI.started += instance.OnInventoryUI;
+            @InventoryUI.performed += instance.OnInventoryUI;
+            @InventoryUI.canceled += instance.OnInventoryUI;
+            @SkillTreeUI.started += instance.OnSkillTreeUI;
+            @SkillTreeUI.performed += instance.OnSkillTreeUI;
+            @SkillTreeUI.canceled += instance.OnSkillTreeUI;
+            @AlternativeInput.started += instance.OnAlternativeInput;
+            @AlternativeInput.performed += instance.OnAlternativeInput;
+            @AlternativeInput.canceled += instance.OnAlternativeInput;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="UIActions" />
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @OptionUI.started -= instance.OnOptionUI;
+            @OptionUI.performed -= instance.OnOptionUI;
+            @OptionUI.canceled -= instance.OnOptionUI;
+            @InventoryUI.started -= instance.OnInventoryUI;
+            @InventoryUI.performed -= instance.OnInventoryUI;
+            @InventoryUI.canceled -= instance.OnInventoryUI;
+            @SkillTreeUI.started -= instance.OnSkillTreeUI;
+            @SkillTreeUI.performed -= instance.OnSkillTreeUI;
+            @SkillTreeUI.canceled -= instance.OnSkillTreeUI;
+            @AlternativeInput.started -= instance.OnAlternativeInput;
+            @AlternativeInput.performed -= instance.OnAlternativeInput;
+            @AlternativeInput.canceled -= instance.OnAlternativeInput;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+        /// </summary>
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+        /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+    /// </summary>
+    public UIActions @UI => new UIActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
     /// </summary>
@@ -939,13 +1131,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCounterAttack(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Toggle Skill Tree UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleSkillTreeUI(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "CastSpell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1002,5 +1187,41 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQuickItemSlot2(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
+    /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
+    public interface IUIActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Option UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOptionUI(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventoryUI(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skill Tree UI" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkillTreeUI(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AlternativeInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAlternativeInput(InputAction.CallbackContext context);
     }
 }

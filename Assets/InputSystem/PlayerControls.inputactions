@@ -52,15 +52,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Toggle Skill Tree UI",
-                    "type": "Button",
-                    "id": "367c17b2-bf5f-4df7-8518-318d28429098",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "CastSpell",
                     "type": "Button",
                     "id": "d47fb51c-efdf-4e0f-9d46-522a525188b6",
@@ -334,28 +325,6 @@
                 },
                 {
                     "name": "",
-                    "id": "b6d7dd92-bed0-4bfb-afa2-3bb4e70d8a3c",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Toggle Skill Tree UI",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cca21375-4e20-4e06-8183-4a630a69393f",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Toggle Skill Tree UI",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b4dd3b20-8d3f-4331-b528-2e71fa884ab5",
                     "path": "<Keyboard>/q",
                     "interactions": "",
@@ -472,6 +441,105 @@
                     "processors": "",
                     "groups": "",
                     "action": "Quick Item Slot 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "4132c666-85de-4b20-83ee-48b0df67073e",
+            "actions": [
+                {
+                    "name": "Option UI",
+                    "type": "Button",
+                    "id": "52059785-2cb4-4b89-a52b-809b5d3734dd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory UI",
+                    "type": "Button",
+                    "id": "3ff83dc5-3ae9-42e4-a994-a3e81cb059d7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill Tree UI",
+                    "type": "Button",
+                    "id": "51910922-65d5-49e7-85ce-0503694aea10",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AlternativeInput",
+                    "type": "Button",
+                    "id": "e4be3a32-b7f5-47ed-93e4-3194933bb744",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "741f1f9a-05ac-47b8-913d-e69a82291b5b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Option UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9dadcd54-319a-40a0-a1bd-59b108512e23",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0075e0aa-d319-4d8e-aba9-a73c593c904b",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Tree UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8eb53c39-21b1-4a97-8631-b20129e8ba9c",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill Tree UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d56ec67-0b84-49cb-bc9f-e2c813e6038c",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AlternativeInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

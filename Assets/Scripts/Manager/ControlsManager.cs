@@ -26,12 +26,11 @@ public class ControlsManager : MonoBehaviour
 
     public void AssignInputEvents()
     {
-        // Movement
+        //Player
         inputActions.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         inputActions.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
-        inputActions.Player.ToggleSkillTreeUI.performed += ctx => ui.ToggleSkillTree();
         inputActions.Player.ToggleCharacterUI.performed += ctx => ui.ToggleInventory();
 
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
@@ -41,6 +40,31 @@ public class ControlsManager : MonoBehaviour
 
         inputActions.Player.QuickItemSlot1.performed += ctx => player.inventory.TryUseQuickItemInSlot(1);
         inputActions.Player.QuickItemSlot2.performed += ctx => player.inventory.TryUseQuickItemInSlot(2);
+
+
+        //UI
+        inputActions.UI.SkillTreeUI.performed += ctx => ui.ToggleSkillTree();
+        inputActions.UI.InventoryUI.performed += ctx => ui.ToggleInventory();
+
+        inputActions.UI.AlternativeInput.performed += ctx => ui.SetAlternativeInput(true);
+        inputActions.UI.AlternativeInput.canceled += ctx => ui.SetAlternativeInput(false);
+
+        inputActions.UI.OptionUI.performed += ctx =>
+        {
+            foreach (var element in ui.uiElements)
+            {
+                if (element.activeSelf)
+                {
+                    Time.timeScale = 1;
+                    ui.SwitchToIngameUI();
+                    return;
+                }
+
+            }
+
+            Time.timeScale = 0;
+            ui.OpenOptionsUI();
+        };
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

@@ -21,7 +21,7 @@ public class UI_Ingame : MonoBehaviour
 
     private void Start()
     {
-        quickItemSlots = GetComponentsInChildren<UI_QuickItemSlot>();
+        quickItemSlots = GetComponentsInChildren<UI_QuickItemSlot>(true);
         player = FindFirstObjectByType<Player>();
         inventory = player.inventory;
 
