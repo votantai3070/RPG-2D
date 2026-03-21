@@ -7,13 +7,15 @@ public class Entity_Health : MonoBehaviour, IDamageable
     public event Action OnTakingDamage;
     public event Action OnHealthChange;
 
+    private Slider healthSlider;
     private Entity entity;
     private Entity_Stats entityStats;
     private Entity_DropManager dropManager;
 
+    private bool miniHealthBarActive;
+
     [Header("Health Info")]
     [SerializeField] private float currentHealth;
-    private Slider healthSlider;
     [SerializeField] private bool canRegenerateHealth;
     public int lastDamageTaken { get; private set; }
     protected bool canTakeDamage = true;
@@ -138,11 +140,13 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     private void UpdateHealthBar()
     {
-        if (healthSlider == null)
+        if (healthSlider == null && healthSlider.transform.parent.gameObject.activeSelf)
             return;
 
         healthSlider.value = currentHealth / entityStats.GetMaxHealth();
     }
+
+    public void EnableHealthBar(bool enabled) => healthSlider?.transform.parent.gameObject.SetActive(enabled);
 
     protected virtual void Die()
     {
