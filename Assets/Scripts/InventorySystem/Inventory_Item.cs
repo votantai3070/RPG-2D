@@ -54,7 +54,7 @@ public class Inventory_Item
 
     public void AddItemEffect(Player player) => itemEffect?.Subcribe(player);
     public void RemoveItemEffect() => itemEffect?.Unsubscribe();
-    public bool CanStackSize() => stackSize < itemData.maxStackSize;
+    public bool CanAddStack() => stackSize < itemData.maxStackSize;
     public void AddStack() => stackSize++;
     public void RemoveStack() => stackSize--;
 

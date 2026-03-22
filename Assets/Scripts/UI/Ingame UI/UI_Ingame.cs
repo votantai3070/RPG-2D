@@ -37,6 +37,9 @@ public class UI_Ingame : MonoBehaviour
     {
         Inventory_Item[] quickItems = inventory.quickItems;
 
+        Debug.Log("Quick Item: " + quickItems.Length);
+
+
         for (int i = 0; i < quickItems.Length; i++)
             quickItemSlots[i].UpdateQuickSlotUI(quickItems[i]);
     }

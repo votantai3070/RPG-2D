@@ -38,15 +38,8 @@ public class Inventory_Base : MonoBehaviour
 
     public Inventory_Item FindStackableItem(Inventory_Item itemToAdd)
     {
-        List<Inventory_Item> stackableItems = itemList.FindAll(item => item.itemData == itemToAdd.itemData);
+        return itemList.Find(item => item.itemData == itemToAdd.itemData && item.CanAddStack());
 
-        foreach (var stackableItem in stackableItems)
-        {
-            if (stackableItem.CanStackSize())
-                return stackableItem;
-        }
-
-        return null;
     }
 
     public void RemoveFullStack(Inventory_Item item)

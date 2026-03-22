@@ -70,8 +70,6 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             connectHandler.ConnectionImageUnlocked(true);
 
             skillTree.skillManager.GetSkillByType(skillData.skillType).SetSkillUpgrades(skillData);
-
-            Debug.Log("Node unlocked: " + gameObject.name);
         }
         else
         {
@@ -150,6 +148,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillTooltip.ShowTooltip(false, rect);
+        ui.skillTooltip.StopLockedSkillEffect();
 
         if (isLocked || isUnlocked)
             return;
