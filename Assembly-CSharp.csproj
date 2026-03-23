@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Heal.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Merchant UI\UI_MerchantSlot.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftListButton.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_StatTooltip.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_DropManager.cs" />
     <Compile Include="Assets\Scripts\SO\ItemData\ItemDataSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DomainExpansionState.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\Skill_TimeEcho.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_SkillSlot.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_ItemPickup.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ISaveable.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordPierce.cs" />
     <Compile Include="Assets\InputSystem\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="Assets\Scripts\SO\ConsumableDataSO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_CounterState.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\GameData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_ThrowSwordState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_FallState.cs" />
