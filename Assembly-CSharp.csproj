@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Item.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_HealOnDoingDamage.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_QuickItemSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />

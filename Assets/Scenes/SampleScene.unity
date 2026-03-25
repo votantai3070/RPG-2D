@@ -4632,7 +4632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory_Player
   itemList: []
   maxInventorySlots: 12
-  gold: 10000
+  itemDataBase: {fileID: 11400000, guid: 82b3bc752810ac845b2460a8d623139a, type: 2}
   equipList:
   - slotType: 1
     equipedItem:
@@ -4655,6 +4655,7 @@ MonoBehaviour:
     stackSize: 0
   - itemData: {fileID: 0}
     stackSize: 0
+  gold: 10000
 --- !u!114 &77885088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5960,6 +5961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   fileName: save.json
+  encryption: 1
 --- !u!4 &105380025
 Transform:
   m_ObjectHideFlags: 0
@@ -60439,10 +60441,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 54613095}
+  - {fileID: 1862491231}
   - {fileID: 1032794982}
   - {fileID: 512335543}
   - {fileID: 404447701}
-  - {fileID: 1862491231}
   m_Father: {fileID: 798612894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -83179,12 +83181,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270020823}
-  - {fileID: 167949389}
-  - {fileID: 287950339}
   - {fileID: 412713926}
   - {fileID: 2118700073}
   - {fileID: 768181497}
   - {fileID: 456907443}
+  - {fileID: 167949389}
+  - {fileID: 287950339}
   m_Father: {fileID: 798612894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Inventory_Base : MonoBehaviour, ISaveable
 {
+    [SerializeField] protected ItemListDataSO itemDataBase;
+
     protected Player player;
     public event Action OnInventoryChange;
 
