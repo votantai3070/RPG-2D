@@ -2956,7 +2956,7 @@ GameObject:
   - component: {fileID: 54613091}
   - component: {fileID: 54613092}
   m_Layer: 5
-  m_Name: Quick dash Node
+  m_Name: UI_TreeNode - Quick dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2974,15 +2974,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 4cd96689232c1044a9f7a1dd7405b176, type: 2}
   neededNodes: []
   conflictNodes: []
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 4cd96689232c1044a9f7a1dd7405b176, type: 2}
   skillName: Quick dash
   skillIcon: {fileID: 211805658}
   skillCost: 0
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &54613092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ GameObject:
   - component: {fileID: 56026336}
   - component: {fileID: 56026335}
   m_Layer: 5
-  m_Name: The Xenablade Node
+  m_Name: UI_TreeNode - The Xenablade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3277,18 +3277,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: ce6cf24d390a23b4f914b06a1c92a37c, type: 2}
   neededNodes:
   - {fileID: 1125328830}
   conflictNodes:
   - {fileID: 1667224860}
   - {fileID: 1238636414}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: ce6cf24d390a23b4f914b06a1c92a37c, type: 2}
   skillName: The Xenablade
   skillIcon: {fileID: 1544185139}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &56026337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,9 +4630,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8406cf28f41eb37439e1de36ab14a855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory_Player
+  itemDataBase: {fileID: 11400000, guid: 82b3bc752810ac845b2460a8d623139a, type: 2}
   itemList: []
   maxInventorySlots: 12
-  itemDataBase: {fileID: 11400000, guid: 82b3bc752810ac845b2460a8d623139a, type: 2}
   equipList:
   - slotType: 1
     equipedItem:
@@ -9070,7 +9070,7 @@ GameObject:
   - component: {fileID: 167949391}
   - component: {fileID: 167949390}
   m_Layer: 5
-  m_Name: Cleanse Node
+  m_Name: UI_TreeNode - Cleanse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9136,17 +9136,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: dc0800d5ec09c354bb195cb69ab0f9a0, type: 2}
   neededNodes:
   - {fileID: 412713928}
   conflictNodes:
   - {fileID: 287950341}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: dc0800d5ec09c354bb195cb69ab0f9a0, type: 2}
   skillName: Cleanse
   skillIcon: {fileID: 1331838684}
   skillCost: 3
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &167949392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13500,7 +13500,7 @@ GameObject:
   - component: {fileID: 287950341}
   - component: {fileID: 287950340}
   m_Layer: 5
-  m_Name: Quick thinking Node
+  m_Name: UI_TreeNode - Quick thinking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13566,17 +13566,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 3e9fbdd27b190eb40a81b524e866159a, type: 2}
   neededNodes:
   - {fileID: 412713928}
   conflictNodes:
   - {fileID: 167949391}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 3e9fbdd27b190eb40a81b524e866159a, type: 2}
   skillName: Quick thinking
   skillIcon: {fileID: 1647658886}
   skillCost: 0
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &287950342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34935,7 +34935,7 @@ GameObject:
   - component: {fileID: 404447703}
   - component: {fileID: 404447702}
   m_Layer: 5
-  m_Name: Echo step Node
+  m_Name: UI_TreeNode - Echo step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35001,18 +35001,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 0e4bf9241a868f44992eaa0271bab8f5, type: 2}
   neededNodes:
   - {fileID: 54613091}
   conflictNodes:
   - {fileID: 1032794981}
   - {fileID: 512335539}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 0e4bf9241a868f44992eaa0271bab8f5, type: 2}
   skillName: Echo step
   skillIcon: {fileID: 1789042933}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &404447704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35330,7 +35330,7 @@ GameObject:
   - component: {fileID: 412713928}
   - component: {fileID: 412713927}
   m_Layer: 5
-  m_Name: Healing wisp Node
+  m_Name: UI_TreeNode - Healing wisp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35396,17 +35396,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: b98ebb008e8842c4ea23a9006886b63f, type: 2}
   neededNodes:
   - {fileID: 1270020826}
   conflictNodes:
   - {fileID: 2118700075}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: b98ebb008e8842c4ea23a9006886b63f, type: 2}
   skillName: Healing wisp
   skillIcon: {fileID: 733626393}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &412713929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37371,7 +37371,7 @@ GameObject:
   - component: {fileID: 456907445}
   - component: {fileID: 456907444}
   m_Layer: 5
-  m_Name: Endless possibility Node
+  m_Name: UI_TreeNode - Endless possibility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37437,17 +37437,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: ebb0029aae1619e48b358f12c7b9df71, type: 2}
   neededNodes:
   - {fileID: 2118700075}
   conflictNodes:
   - {fileID: 768181493}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: ebb0029aae1619e48b358f12c7b9df71, type: 2}
   skillName: Endless possibility
   skillIcon: {fileID: 1913626659}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &456907446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40114,7 +40114,7 @@ GameObject:
   - component: {fileID: 512335539}
   - component: {fileID: 512335540}
   m_Layer: 5
-  m_Name: Time lost shard Node
+  m_Name: UI_TreeNode - Time lost shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40132,18 +40132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: e0813e2ce1c190e4b916f0f6334efb30, type: 2}
   neededNodes:
   - {fileID: 54613091}
   conflictNodes:
   - {fileID: 404447703}
   - {fileID: 1862491228}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: e0813e2ce1c190e4b916f0f6334efb30, type: 2}
   skillName: Time lost shard
   skillIcon: {fileID: 1891243110}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &512335540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41265,7 +41265,7 @@ GameObject:
   - component: {fileID: 539801651}
   - component: {fileID: 539801652}
   m_Layer: 5
-  m_Name: Shards of time Node
+  m_Name: UI_TreeNode - Shards of time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41283,17 +41283,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: ec2b46702ae676e42b40249f2723a6b2, type: 2}
   neededNodes:
   - {fileID: 1248890701}
   conflictNodes:
   - {fileID: 1547221618}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: ec2b46702ae676e42b40249f2723a6b2, type: 2}
   skillName: Shards of time
   skillIcon: {fileID: 257266021}
   skillCost: 4
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &539801652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51338,7 +51338,7 @@ GameObject:
   - component: {fileID: 768181493}
   - component: {fileID: 768181494}
   m_Layer: 5
-  m_Name: Echo Barrage Node
+  m_Name: UI_TreeNode - Echo Barrage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51356,17 +51356,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 894359b70633ff6459ebf1f861313ff9, type: 2}
   neededNodes:
   - {fileID: 2118700075}
   conflictNodes:
   - {fileID: 456907445}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 894359b70633ff6459ebf1f861313ff9, type: 2}
   skillName: Echo Barrage
   skillIcon: {fileID: 353603141}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &768181494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56175,6 +56175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b061d5771fd9bd642b53ee727f8fe04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory_Storage
+  itemDataBase: {fileID: 11400000, guid: 82b3bc752810ac845b2460a8d623139a, type: 2}
   itemList: []
   maxInventorySlots: 12
 --- !u!1 &871766555
@@ -56992,7 +56993,7 @@ GameObject:
   - component: {fileID: 893803297}
   - component: {fileID: 893803295}
   m_Layer: 5
-  m_Name: Mirror shard Node
+  m_Name: UI_TreeNode - Mirror shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57058,16 +57059,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 769c3388b715efa46b0103c4ae6fbbce, type: 2}
   neededNodes: []
   conflictNodes:
   - {fileID: 1270020826}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 769c3388b715efa46b0103c4ae6fbbce, type: 2}
   skillName: Mirror shard
   skillIcon: {fileID: 914959056}
   skillCost: 3
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &893803298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58777,6 +58778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8e8cdc1b368e64aabe03d29f6047bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory_Merchant
+  itemDataBase: {fileID: 11400000, guid: 82b3bc752810ac845b2460a8d623139a, type: 2}
   itemList: []
   maxInventorySlots: 36
   shopData: {fileID: 11400000, guid: a5474b66e070bce4abaf975c16a36763, type: 2}
@@ -60441,10 +60443,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 54613095}
-  - {fileID: 1862491231}
-  - {fileID: 1032794982}
   - {fileID: 512335543}
   - {fileID: 404447701}
+  - {fileID: 1862491231}
+  - {fileID: 1032794982}
   m_Father: {fileID: 798612894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -62174,7 +62176,7 @@ GameObject:
   - component: {fileID: 1032794981}
   - component: {fileID: 1032794978}
   m_Layer: 5
-  m_Name: Found fragment Node
+  m_Name: UI_TreeNode - Found fragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62255,15 +62257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 927a779e26cb3c447810bd4e070725b4, type: 2}
   neededNodes: []
   conflictNodes: []
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 927a779e26cb3c447810bd4e070725b4, type: 2}
   skillName: Found fragment
   skillIcon: {fileID: 851153735}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!224 &1032794982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66403,7 +66405,7 @@ GameObject:
   - component: {fileID: 1125328830}
   - component: {fileID: 1125328831}
   m_Layer: 5
-  m_Name: Catch this Node
+  m_Name: UI_TreeNode - Catch this
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66421,16 +66423,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: c7fd36835550109429d427493f51895f, type: 2}
   neededNodes: []
   conflictNodes:
   - {fileID: 1270020826}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: c7fd36835550109429d427493f51895f, type: 2}
   skillName: Catch this
   skillIcon: {fileID: 372409125}
   skillCost: 1
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1125328831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72139,7 +72141,7 @@ GameObject:
   - component: {fileID: 1238636414}
   - component: {fileID: 1238636415}
   m_Layer: 5
-  m_Name: The bulletsword Node
+  m_Name: UI_TreeNode - The bulletsword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72157,18 +72159,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 698669a68a45451449aabbf9fbc7f362, type: 2}
   neededNodes:
   - {fileID: 1125328830}
   conflictNodes:
   - {fileID: 1667224860}
   - {fileID: 56026336}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 698669a68a45451449aabbf9fbc7f362, type: 2}
   skillName: The bulletsword
   skillIcon: {fileID: 2062515953}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1238636415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72604,7 +72606,7 @@ GameObject:
   - component: {fileID: 1248890701}
   - component: {fileID: 1248890702}
   m_Layer: 5
-  m_Name: Time warp Node
+  m_Name: UI_TreeNode - Time warp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72622,16 +72624,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: e04c9176f9466d44ab8bb2a5bd91b6bd, type: 2}
   neededNodes: []
   conflictNodes:
   - {fileID: 1270020826}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: e04c9176f9466d44ab8bb2a5bd91b6bd, type: 2}
   skillName: Time warp
   skillIcon: {fileID: 2037814447}
   skillCost: 4
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1248890702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73401,7 +73403,7 @@ GameObject:
   - component: {fileID: 1270020826}
   - component: {fileID: 1270020827}
   m_Layer: 5
-  m_Name: Time Echo Node
+  m_Name: UI_TreeNode - Time Echo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73480,16 +73482,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: c6208fc4aad892b408744cdb091670e3, type: 2}
   neededNodes: []
   conflictNodes:
   - {fileID: 1664385707}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: c6208fc4aad892b408744cdb091670e3, type: 2}
   skillName: Time Echo
   skillIcon: {fileID: 646286894}
   skillCost: 1
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1270020827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78805,7 +78807,7 @@ GameObject:
   - component: {fileID: 1446211756}
   - component: {fileID: 1446211754}
   m_Layer: 5
-  m_Name: Vital Anchor Node
+  m_Name: UI_TreeNode - Vital Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78871,17 +78873,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 5d43bbabe2f239e449cb8be023e5c038, type: 2}
   neededNodes:
   - {fileID: 1664385707}
   conflictNodes:
   - {fileID: 1594825935}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 5d43bbabe2f239e449cb8be023e5c038, type: 2}
   skillName: Vital Anchor
   skillIcon: {fileID: 1460536156}
   skillCost: 3
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1446211757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82484,7 +82486,7 @@ GameObject:
   - component: {fileID: 1547221618}
   - component: {fileID: 1547221617}
   m_Layer: 5
-  m_Name: Echoes of the past Node
+  m_Name: UI_TreeNode - Echoes of the past
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82550,17 +82552,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: d978b549a97e1d24caaab123dc93ffc4, type: 2}
   neededNodes:
   - {fileID: 1248890701}
   conflictNodes:
   - {fileID: 539801651}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: d978b549a97e1d24caaab123dc93ffc4, type: 2}
   skillName: Echoes of the past
   skillIcon: {fileID: 6806761}
   skillCost: 4
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1547221619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83181,12 +83183,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270020823}
+  - {fileID: 167949389}
+  - {fileID: 287950339}
   - {fileID: 412713926}
   - {fileID: 2118700073}
   - {fileID: 768181497}
   - {fileID: 456907443}
-  - {fileID: 167949389}
-  - {fileID: 287950339}
   m_Father: {fileID: 798612894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -84086,7 +84088,7 @@ GameObject:
   - component: {fileID: 1594825935}
   - component: {fileID: 1594825933}
   m_Layer: 5
-  m_Name: Irritated Shard Node
+  m_Name: UI_TreeNode - Irritated Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84152,17 +84154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: a20c64ab73dc0694a859fbb45f0c4cda, type: 2}
   neededNodes:
   - {fileID: 1664385707}
   conflictNodes:
   - {fileID: 1844868250}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: a20c64ab73dc0694a859fbb45f0c4cda, type: 2}
   skillName: Irritated Shard
   skillIcon: {fileID: 2002824982}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1594825936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87028,7 +87030,7 @@ GameObject:
   - component: {fileID: 1664385707}
   - component: {fileID: 1664385709}
   m_Layer: 5
-  m_Name: Time Shard Node
+  m_Name: UI_TreeNode - Time Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87046,16 +87048,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 3d8d23932716e7f4a8729ca3a9975af5, type: 2}
   neededNodes: []
   conflictNodes:
   - {fileID: 1270020826}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 3d8d23932716e7f4a8729ca3a9975af5, type: 2}
   skillName: Time Shard
   skillIcon: {fileID: 1126771895}
   skillCost: 0
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!224 &1664385708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -87231,7 +87233,7 @@ GameObject:
   - component: {fileID: 1667224860}
   - component: {fileID: 1667224859}
   m_Layer: 5
-  m_Name: The chainsaw Node
+  m_Name: UI_TreeNode - The chainsaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87297,18 +87299,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 0af36835c1a101c408a4dd1fdc0a882b, type: 2}
   neededNodes:
   - {fileID: 1125328830}
   conflictNodes:
   - {fileID: 1238636414}
   - {fileID: 56026336}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 0af36835c1a101c408a4dd1fdc0a882b, type: 2}
   skillName: The chainsaw
   skillIcon: {fileID: 685022177}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1667224861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90894,10 +90896,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1664385708}
+  - {fileID: 893803296}
   - {fileID: 1594825934}
   - {fileID: 1844868249}
   - {fileID: 1446211755}
-  - {fileID: 893803296}
   m_Father: {fileID: 798612894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -95538,7 +95540,7 @@ GameObject:
   - component: {fileID: 1844868250}
   - component: {fileID: 1844868248}
   m_Layer: 5
-  m_Name: Phantom Recall Node
+  m_Name: UI_TreeNode - Phantom Recall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95604,17 +95606,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 9efe57c08ca54344c9699bfd32319f74, type: 2}
   neededNodes:
   - {fileID: 1664385707}
   conflictNodes:
   - {fileID: 1594825935}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 9efe57c08ca54344c9699bfd32319f74, type: 2}
   skillName: Phantom Recall
   skillIcon: {fileID: 1905494530}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1844868251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96800,7 +96802,7 @@ GameObject:
   - component: {fileID: 1862491228}
   - component: {fileID: 1862491227}
   m_Layer: 5
-  m_Name: Deja Vu Node
+  m_Name: UI_TreeNode - Deja Vu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96843,15 +96845,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 9f837d9c816e99b4198abef9a8095019, type: 2}
   neededNodes: []
   conflictNodes: []
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 9f837d9c816e99b4198abef9a8095019, type: 2}
   skillName: Deja Vu
   skillIcon: {fileID: 858424609}
   skillCost: 3
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &1862491229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127569,7 +127571,7 @@ GameObject:
   - component: {fileID: 2118700075}
   - component: {fileID: 2118700074}
   m_Layer: 5
-  m_Name: Timelass attacak Node
+  m_Name: UI_TreeNode - Timelass attacak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127635,17 +127637,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958b1c8f894fa6941a136ce9d1949385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillData: {fileID: 11400000, guid: 03b4be301bb1e214586dc5513f7f44d9, type: 2}
   neededNodes:
   - {fileID: 1270020826}
   conflictNodes:
   - {fileID: 412713928}
-  isLocked: 0
   isUnlocked: 0
+  isLocked: 0
+  skillData: {fileID: 11400000, guid: 03b4be301bb1e214586dc5513f7f44d9, type: 2}
   skillName: Timelass attacak
   skillIcon: {fileID: 1675822044}
   skillCost: 2
-  lockColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  lockedColorHex: '#9F9797'
 --- !u!114 &2118700076
 MonoBehaviour:
   m_ObjectHideFlags: 0

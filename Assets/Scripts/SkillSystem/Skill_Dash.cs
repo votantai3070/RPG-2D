@@ -20,11 +20,11 @@ public class Skill_Dash : Skill_Base
 
     private void CreateShard()
     {
-        skillManager.skillShard.CreateRawShard();
+        skillManager.shard.CreateRawShard();
     }
 
     private void CreateClone()
     {
-        skillManager.skillTimeEcho.CreateTimeEcho();
+        skillManager.timeEcho.CreateTimeEcho();
     }
 }

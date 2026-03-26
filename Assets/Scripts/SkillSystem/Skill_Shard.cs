@@ -32,7 +32,7 @@ public class Skill_Shard : Skill_Base
 
     public override void TryUseSkill()
     {
-        if (!CanBeUsedSkill())
+        if (!CanUseSkill())
             return;
 
         if (Unlocked(SkillUpgradeType.Shard))
@@ -62,7 +62,7 @@ public class Skill_Shard : Skill_Base
         {
             SwapPlayerAndShard();
             playerHealth.SetHealthPercent(savedHealthPercent);
-            SetSkillCooldown();
+            SetSkillOnCooldown();
         }
     }
 
@@ -75,7 +75,7 @@ public class Skill_Shard : Skill_Base
         else
         {
             SwapPlayerAndShard();
-            SetSkillCooldown();
+            SetSkillOnCooldown();
         }
     }
 
@@ -120,13 +120,13 @@ public class Skill_Shard : Skill_Base
     {
         CreateShard();
         currentShard.MoveTowardsClosestTarget(speed);
-        SetSkillCooldown();
+        SetSkillOnCooldown();
     }
 
     private void SkillShardRegular()
     {
         CreateShard();
-        SetSkillCooldown();
+        SetSkillOnCooldown();
     }
 
     public void CreateShard()
@@ -167,9 +167,9 @@ public class Skill_Shard : Skill_Base
 
     private void ForceCooldown()
     {
-        if (!OnCoolDown())
+        if (!OnCooldown())
         {
-            SetSkillCooldown();
+            SetSkillOnCooldown();
             currentShard.OnExplode -= ForceCooldown;
         }
     }

@@ -32,21 +32,21 @@ public class PlayerState : EntityState
 
         if (controls.PressedDash() && CanDash())
         {
-            skillManager.skillDash.SetSkillCooldown();
+            skillManager.dash.SetSkillOnCooldown();
             stateMachine.ChangeState(player.dashState);
         }
 
-        if (controls.PressedUltimateSpell() && skillManager.skillDomain.CanBeUsedSkill())
+        if (controls.PressedUltimateSpell() && skillManager.domainExpansion.CanUseSkill())
         {
-            if (skillManager.skillDomain.InstantDomain())
+            if (skillManager.domainExpansion.InstantDomain())
             {
-                skillManager.skillDomain.CreateDomain();
+                skillManager.domainExpansion.CreateDomain();
             }
             else
             {
                 stateMachine.ChangeState(player.domainExpansionState);
             }
-            skillManager.skillDomain.SetSkillCooldown();
+            skillManager.domainExpansion.SetSkillOnCooldown();
         }
     }
 
@@ -57,7 +57,7 @@ public class PlayerState : EntityState
 
     private bool CanDash()
     {
-        if (!skillManager.skillDash.CanBeUsedSkill())
+        if (!skillManager.dash.CanUseSkill())
             return false;
 
         if (stateMachine.currentState == player.dashState || stateMachine.currentState == player.domainExpansionState)

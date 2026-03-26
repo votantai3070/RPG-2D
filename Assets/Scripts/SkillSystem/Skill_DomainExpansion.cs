@@ -57,12 +57,12 @@ public class Skill_DomainExpansion : Skill_Base
         if (upgradeType == SkillUpgradeType.Domain_EchoSpam)
         {
             Vector3 offset = Random.value < .5f ? new(1, 0) : new(-1, 0);
-            skillManager.skillTimeEcho.CreateTimeEcho(target.position + offset);
+            skillManager.timeEcho.CreateTimeEcho(target.position + offset);
         }
 
         if (upgradeType == SkillUpgradeType.Domain_ShardSpam)
         {
-            skillManager.skillShard.CreateRawShard(target, true);
+            skillManager.shard.CreateRawShard(target, true);
         }
     }
 

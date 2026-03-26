@@ -47,7 +47,7 @@ public class Skill_ThrowSword : Skill_Base
         dots = GenerateDots();
     }
 
-    public override bool CanBeUsedSkill()
+    public override bool CanUseSkill()
     {
         GetCurrentPower(upgradeType);
 
@@ -57,7 +57,7 @@ public class Skill_ThrowSword : Skill_Base
             return false;
         }
 
-        return base.CanBeUsedSkill();
+        return base.CanUseSkill();
     }
 
     public void ThrowSword()
@@ -67,7 +67,7 @@ public class Skill_ThrowSword : Skill_Base
         currentSword = newSword.GetComponent<SkillObject_Sword>();
         currentSword.SetupSword(this, GetThrowPower());
 
-        SetSkillCooldown();
+        SetSkillOnCooldown();
     }
 
     private GameObject GetSwordPrefab()

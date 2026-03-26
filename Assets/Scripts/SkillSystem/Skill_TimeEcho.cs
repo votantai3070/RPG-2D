@@ -62,10 +62,10 @@ public class Skill_TimeEcho : Skill_Base
 
     public override void TryUseSkill()
     {
-        if (!CanBeUsedSkill()) return;
+        if (!CanUseSkill()) return;
 
         CreateTimeEcho();
-        SetSkillCooldown();
+        SetSkillOnCooldown();
     }
 
     public void CreateTimeEcho(Vector3? targetPosition = null)

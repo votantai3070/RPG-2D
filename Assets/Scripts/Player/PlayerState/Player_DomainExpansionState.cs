@@ -34,7 +34,7 @@ public class Player_DomainExpansionState : PlayerState
 
         if (isLevitating)
         {
-            skillManager.skillDomain.DoSpellCasting();
+            skillManager.domainExpansion.DoSpellCasting();
 
             if (stateTimer < 0)
             {
@@ -59,13 +59,13 @@ public class Player_DomainExpansionState : PlayerState
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0;
 
-        stateTimer = skillManager.skillDomain.GetDomainDuration();
+        stateTimer = skillManager.domainExpansion.GetDomainDuration();
 
         // Get levitate duration
         if (!createdDomain)
         {
             createdDomain = true;
-            skillManager.skillDomain.CreateDomain();
+            skillManager.domainExpansion.CreateDomain();
         }
     }
 

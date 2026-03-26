@@ -13,6 +13,10 @@ public class GameData
 
     public SerializableDictionary<string, ItemType> equipedItems; // itemSaveId -> slotType;
 
+    public int skillPoint;
+    public SerializableDictionary<string, bool> skillTreeUI;
+    public SerializableDictionary<SkillType, SkillUpgradeType> skillUpgrades;
+
     public GameData()
     {
         inventory = new SerializableDictionary<string, int>();
@@ -20,5 +24,8 @@ public class GameData
         storageMaterials = new SerializableDictionary<string, int>();
 
         equipedItems = new SerializableDictionary<string, ItemType>();
+
+        skillTreeUI = new SerializableDictionary<string, bool>();
+        skillUpgrades = new SerializableDictionary<SkillType, SkillUpgradeType>();
     }
 }

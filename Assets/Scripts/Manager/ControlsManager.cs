@@ -33,8 +33,8 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
         inputActions.Player.ToggleCharacterUI.performed += ctx => ui.ToggleInventory();
 
-        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillShard.TryUseSkill();
-        inputActions.Player.CastSpell.performed += ctx => player.skillManager.skillTimeEcho.TryUseSkill();
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.shard.TryUseSkill();
+        inputActions.Player.CastSpell.performed += ctx => player.skillManager.timeEcho.TryUseSkill();
 
         inputActions.Player.Interaction.performed += ctx => player.TryInteract();
 

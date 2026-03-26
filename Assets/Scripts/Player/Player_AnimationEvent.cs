@@ -8,5 +8,5 @@ public class Player_AnimationEvent : Entity_AnimationEvent
         player = GetComponentInParent<Player>();
     }
 
-    private void ThrowSword() => player.skillManager.skillThrowSword.ThrowSword();
+    private void ThrowSword() => player.skillManager.swordThrow.ThrowSword();
 }
