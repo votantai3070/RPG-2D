@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_IceBlastOnTakingDamage.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_Checkpoint.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftPreview.cs" />
     <Compile Include="Assets\Scripts\UI\Storage UI\UI_Storage.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffectDataSO.cs" />

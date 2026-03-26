@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class GameData
@@ -16,6 +17,8 @@ public class GameData
     public int skillPoint;
     public SerializableDictionary<string, bool> skillTreeUI;
     public SerializableDictionary<SkillType, SkillUpgradeType> skillUpgrades;
+
+    public Vector3 savedCheckpoint;
 
     public GameData()
     {
