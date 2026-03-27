@@ -6,4 +6,9 @@ public class Player_Health : Entity_Health
     {
         return base.TakeDamage(damage, elementalDamage, elementType, damagedDealer);
     }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
 }
