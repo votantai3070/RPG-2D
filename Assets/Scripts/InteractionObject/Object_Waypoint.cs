@@ -1,12 +1,22 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Object_Waypoint : MonoBehaviour
 {
     [SerializeField] private string transferToScene;
-    public RespawnType waypointType;
+    [Space]
+    [SerializeField] private RespawnType waypointType;
     [SerializeField] private RespawnType connectedWaypoint;
-    [SerializeField] private bool canBeTrigger = true;
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private bool canBeTriggered = true;
+
+    public void SetCanBeTriggered(bool canBeTriggered) => this.canBeTriggered = canBeTriggered;
+
+    public RespawnType GetWaypointType() => waypointType;
+
+    public Vector3 GetPosition()
+    {
+        return respawnPoint == null ? transform.position : respawnPoint.position;
+    }
 
     private void OnValidate()
     {
@@ -21,12 +31,15 @@ public class Object_Waypoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (canBeTriggered == false)
+            return;
+
         SaveManager.instance.SaveGame();
-        SceneManager.LoadScene(transferToScene);
+        GameManager.instance.ChangeScene(transferToScene, connectedWaypoint);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canBeTrigger = true;
+        canBeTriggered = true;
     }
 }
