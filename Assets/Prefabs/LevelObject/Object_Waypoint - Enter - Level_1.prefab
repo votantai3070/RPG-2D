@@ -339,7 +339,7 @@ MonoBehaviour:
   waypointType: 0
   connectedWaypoint: 1
   respawnPoint: {fileID: 5390548921609449652}
-  canBeTrigger: 1
+  canBeTriggered: 1
 --- !u!61 &5557920232734781968
 BoxCollider2D:
   m_ObjectHideFlags: 0

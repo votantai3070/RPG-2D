@@ -10,5 +10,8 @@ public class Player_Health : Entity_Health
     protected override void Die()
     {
         base.Die();
+
+        GameManager.instance.SetLastDeathPosition(transform.position);
+        GameManager.instance.RestartScene();
     }
 }
