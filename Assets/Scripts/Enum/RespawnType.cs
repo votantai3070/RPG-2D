@@ -1,4 +1,4 @@
 public enum RespawnType
 {
-    Enter, Exit, None
+    Enter, Exit, NoneSpecific, Portal
 }

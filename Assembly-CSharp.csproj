@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_QuickItemSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
+    <Compile Include="Assets\Scripts\InteractionObject\Object_Portal.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordBounce.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Assets\Scripts\UI\VFX_Automatic.cs" />
     <Compile Include="Assets\Scripts\Player\Player_AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Options.cs" />
+    <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Portal.cs" />
     <Compile Include="Assets\Scripts\UI\Stats UI\UI_StatSlot.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_DomainExpansion.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />

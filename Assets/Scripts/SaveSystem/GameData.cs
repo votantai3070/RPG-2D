@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class GameData
@@ -14,10 +15,14 @@ public class GameData
     public SerializableDictionary<string, ItemType> equipedItems; // itemSaveId -> slotType;
 
     public int skillPoint;
-    public SerializableDictionary<string, bool> skillTreeUI;
-    public SerializableDictionary<SkillType, SkillUpgradeType> skillUpgrades;
+    public SerializableDictionary<string, bool> skillTreeUI; // skill name -> is unlocked
+    public SerializableDictionary<SkillType, SkillUpgradeType> skillUpgrades; // skillType -> upgradeType
 
-    public SerializableDictionary<string, bool> unlockedCheckpoints;
+    public SerializableDictionary<string, bool> unlockedCheckpoints; // check point id -> is unlocked
+    public SerializableDictionary<string, Vector3> inScencePortals; // scene name -> portal position
+
+    public string portalDestinationSceneName;
+    public bool returningFromTown;
 
     public GameData()
     {
@@ -31,5 +36,6 @@ public class GameData
         skillUpgrades = new SerializableDictionary<SkillType, SkillUpgradeType>();
 
         unlockedCheckpoints = new SerializableDictionary<string, bool>();
+        inScencePortals = new SerializableDictionary<string, Vector3>();
     }
 }
