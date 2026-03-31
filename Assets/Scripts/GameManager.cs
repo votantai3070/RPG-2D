@@ -3,10 +3,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveable
 {
     public static GameManager instance;
-    private Vector3 lastDeathPosition;
+    private Vector3 lastPlayerPosition;
+
+    private string lastScenePlayed;
 
     private void Awake()
     {
@@ -20,7 +22,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetLastDeathPosition(Vector3 position) => lastDeathPosition = position;
+    //public void SetLastPlayerPosition(Vector3 position) => lastPlayerPosition = position;
+
+    public void ContinuePlay()
+    {
+        ChangeScene(lastScenePlayed, RespawnType.NoneSpecific);
+    }
 
     public void RestartScene()
     {
@@ -82,7 +89,7 @@ public class GameManager : MonoBehaviour
             if (selectedPosition.Count == 0)
                 return Vector3.zero;
 
-            return selectedPosition.OrderBy(pos => Vector3.Distance(pos, lastDeathPosition)).First(); // return the closest position to the last death position
+            return selectedPosition.OrderBy(pos => Vector3.Distance(pos, lastPlayerPosition)).First(); // return the closest position to the last death position
         }
 
         return GetWaypointPosition(type);
@@ -99,5 +106,25 @@ public class GameManager : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public void LoadData(GameData data)
+    {
+        lastScenePlayed = data.lastScenePlayed;
+        lastPlayerPosition = data.lastPlayerPosition;
+
+        if (string.IsNullOrEmpty(lastScenePlayed))
+            lastScenePlayed = "Level_0";
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (currentSceneName == "MainMenu")
+            return;
+
+        data.lastPlayerPosition = Player.instance.transform.position;
+        data.lastScenePlayed = currentSceneName;
     }
 }

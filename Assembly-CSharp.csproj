@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Portal.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordBounce.cs" />

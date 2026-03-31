@@ -11,7 +11,7 @@ public class Player_Health : Entity_Health
     {
         base.Die();
 
-        GameManager.instance.SetLastDeathPosition(transform.position);
+        //GameManager.instance.SetLastPlayerPosition(transform.position);
         GameManager.instance.RestartScene();
     }
 }
