@@ -25,7 +25,7 @@ public class UI_Ingame : MonoBehaviour
         player = FindFirstObjectByType<Player>();
         inventory = player.inventory;
 
-        player.health.OnHealthChange += UpdateHealthBar;
+        player.playerHealth.OnHealthChange += UpdateHealthBar;
         UpdateHealthBar();
         inventory.OnInventoryChange += UpdateQuickSlotsUI;
         inventory.OnQuickSlotUsed += PlayerQuickSlotFeedback;
@@ -87,7 +87,7 @@ public class UI_Ingame : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        int currentHealth = Mathf.FloorToInt(player.health.GetCurrentHealth());
+        int currentHealth = Mathf.FloorToInt(player.playerHealth.GetCurrentHealth());
         float maxHealth = player.playerStats.GetMaxHealth();
         float sizeDiff = Mathf.Abs(maxHealth - healthRect.sizeDelta.x);
 
@@ -95,6 +95,6 @@ public class UI_Ingame : MonoBehaviour
             healthRect.sizeDelta = new Vector2(maxHealth, healthRect.sizeDelta.y);
 
         healthText.text = $"{currentHealth} / {maxHealth}";
-        healthSlider.value = player.health.GetHealthPercent();
+        healthSlider.value = player.playerHealth.GetHealthPercent();
     }
 }

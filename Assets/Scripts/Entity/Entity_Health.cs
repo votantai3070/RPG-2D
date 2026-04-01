@@ -10,7 +10,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private Slider healthSlider;
     private Entity entity;
     private Entity_Stats entityStats;
-    private Entity_DropManager dropManager;
+    private Entity_DropManager entityDropManager;
 
     private bool miniHealthBarActive;
 
@@ -24,12 +24,12 @@ public class Entity_Health : MonoBehaviour, IDamageable
     [SerializeField] private float damagedVfxDuration = .1f;
     public bool isDead;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
         entityStats = GetComponent<Entity_Stats>();
         healthSlider = GetComponentInChildren<Slider>();
-        dropManager = GetComponent<Entity_DropManager>();
+        entityDropManager = GetComponent<Entity_DropManager>();
 
         SetupHealth();
     }
@@ -152,8 +152,8 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         isDead = true;
 
-        entity.TryEnterDeadState();
-        dropManager?.DropItems();
+        entity?.TryEnterDeadState();
+        entityDropManager?.DropItems();
     }
 
     public float GetCurrentHealth() => currentHealth;

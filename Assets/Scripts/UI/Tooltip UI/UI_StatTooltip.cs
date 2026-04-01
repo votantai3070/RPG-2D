@@ -36,7 +36,7 @@ public class UI_StatTooltip : UI_ItemTooltip
                         "\n Adds 1 elemental damage per point as a bonus. " +
                         "\n If all elements have 0 damage, the bonus will not be applied.";
             case StatType.Vitality:
-                return "Increases maximum health by 5 per point" +
+                return "Increases maximum playerHealth by 5 per point" +
                        "\n Increases armor by 1 per point.";
 
             // Physical Damage
@@ -53,9 +53,9 @@ public class UI_StatTooltip : UI_ItemTooltip
 
             // Defense
             case StatType.MaxHealth:
-                return "Determines how much total health you have.";
+                return "Determines how much total playerHealth you have.";
             case StatType.HealthRegen:
-                return "Amount of health restored per second.";
+                return "Amount of playerHealth restored per second.";
             case StatType.Armor:
                 return "Reduces incoming physical damage."
                     + "\n Armor mitigation is Limited at 85%."

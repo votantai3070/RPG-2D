@@ -6,7 +6,6 @@ public class Entity : MonoBehaviour
 {
     public Entity_VFX vfx { get; private set; }
     public Entity_StatusHandler stateHandler { get; private set; }
-    public Entity_Health entityHealth { get; private set; }
     public Entity_Stats entityStats { get; private set; }
 
     public static Action OnFlipped;
@@ -42,7 +41,6 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-        entityHealth = GetComponent<Entity_Health>();
         vfx = GetComponent<Entity_VFX>();
         stateMachine = new StateMachine();
         rb = GetComponent<Rigidbody2D>();

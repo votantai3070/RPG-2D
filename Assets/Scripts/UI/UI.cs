@@ -14,7 +14,9 @@ public class UI : MonoBehaviour
     public UI_Merchant merchant { get; private set; }
     public UI_Ingame ingame { get; private set; }
     public UI_Options options { get; private set; }
+    public UI_DeathScreen deathScreenUI { get; private set; }
     #endregion
+
     public GameObject[] uiElements;
     public bool alternativeInput { get; private set; }
 
@@ -34,6 +36,7 @@ public class UI : MonoBehaviour
         merchant = GetComponentInChildren<UI_Merchant>(true);
         ingame = GetComponentInChildren<UI_Ingame>(true);
         options = GetComponentInChildren<UI_Options>(true);
+        deathScreenUI = GetComponentInChildren<UI_DeathScreen>(true);
 
         player = FindAnyObjectByType<Player>();
     }
@@ -65,26 +68,34 @@ public class UI : MonoBehaviour
         skillTree.UnlockDefaultSkills();
     }
 
+    public void OpenDeathScreenUI()
+    {
+        SwitchTo(deathScreenUI.gameObject);
+        ControlsManager.instance.inputActions.Disable();
+    }
+
     public void OpenOptionsUI()
     {
-        foreach (var element in uiElements)
-            element.gameObject.SetActive(false);
-
         HideAllTooltips();
         StopPlayerControls(true);
-        options.gameObject.SetActive(true);
+        SwitchTo(options.gameObject);
     }
 
     public void SwitchToIngameUI()
     {
-        foreach (var element in uiElements)
-            element.gameObject.SetActive(false);
-
         StopPlayerControls(false);
-        ingame.gameObject.SetActive(true);
 
+        SwitchTo(ingame.gameObject);
         skillTreeEnabled = false;
         inventoriesEnabled = false;
+    }
+
+    private void SwitchTo(GameObject objectSwitching)
+    {
+        foreach (var element in uiElements)
+            element.SetActive(false);
+
+        objectSwitching.SetActive(true);
     }
 
     public void ToggleSkillTree()

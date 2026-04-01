@@ -7,7 +7,7 @@ public class ItemEffect_HealOnDoingDamage : ItemEffectDataSO
 
     private void HealOnDoingDamage(float damage)
     {
-        player.health.IncreaseHealth(damage * percentHealOnAttack);
+        player.playerHealth.IncreaseHealth(damage * percentHealOnAttack);
     }
 
     public override void Subcribe(Player player)

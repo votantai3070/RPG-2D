@@ -162,6 +162,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_ThunderStrikeOnDamage.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_DeathScreen.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />

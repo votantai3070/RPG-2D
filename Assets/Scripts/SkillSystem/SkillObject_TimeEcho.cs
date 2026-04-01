@@ -10,7 +10,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
     private Skill_TimeEcho echoManager;
     private TrailRenderer wispTrail;
-    private Entity_Health playerHealth;
+    private Player_Health playerHealth;
     private Player_SkillManager skillManager;
     private Entity_StatusHandler statusHandler;
     private SkillObject_Health echoHealth;
@@ -34,7 +34,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
         playerStats = timeEchoManager.player.playerStats;
         player = timeEchoManager.player;
         damageScale = timeEchoManager.damageScaleData;
-        playerHealth = timeEchoManager.player.entityHealth;
+        playerHealth = timeEchoManager.player.playerHealth;
         skillManager = timeEchoManager.skillManager;
         statusHandler = timeEchoManager.player.statusHandler;
 

@@ -2,6 +2,22 @@ using UnityEngine;
 
 public class Player_Health : Entity_Health
 {
+    private Player player;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        player = GetComponent<Player>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Die();
+        }
+    }
+
     public override bool TakeDamage(int damage, float elementalDamage, ElementType elementType, Transform damagedDealer)
     {
         return base.TakeDamage(damage, elementalDamage, elementType, damagedDealer);
@@ -11,7 +27,6 @@ public class Player_Health : Entity_Health
     {
         base.Die();
 
-        //GameManager.instance.SetLastPlayerPosition(transform.position);
-        GameManager.instance.RestartScene();
+        player.ui.OpenDeathScreenUI();
     }
 }

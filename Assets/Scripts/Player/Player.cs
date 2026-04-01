@@ -8,7 +8,7 @@ public class Player : Entity
     public static Action OnPlayerDead;
     public Player_SkillManager skillManager { get; private set; }
     public Player_VFX playerVfx { get; private set; }
-    public Player_Health health { get; private set; }
+    public Player_Health playerHealth { get; private set; }
     public Entity_StatusHandler statusHandler { get; private set; }
     public Player_Stats playerStats { get; private set; }
     public Player_Combat combat { get; private set; }
@@ -64,7 +64,7 @@ public class Player : Entity
 
         skillManager = GetComponent<Player_SkillManager>();
         playerVfx = GetComponent<Player_VFX>();
-        health = GetComponent<Player_Health>();
+        playerHealth = GetComponent<Player_Health>();
         statusHandler = GetComponent<Entity_StatusHandler>();
         playerStats = GetComponent<Player_Stats>();
         combat = GetComponent<Player_Combat>();

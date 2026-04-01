@@ -16,7 +16,7 @@ public class ItemEffect_IceBlastOnTakingDamage : ItemEffectDataSO
     public override void ExecuteEffect()
     {
         bool noCooldown = Time.time >= lastTimeUsed + cooldown;
-        bool reachedThreshold = player.health.GetHealthPercent() <= healthPercentTrigger;
+        bool reachedThreshold = player.playerHealth.GetHealthPercent() <= healthPercentTrigger;
 
         if (noCooldown && reachedThreshold)
         {
@@ -47,13 +47,13 @@ public class ItemEffect_IceBlastOnTakingDamage : ItemEffectDataSO
     public override void Subcribe(Player player)
     {
         base.Subcribe(player);
-        player.health.OnTakingDamage += ExecuteEffect;
+        player.playerHealth.OnTakingDamage += ExecuteEffect;
     }
 
     public override void Unsubscribe()
     {
         base.Unsubscribe();
-        player.health.OnTakingDamage += ExecuteEffect;
+        player.playerHealth.OnTakingDamage += ExecuteEffect;
         player = null;
     }
 }

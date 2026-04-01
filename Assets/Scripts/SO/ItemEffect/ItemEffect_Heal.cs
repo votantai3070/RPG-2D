@@ -9,6 +9,6 @@ public class ItemEffect_Heal : ItemEffectDataSO
     {
         Player player = FindAnyObjectByType<Player>();
         float healAmount = player.playerStats.GetMaxHealth() * healPercent;
-        player.health.IncreaseHealth(healAmount);
+        player.playerHealth.IncreaseHealth(healAmount);
     }
 }
