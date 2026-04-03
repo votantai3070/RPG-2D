@@ -31,7 +31,7 @@ public class ControlsManager : MonoBehaviour
         inputActions.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
 
         inputActions.Player.Mouse.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
-        inputActions.Player.ToggleCharacterUI.performed += ctx => ui.ToggleInventory();
+        inputActions.Player.ToggleCharacterUI.performed += ctx => ui.ToggleInventoryUI();
 
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.shard.TryUseSkill();
         inputActions.Player.CastSpell.performed += ctx => player.skillManager.timeEcho.TryUseSkill();
@@ -43,8 +43,8 @@ public class ControlsManager : MonoBehaviour
 
 
         //UI
-        inputActions.UI.SkillTreeUI.performed += ctx => ui.ToggleSkillTree();
-        inputActions.UI.InventoryUI.performed += ctx => ui.ToggleInventory();
+        inputActions.UI.SkillTreeUI.performed += ctx => ui.ToggleSkillTreeUI();
+        inputActions.UI.InventoryUI.performed += ctx => ui.ToggleInventoryUI();
 
         inputActions.UI.AlternativeInput.performed += ctx => ui.SetAlternativeInput(true);
         inputActions.UI.AlternativeInput.canceled += ctx => ui.SetAlternativeInput(false);

@@ -30,7 +30,7 @@ public class UI_SkillTooltip : UI_Tooltip
 
     private void Start()
     {
-        skillTree = ui.skillTree;
+        skillTree = ui.skillTreeUI;
     }
 
     public override void ShowTooltip(bool show, RectTransform target = null)

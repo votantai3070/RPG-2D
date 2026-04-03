@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
+    public static UI instance { get; private set; }
+
     #region UI Components
     public UI_SkillTooltip skillTooltip { get; private set; }
     public UI_ItemTooltip itemTooltip { get; private set; }
     public UI_StatTooltip statTooltip { get; private set; }
-    public UI_SkillTree skillTree { get; private set; }
+    public UI_SkillTree skillTreeUI { get; private set; }
     public Player player { get; private set; }
-    public UI_Inventory inventory { get; private set; }
-    public UI_Storage storage { get; private set; }
-    public UI_Craft craft { get; private set; }
-    public UI_Merchant merchant { get; private set; }
-    public UI_Ingame ingame { get; private set; }
-    public UI_Options options { get; private set; }
+    public UI_Inventory inventoryUI { get; private set; }
+    public UI_Storage storageUI { get; private set; }
+    public UI_Craft craftUI { get; private set; }
+    public UI_Merchant merchantUI { get; private set; }
+    public UI_Ingame ingameUI { get; private set; }
+    public UI_Options optionsUI { get; private set; }
     public UI_DeathScreen deathScreenUI { get; private set; }
+    public UI_FadeScreen fadeUI { get; private set; }
     #endregion
 
     public GameObject[] uiElements;
@@ -25,18 +28,21 @@ public class UI : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         skillTooltip = GetComponentInChildren<UI_SkillTooltip>();
         itemTooltip = GetComponentInChildren<UI_ItemTooltip>();
         statTooltip = GetComponentInChildren<UI_StatTooltip>();
 
-        skillTree = GetComponentInChildren<UI_SkillTree>(true);
-        inventory = GetComponentInChildren<UI_Inventory>(true);
-        storage = GetComponentInChildren<UI_Storage>(true);
-        craft = GetComponentInChildren<UI_Craft>(true);
-        merchant = GetComponentInChildren<UI_Merchant>(true);
-        ingame = GetComponentInChildren<UI_Ingame>(true);
-        options = GetComponentInChildren<UI_Options>(true);
+        skillTreeUI = GetComponentInChildren<UI_SkillTree>(true);
+        inventoryUI = GetComponentInChildren<UI_Inventory>(true);
+        storageUI = GetComponentInChildren<UI_Storage>(true);
+        craftUI = GetComponentInChildren<UI_Craft>(true);
+        merchantUI = GetComponentInChildren<UI_Merchant>(true);
+        ingameUI = GetComponentInChildren<UI_Ingame>(true);
+        optionsUI = GetComponentInChildren<UI_Options>(true);
         deathScreenUI = GetComponentInChildren<UI_DeathScreen>(true);
+        fadeUI = GetComponentInChildren<UI_FadeScreen>(true);
 
         player = FindAnyObjectByType<Player>();
     }
@@ -65,7 +71,7 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
-        skillTree.UnlockDefaultSkills();
+        skillTreeUI.UnlockDefaultSkills();
     }
 
     public void OpenDeathScreenUI()
@@ -78,14 +84,14 @@ public class UI : MonoBehaviour
     {
         HideAllTooltips();
         StopPlayerControls(true);
-        SwitchTo(options.gameObject);
+        SwitchTo(optionsUI.gameObject);
     }
 
     public void SwitchToIngameUI()
     {
         StopPlayerControls(false);
 
-        SwitchTo(ingame.gameObject);
+        SwitchTo(ingameUI.gameObject);
         skillTreeEnabled = false;
         inventoriesEnabled = false;
     }
@@ -98,25 +104,27 @@ public class UI : MonoBehaviour
         objectSwitching.SetActive(true);
     }
 
-    public void ToggleSkillTree()
+    public void ToggleSkillTreeUI()
     {
-        skillTree.transform.SetAsLastSibling();
+        skillTreeUI.transform.SetAsLastSibling();
         SetTooltipAsLastSibing();
+        fadeUI.transform.SetAsLastSibling();
 
         skillTreeEnabled = !skillTreeEnabled;
-        skillTree.gameObject.SetActive(skillTreeEnabled);
+        skillTreeUI.gameObject.SetActive(skillTreeEnabled);
         HideAllTooltips();
 
         StopPlayerControlIfNeeded();
     }
 
-    public void ToggleInventory()
+    public void ToggleInventoryUI()
     {
-        inventory.transform.SetAsLastSibling();
+        inventoryUI.transform.SetAsLastSibling();
         SetTooltipAsLastSibing();
+        fadeUI.transform.SetAsLastSibling();
 
         inventoriesEnabled = !inventoriesEnabled;
-        inventory.gameObject.SetActive(inventoriesEnabled);
+        inventoryUI.gameObject.SetActive(inventoriesEnabled);
         HideAllTooltips();
 
         StopPlayerControlIfNeeded();
@@ -124,19 +132,19 @@ public class UI : MonoBehaviour
 
     public void OpenStorageUI(bool openStorageUI)
     {
-        storage.gameObject.SetActive(openStorageUI);
+        storageUI.gameObject.SetActive(openStorageUI);
         StopPlayerControls(openStorageUI);
 
         if (openStorageUI == false)
         {
-            craft.gameObject.SetActive(false);
+            craftUI.gameObject.SetActive(false);
             HideAllTooltips();
         }
     }
 
     public void OpenMerchantUI(bool openMerchantUI)
     {
-        merchant.gameObject.SetActive(openMerchantUI);
+        merchantUI.gameObject.SetActive(openMerchantUI);
         StopPlayerControls(openMerchantUI);
 
         if (openMerchantUI == false)

@@ -11,7 +11,7 @@ public class UI_CraftListButton : MonoBehaviour
     {
         if (craftData == null)
         {
-            Debug.Log("You need to assign craft list data!");
+            Debug.Log("You need to assign craftUI list data!");
             return;
         }
 

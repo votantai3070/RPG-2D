@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_StatTooltip.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_FadeScreen.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_DropManager.cs" />
     <Compile Include="Assets\Scripts\SO\ItemData\ItemDataSO.cs" />

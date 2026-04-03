@@ -40,6 +40,6 @@ public class UI_QuickItemSlot : UI_ItemSlot
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        ui.ingame.OpenQuickItemOptions(this, rect);
+        ui.ingameUI.OpenQuickItemOptions(this, rect);
     }
 }

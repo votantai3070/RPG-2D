@@ -9,6 +9,6 @@ public class ItemEffect_GrantSkillPoint : ItemEffectDataSO
     {
         UI ui = FindAnyObjectByType<UI>();
 
-        ui.skillTree.AddSkillPoint(addSkillPoints);
+        ui.skillTreeUI.AddSkillPoint(addSkillPoints);
     }
 }

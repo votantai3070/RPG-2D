@@ -15,8 +15,8 @@ public class Object_Blacksmith : Object_NPC, IInteractable
     public void Interact()
     {
         Debug.Log("Interact Blacksmith");
-        ui.storage.SetupStorageUI(storage);
-        ui.craft.SetupCraftUI(storage);
+        ui.storageUI.SetupStorageUI(storage);
+        ui.craftUI.SetupCraftUI(storage);
 
         ui.OpenStorageUI(true);
     }

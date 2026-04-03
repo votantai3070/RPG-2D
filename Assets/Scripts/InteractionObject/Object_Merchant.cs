@@ -22,7 +22,7 @@ public class Object_Merchant : Object_NPC, IInteractable
     public void Interact()
     {
         Debug.Log("Merchant Interact!");
-        ui.merchant.SetupMerchantUI(merchant, inventory);
+        ui.merchantUI.SetupMerchantUI(merchant, inventory);
         ui.OpenMerchantUI(true);
     }
 

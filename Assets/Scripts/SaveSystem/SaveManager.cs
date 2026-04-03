@@ -25,7 +25,7 @@ public class SaveManager : MonoBehaviour
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryption);
         allSaveables = FindISaveables();
 
-        yield return new WaitForSeconds(.01f);
+        yield return null;
         LoadGame();
     }
 
@@ -59,6 +59,8 @@ public class SaveManager : MonoBehaviour
     {
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryption);
         dataHandler.Delete();
+
+        LoadGame();
     }
 
     private void OnApplicationQuit()
