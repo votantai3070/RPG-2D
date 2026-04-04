@@ -7,6 +7,8 @@ public class Entity : MonoBehaviour
     public Entity_VFX vfx { get; private set; }
     public Entity_StatusHandler stateHandler { get; private set; }
     public Entity_Stats entityStats { get; private set; }
+    public Entity_SFX entitySfx { get; private set; }
+
 
     public static Action OnFlipped;
     public StateMachine stateMachine { get; private set; }
@@ -48,6 +50,7 @@ public class Entity : MonoBehaviour
         controls = ControlsManager.instance;
         stateHandler = GetComponent<Entity_StatusHandler>();
         entityStats = GetComponent<Entity_Stats>();
+        entitySfx = GetComponent<Entity_SFX>();
     }
 
     protected virtual void Start()

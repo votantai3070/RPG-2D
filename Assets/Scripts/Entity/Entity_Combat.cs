@@ -6,6 +6,7 @@ public class Entity_Combat : MonoBehaviour
     public event Action<float> OnDoingPhysicalDamage;
     public event Action OnDoingThunderStrikeDamage;
 
+    public Entity_SFX sFX { get; private set; }
     private Entity_VFX vfx;
     private Entity_Stats entityStats;
 
@@ -22,10 +23,13 @@ public class Entity_Combat : MonoBehaviour
     {
         vfx = GetComponent<Entity_VFX>();
         entityStats = GetComponent<Entity_Stats>();
+        sFX = GetComponent<Entity_SFX>();
     }
 
     public void PerformAttack()
     {
+        bool targetGoHit = false;
+
         foreach (var hit in AttackHits())
         {
             if (!hit.TryGetComponent<IDamageable>(out IDamageable damageable))
@@ -37,7 +41,7 @@ public class Entity_Combat : MonoBehaviour
 
             float elementDamage = attackData.elementalDamage;
             int physicalDamage = (int)attackData.physicalDamage;
-            bool targetGoHit = damageable.TakeDamage(physicalDamage, elementDamage, element, transform);
+            targetGoHit = damageable.TakeDamage(physicalDamage, elementDamage, element, transform);
 
             if (element != ElementType.None)
                 handler.ApplyStatusEffect(element, attackData.effectData);
@@ -50,6 +54,12 @@ public class Entity_Combat : MonoBehaviour
                 if (hit.GetComponent<Entity>() != null)
                     hit.GetComponent<Entity>().ElementalVfx(defaultDuration, element);
                 vfx.GetImapctVfx(hit.transform, attackData.isCrit);
+                sFX?.PlayAttackHit();
+            }
+
+            if (targetGoHit == false)
+            {
+                sFX?.PlayAttackMiss();
             }
         }
     }
