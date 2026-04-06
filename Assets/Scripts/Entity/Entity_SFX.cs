@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Entity_SFX : MonoBehaviour
 {
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     [Header("SFX")]
     [SerializeField] private string attackHit;
     [SerializeField] private string attackMiss;
+    [Space]
+    [SerializeField] private float soundDistance = 15;
 
     private void Awake()
     {
@@ -15,11 +17,11 @@ public class Entity_SFX : MonoBehaviour
 
     public void PlayAttackHit()
     {
-        AudioManager.instance.PlaySFX(attackHit, audioSource);
+        AudioManager.instance.PlaySFX(attackHit, audioSource, soundDistance);
     }
 
     public void PlayAttackMiss()
     {
-        AudioManager.instance.PlaySFX(attackMiss, audioSource);
+        AudioManager.instance.PlaySFX(attackMiss, audioSource, soundDistance);
     }
 }

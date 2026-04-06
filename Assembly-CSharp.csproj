@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Base.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Sword.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Heal.cs" />
+    <Compile Include="Assets\Scripts\AudioRangeController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\FileDataHandler.cs" />

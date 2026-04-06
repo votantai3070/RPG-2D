@@ -8,6 +8,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void PlayBtn()
     {
+        AudioManager.instance.PlayGlobalSFX("button_click");
         GameManager.instance.ContinuePlay();
     }
 

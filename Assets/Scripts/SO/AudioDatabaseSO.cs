@@ -40,7 +40,7 @@ public class AudioClipData
 {
     public string audioName;
     public List<AudioClip> clips = new();
-    [Range(0f, 1f)] public float volume = 1f;
+    [Range(0f, 1f)] public float maxVolume = 1f;
 
     public AudioClip GetRandomClip()
     {
