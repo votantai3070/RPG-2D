@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    [Header("Quest Info")]
+    public string questTargetId;
+
     public Enemy_IdleState idleState;
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;

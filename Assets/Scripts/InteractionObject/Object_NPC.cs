@@ -6,6 +6,7 @@ public class Object_NPC : MonoBehaviour
     protected UI ui;
     protected Animator anim;
 
+    [SerializeField] private string npcTargetQuestId;
     [SerializeField] private Transform npc;
     [SerializeField] private GameObject interactTooltip;
     private bool facingRight = true;

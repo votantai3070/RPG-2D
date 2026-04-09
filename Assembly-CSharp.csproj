@@ -84,7 +84,6 @@
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Health.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_ItemTooltip.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Player.cs" />
-    <Compile Include="Assets\Scripts\Data\ElementalEffectData.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_TimeEcho.cs" />
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_TreeConnectHandler.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_EquipmentSlot.cs" />
@@ -112,7 +111,9 @@
     <Compile Include="Assets\Scripts\Player\Player_DropManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_VFX.cs" />
+    <Compile Include="Assets\Scripts\SO\QuestData\QuestDataSO.cs" />
     <Compile Include="Assets\Scripts\Entity\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Data\DamageData\AttackData.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Item.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_HealOnDoingDamage.cs" />
@@ -149,10 +150,10 @@
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_EquipSlot.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_MoveState.cs" />
+    <Compile Include="Assets\Scripts\Data\DamageData\DamageScaleData.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Chest.cs" />
     <Compile Include="Assets\Scripts\SO\ItemData\EquipmentDataSO.cs" />
     <Compile Include="Assets\Scripts\Enum\ItemType.cs" />
-    <Compile Include="Assets\Scripts\Data\DamageScaleData.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillUpgradeType.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Shard.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftPreviewSlot.cs" />
@@ -172,7 +173,6 @@
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_ItemSlotParent.cs" />
     <Compile Include="Assets\Scripts\UI\Healthbar.cs" />
-    <Compile Include="Assets\Scripts\Data\AttackData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_QuickItemSlotSelection.cs" />
@@ -196,6 +196,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\Skill_DomainExpansion.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\SO\QuestData\QuestDatabaseSO.cs" />
     <Compile Include="Assets\Scripts\Enum\RespawnType.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftSlot.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_Tooltip.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Blacksmith.cs" />
+    <Compile Include="Assets\Scripts\Data\DamageData\ElementalEffectData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\Player\Player_SkillManager.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_Inventory.cs" />

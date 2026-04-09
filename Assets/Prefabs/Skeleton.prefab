@@ -916,6 +916,7 @@ MonoBehaviour:
   heavyKnockBackPower: {x: 10, y: 3}
   knockBackDuration: 0.1
   heavyKnockBackThreshold: 0.3
+  questTargetId: enemy_skeleton
   idleDuration: 2
   moveSpeed: 1.5
   moveAnimMultilier: 1
@@ -1118,7 +1119,6 @@ MonoBehaviour:
   attackHit: player_attackHit
   attackMiss: player_attackMiss
   soundDistance: 15
-  showGizmo: 0
 --- !u!1 &9203562861907207463
 GameObject:
   m_ObjectHideFlags: 0
