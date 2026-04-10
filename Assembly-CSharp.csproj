@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftListButton.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_QuestSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_SkillTooltip.cs" />
     <Compile Include="Assets\Scripts\UI\UI_FadeScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_StatTooltip.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Stat\State_DefenseGroup.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_IceBlastOnTakingDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_Quest.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Checkpoint.cs" />
     <Compile Include="Assets\Scripts\SO\AudioDatabaseSO.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftPreview.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Portal.cs" />
     <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_QuestPreview.cs" />
     <Compile Include="Assets\Scripts\UI\Inventory UI\UI_ItemSlot.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_SwordBounce.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Shard.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftPreviewSlot.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Combat.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_QuestRewardSlot.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\UI\Stats UI\UI_PlayerStats.cs" />

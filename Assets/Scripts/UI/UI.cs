@@ -18,6 +18,7 @@ public class UI : MonoBehaviour
     public UI_Options optionsUI { get; private set; }
     public UI_DeathScreen deathScreenUI { get; private set; }
     public UI_FadeScreen fadeUI { get; private set; }
+    public UI_Quest questUI { get; private set; }
     #endregion
 
     public GameObject[] uiElements;
@@ -43,6 +44,7 @@ public class UI : MonoBehaviour
         optionsUI = GetComponentInChildren<UI_Options>(true);
         deathScreenUI = GetComponentInChildren<UI_DeathScreen>(true);
         fadeUI = GetComponentInChildren<UI_FadeScreen>(true);
+        questUI = GetComponentInChildren<UI_Quest>(true);
 
         player = FindAnyObjectByType<Player>();
     }
@@ -78,6 +80,15 @@ public class UI : MonoBehaviour
     {
         SwitchTo(deathScreenUI.gameObject);
         ControlsManager.instance.inputActions.Disable();
+    }
+
+    public void OpenQuestUI(QuestDataSO[] questsToShow)
+    {
+        HideAllTooltips();
+        StopPlayerControls(true);
+        SwitchTo(questUI.gameObject);
+
+        questUI.SetupQuestUI(questsToShow);
     }
 
     public void OpenOptionsUI()

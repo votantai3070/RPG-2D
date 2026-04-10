@@ -10,12 +10,21 @@ public class UI_ItemTooltip : UI_Tooltip
     [SerializeField] private TextMeshProUGUI merchantInfo;
     [SerializeField] private TextMeshProUGUI inventoryInfo;
 
-    public void ShowTooltip(bool show, RectTransform target, Inventory_Item itemToShow, bool buyPrice = false, bool showMechantInfo = false)
+    public void ShowTooltip(bool show, RectTransform target, Inventory_Item itemToShow, bool buyPrice = false, bool showMechantInfo = false, bool showControls = true)
     {
         base.ShowTooltip(show, target);
 
-        merchantInfo.gameObject.SetActive(showMechantInfo);
-        inventoryInfo.gameObject.SetActive(!showMechantInfo);
+        if (showControls)
+        {
+            merchantInfo.gameObject.SetActive(showMechantInfo);
+            inventoryInfo.gameObject.SetActive(!showMechantInfo);
+        }
+        else
+        {
+            merchantInfo.gameObject.SetActive(false);
+            inventoryInfo.gameObject.SetActive(false);
+        }
+
 
         int price = buyPrice ? itemToShow.itemData.itemPrice : Mathf.FloorToInt(itemToShow.sellPrice);
         int totalPrice = price * itemToShow.stackSize;
