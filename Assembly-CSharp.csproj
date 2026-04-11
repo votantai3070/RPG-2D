@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Merchant UI\UI_MerchantSlot.cs" />
+    <Compile Include="Assets\Scripts\SO\QuestData\QuestData.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftListButton.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Item.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_HealOnDoingDamage.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\SerializableDictionary.cs" />
+    <Compile Include="Assets\Scripts\Player\Player_QuestManager.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_QuickItemSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Skill Tree UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_VFX.cs" />

@@ -17345,7 +17345,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1162714816}
   - component: {fileID: 1162714819}
-  - component: {fileID: 1162714817}
   - component: {fileID: 1162714818}
   - component: {fileID: 1162714820}
   m_Layer: 5
@@ -17379,22 +17378,6 @@ RectTransform:
   m_AnchoredPosition: {x: 438.5863, y: 130}
   m_SizeDelta: {x: 954.441, y: 456.764}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1162714817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162714815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd433fd855853343b24897b2996d77d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UI_CraftPreview
-  itemIcon: {fileID: 0}
-  itemName: {fileID: 0}
-  itemInfo: {fileID: 68162541}
-  craftButtonText: {fileID: 0}
 --- !u!114 &1162714818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27423,7 +27406,7 @@ GameObject:
   - component: {fileID: 1996108918}
   - component: {fileID: 1996108917}
   m_Layer: 5
-  m_Name: CRAFT_CONFIRM_BTN
+  m_Name: QUEST_CONFIRM_BTN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27494,9 +27477,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1162714817}
-        m_TargetAssemblyTypeName: UI_CraftPreview, Assembly-CSharp
-        m_MethodName: ConfirmCraft
+      - m_Target: {fileID: 1162714820}
+        m_TargetAssemblyTypeName: UI_QuestPreview, Assembly-CSharp
+        m_MethodName: AcceptQuestBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39260,6 +39243,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1224827842670797976, guid: 9f8fca13fac0a9a479bce2e775430031, type: 3}
       insertIndex: -1
       addedObject: {fileID: 286581532059358050}
+    - targetCorrespondingSourceObject: {fileID: 1224827842670797976, guid: 9f8fca13fac0a9a479bce2e775430031, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 286581532059358051}
   m_SourcePrefab: {fileID: 100100000, guid: 9f8fca13fac0a9a479bce2e775430031, type: 3}
 --- !u!1 &286581532059358049 stripped
 GameObject:
@@ -39282,6 +39268,19 @@ MonoBehaviour:
   attackHit: player_attackHit
   attackMiss: player_attackMiss
   soundDistance: 15
+--- !u!114 &286581532059358051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286581532059358049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de29575499364d64a8ccfcb6828e5e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_QuestManager
+  activeQuests: []
 --- !u!1001 &2539364322492140233
 PrefabInstance:
   m_ObjectHideFlags: 0

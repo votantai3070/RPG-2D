@@ -14,6 +14,7 @@ public class Player : Entity
     public Player_Combat combat { get; private set; }
     public UI ui { get; private set; }
     public Inventory_Player inventory { get; private set; }
+    public Player_QuestManager questManager { get; private set; }
 
     #region State
     public Player_IdleState idleState { get; private set; }
@@ -70,6 +71,7 @@ public class Player : Entity
         combat = GetComponent<Player_Combat>();
         ui = FindFirstObjectByType<UI>();
         inventory = GetComponent<Inventory_Player>();
+        questManager = GetComponent<Player_QuestManager>();
 
         idleState = new(this, stateMachine, "Idle");
         moveState = new(this, stateMachine, "Move");

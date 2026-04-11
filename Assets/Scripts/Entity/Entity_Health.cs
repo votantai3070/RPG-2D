@@ -34,6 +34,11 @@ public class Entity_Health : MonoBehaviour, IDamageable
         SetupHealth();
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
     public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
 
     private void SetupHealth()

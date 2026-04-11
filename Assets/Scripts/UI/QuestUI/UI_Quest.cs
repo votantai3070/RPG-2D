@@ -6,10 +6,12 @@ public class UI_Quest : MonoBehaviour
     [SerializeField] private UI_QuestPreview questPreview;
 
     private UI_QuestSlot[] questSlots;
+    public Player_QuestManager questManager { get; private set; }
 
     private void Awake()
     {
         questSlots = GetComponentsInChildren<UI_QuestSlot>(true);
+        questManager = Player.instance.questManager;
     }
 
     public void SetupQuestUI(QuestDataSO[] questsToSetup)
@@ -25,6 +27,22 @@ public class UI_Quest : MonoBehaviour
 
         inventorySlots.UpdateSlots(Player.instance.inventory.itemList);
         questPreview.MakeQuestPreviewEmpty();
+    }
+
+    public void UpdateQuestUI()
+    {
+        foreach (var slot in questSlots)
+        {
+            if (slot.questInSlot == null) continue;
+
+            if (slot.gameObject.activeSelf && CanTakeQuest(slot.questInSlot) == false)
+                slot.gameObject.SetActive(false);
+        }
+    }
+
+    private bool CanTakeQuest(QuestDataSO questToCheck)
+    {
+        return questManager.QuestIsActive(questToCheck) == false;
     }
 
     public UI_QuestPreview GetQuestPreview()
