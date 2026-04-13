@@ -18,5 +18,9 @@ MonoBehaviour:
   questGoal: 
   questTargetId: Blacksmith_joe
   requiredAmount: 1
-  rewardType: 0
-  rewardItems: []
+  rewardType: 1
+  rewardItems:
+  - itemData: {fileID: 11400000, guid: 5f8577ccbb2bd664db1969c83b9e4743, type: 2}
+    stackSize: 2
+  - itemData: {fileID: 11400000, guid: 06b356ae102772b49b2ecd45b2345395, type: 2}
+    stackSize: 1

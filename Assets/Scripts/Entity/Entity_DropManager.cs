@@ -11,12 +11,6 @@ public class Entity_DropManager : MonoBehaviour
     [SerializeField] private int maxRarityAmount = 1200;
     [SerializeField] private int maxItemToDrop = 3;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-            DropItems();
-    }
-
     public virtual void DropItems()
     {
         if (dropData == null)
@@ -35,7 +29,7 @@ public class Entity_DropManager : MonoBehaviour
         }
     }
 
-    protected void CreateItemDrop(ItemDataSO itemToDrop)
+    public void CreateItemDrop(ItemDataSO itemToDrop)
     {
         GameObject newItem = Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
         newItem.GetComponent<Object_ItemPickup>().SetupItem(itemToDrop);

@@ -12,9 +12,10 @@ public class Object_Blacksmith : Object_NPC, IInteractable
         storage = GetComponent<Inventory_Storage>();
     }
 
-    public void Interact()
+    public override void Interact()
     {
-        Debug.Log("Interact Blacksmith");
+        base.Interact();
+
         ui.storageUI.SetupStorageUI(storage);
         ui.craftUI.SetupCraftUI(storage);
 

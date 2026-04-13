@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Object_Merchant : Object_NPC, IInteractable
+public class Object_Merchant : Object_NPC
 {
     [Header("Quest & Dialogue")]
     [SerializeField] private QuestDataSO[] questsToGive;
@@ -22,8 +22,10 @@ public class Object_Merchant : Object_NPC, IInteractable
             merchant.FillShopList();
     }
 
-    public void Interact()
+    public override void Interact()
     {
+        base.Interact();
+
         ui.OpenQuestUI(questsToGive);
 
         //ui.merchantUI.SetupMerchantUI(merchant, inventory);

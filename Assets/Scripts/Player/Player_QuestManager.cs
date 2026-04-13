@@ -4,20 +4,77 @@ using UnityEngine;
 public class Player_QuestManager : MonoBehaviour
 {
     public List<QuestData> activeQuests;
+    public List<QuestData> completedQuests;
 
-    public void AddProgrres(string questTargetId, int amount = 1)
+    private Entity_DropManager dropManager;
+
+    private void Awake()
     {
+        dropManager = GetComponent<Entity_DropManager>();
+    }
+
+    public void TryGetQuestReward(RewardType npcType)
+    {
+        List<QuestData> getRewardQuests = new();
+
+        foreach (var quest in activeQuests)
+        {
+            if (quest.CanGetReward() && quest.questDataSO.rewardType == npcType)
+                getRewardQuests.Add(quest);
+        }
+
+        foreach (var quest in getRewardQuests)
+        {
+            GiveQuestReward(quest.questDataSO);
+            CompletedQuest(quest);
+        }
+    }
+
+    private void GiveQuestReward(QuestDataSO questDataSO)
+    {
+        foreach (var item in questDataSO.rewardItems)
+        {
+            if (item == null || item.itemData == null) continue;
+
+            for (int i = 0; i < item.stackSize; i++)
+            {
+                dropManager.CreateItemDrop(item.itemData);
+            }
+        }
+    }
+
+    public void AddProgress(string questTargetId, int amount = 1)
+    {
+        List<QuestData> getRewardQuests = new();
+
         foreach (var quest in activeQuests)
         {
             if (quest.questDataSO.questTargetId != questTargetId) continue;
 
             quest.AddQuestProgress(amount);
+
+            if (quest.questDataSO.rewardType == RewardType.None && quest.CanGetReward())
+            {
+                getRewardQuests.Add(quest);
+            }
+        }
+
+        foreach (var quest in getRewardQuests)
+        {
+            GiveQuestReward(quest.questDataSO);
+            CompletedQuest(quest);
         }
     }
 
     public void AcceptQuest(QuestDataSO questSO)
     {
         activeQuests.Add(new QuestData(questSO));
+    }
+
+    public void CompletedQuest(QuestData questData)
+    {
+        completedQuests.Add(questData);
+        activeQuests.Remove(questData);
     }
 
     public bool QuestIsActive(QuestDataSO questToCheck)

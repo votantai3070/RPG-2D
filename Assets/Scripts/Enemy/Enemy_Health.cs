@@ -33,6 +33,6 @@ public class Enemy_Health : Entity_Health
     {
         base.Die();
 
-        questManager.AddProgrres(enemy.questTargetId);
+        questManager.AddProgress(enemy.questTargetId);
     }
 }
