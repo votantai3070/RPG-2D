@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_QuestManager : MonoBehaviour
+public class Player_QuestManager : MonoBehaviour, ISaveable
 {
     public List<QuestData> activeQuests;
     public List<QuestData> completedQuests;
-
     private Entity_DropManager dropManager;
+
+    [Header("QUEST DATABASE")]
+    [SerializeField] private QuestDatabaseSO questDatabase;
 
     private void Awake()
     {
@@ -82,5 +84,44 @@ public class Player_QuestManager : MonoBehaviour
         if (questToCheck == null) return false;
 
         return activeQuests.Find(q => q.questDataSO == questToCheck) != null;
+    }
+
+    public void LoadData(GameData data)
+    {
+        activeQuests.Clear();
+
+        foreach (var entry in data.activeQuests)
+        {
+            string questSaveId = entry.Key;
+            int progress = entry.Value;
+
+            QuestDataSO questDataSO = questDatabase.GetQuestById(questSaveId);
+
+            if (questDataSO == null)
+            {
+                Debug.LogWarning($"Quest with Save ID {questSaveId} not found in the database.");
+                continue;
+            }
+
+            QuestData questToLoad = new QuestData(questDataSO);
+            questToLoad.currentAmount = progress;
+
+            activeQuests.Add(questToLoad);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.activeQuests.Clear();
+
+        foreach (var quest in activeQuests)
+        {
+            data.activeQuests.Add(quest.questDataSO.questSaveId, quest.currentAmount);
+        }
+
+        foreach (var quest in completedQuests)
+        {
+            data.completedQuests.Add(quest.questDataSO.questSaveId, true);
+        }
     }
 }
