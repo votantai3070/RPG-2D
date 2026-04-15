@@ -17,7 +17,7 @@ MonoBehaviour:
   questDescription: Used to be a quite place, just pickaxe and ale. Now it's bones
     and bother. I'd take care of 'em meself, but me knees ain't what they used to
     be, Go knock a few of 'em back into dirt for me, will ye?
-  questGoal: Eliminate 2 skeletons
+  questGoal: 'Eliminate skeleton: '
   questTargetId: enemy_skeleton
   requiredAmount: 2
   rewardType: 0

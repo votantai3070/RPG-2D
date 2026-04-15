@@ -22,7 +22,7 @@ public class UI_QuestPreview : MonoBehaviour
 
         questName.text = questDataSO.questName;
         questDescription.text = questDataSO.questDescription;
-        questGoal.text = $"Goal: {questDataSO.questGoal}";
+        questGoal.text = $"Goal: {questDataSO.questGoal + " " + questDataSO.requiredAmount}";
 
         for (int i = 0; i < questDataSO.rewardItems.Length; i++)
         {

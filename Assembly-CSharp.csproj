@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\SkillObject_Sword.cs" />
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Heal.cs" />
     <Compile Include="Assets\Scripts\AudioRangeController.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_ActiveQuestPreview.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\FileDataHandler.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_ThunderStrikeOnDamage.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Stat\Stat.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_ActiveQuest.cs" />
     <Compile Include="Assets\Scripts\UI\UI_DeathScreen.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
@@ -219,6 +221,7 @@
     <Compile Include="Assets\Scripts\UI\Ingame UI\UI_Ingame.cs" />
     <Compile Include="Assets\Scripts\InventorySystem\Inventory_Merchant.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Scripts\UI\QuestUI\UI_ActiveQuestSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip UI\UI_Tooltip.cs" />
     <Compile Include="Assets\Scripts\InteractionObject\Object_Blacksmith.cs" />
     <Compile Include="Assets\Scripts\Data\DamageData\ElementalEffectData.cs" />

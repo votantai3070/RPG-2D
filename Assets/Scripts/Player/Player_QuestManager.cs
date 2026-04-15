@@ -53,12 +53,11 @@ public class Player_QuestManager : MonoBehaviour, ISaveable
         {
             if (quest.questDataSO.questTargetId != questTargetId) continue;
 
-            quest.AddQuestProgress(amount);
+            if (quest.CanGetReward() == false)
+                quest.AddQuestProgress(amount);
 
             if (quest.questDataSO.rewardType == RewardType.None && quest.CanGetReward())
-            {
                 getRewardQuests.Add(quest);
-            }
         }
 
         foreach (var quest in getRewardQuests)
@@ -66,6 +65,12 @@ public class Player_QuestManager : MonoBehaviour, ISaveable
             GiveQuestReward(quest.questDataSO);
             CompletedQuest(quest);
         }
+    }
+
+    public int GetQuestProgress(QuestData questToCheck)
+    {
+        QuestData quest = activeQuests.Find(q => q == questToCheck);
+        return quest != null ? quest.currentAmount : 0;
     }
 
     public void AcceptQuest(QuestDataSO questSO)

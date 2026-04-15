@@ -69,6 +69,5 @@ public class UI_Quest : MonoBehaviour, ISaveable
 
     public void SaveData(ref GameData data)
     {
-        throw new System.NotImplementedException();
     }
 }
