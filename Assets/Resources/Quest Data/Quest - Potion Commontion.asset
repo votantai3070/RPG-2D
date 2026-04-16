@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78afdfdff7c47b643b8e4ff313d0e991, type: 3}
+  m_Name: Quest - Potion Commontion
+  m_EditorClassIdentifier: Assembly-CSharp::QuestDataSO
+  questSaveId: 6a8934488507ad648a1cfa0f2be38c4e
+  questType: 2
+  questName: Potion Commontion
+  questDescription: 
+  questGoal: Deliver hralth potion to Joe.
+  questTargetId: 
+  requiredAmount: 4
+  itemToDeliver: {fileID: 11400000, guid: 457b794e5a73f784aae32f692f29beb1, type: 2}
+  rewardType: 0
+  rewardItems:
+  - itemData: {fileID: 11400000, guid: e52b5696b2a8066408720f836256d868, type: 2}
+    stackSize: 1

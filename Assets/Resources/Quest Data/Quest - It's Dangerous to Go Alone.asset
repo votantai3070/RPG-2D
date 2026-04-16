@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Quest - It's Dangerous to Go Alone
   m_EditorClassIdentifier: Assembly-CSharp::QuestDataSO
   questSaveId: 287d59d1db6bd3a448eaed239fe3e5fa
+  questType: 0
   questName: It's Dangerous to Go Alone
   questDescription: 
-  questGoal: 
+  questGoal: Talk  to Blacksmith Joe
   questTargetId: Blacksmith_joe
   requiredAmount: 1
+  itemToDeliver: {fileID: 0}
   rewardType: 1
   rewardItems:
   - itemData: {fileID: 11400000, guid: 5f8577ccbb2bd664db1969c83b9e4743, type: 2}

@@ -82,6 +82,6 @@ public class Object_NPC : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         questManager.AddProgress(npcTargetQuestId);
-        questManager.TryGetQuestReward(npcRewardType);
+        questManager.TryGiveQuestRewardFrom(npcRewardType);
     }
 }
