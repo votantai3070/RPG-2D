@@ -176,6 +176,7 @@
     <Compile Include="Assets\Scripts\Stat\Stat.cs" />
     <Compile Include="Assets\Scripts\UI\QuestUI\UI_ActiveQuest.cs" />
     <Compile Include="Assets\Scripts\UI\UI_DeathScreen.cs" />
+    <Compile Include="Assets\Scripts\SO\DialogueData\DialogueLineSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_CounterAttackState.cs" />
     <Compile Include="Assets\Scripts\Manager\ControlsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxLayer.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Assets\Scripts\UI\Craft UI\UI_CraftSlot.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Data\BuffEffectData.cs" />
+    <Compile Include="Assets\Scripts\SO\DialogueData\DialogueSpeakerSO.cs" />
     <Compile Include="Assets\Scripts\UI\UI_EquipSlotParent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\UI\ParallaxBackground.cs" />
