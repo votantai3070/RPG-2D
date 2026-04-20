@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffectDataSO.cs" />
     <Compile Include="Assets\Scripts\Player\Player_DropManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\Enum\DialogueActionType.cs" />
     <Compile Include="Assets\Scripts\Player\Player_VFX.cs" />
     <Compile Include="Assets\Scripts\SO\QuestData\QuestDataSO.cs" />
     <Compile Include="Assets\Scripts\Entity\StateMachine.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Assets\Scripts\SO\ItemEffect\ItemEffect_Portal.cs" />
     <Compile Include="Assets\Scripts\UI\Stats UI\UI_StatSlot.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_DomainExpansion.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Dialogue.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\SO\QuestData\QuestDatabaseSO.cs" />

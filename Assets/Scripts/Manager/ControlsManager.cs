@@ -65,6 +65,12 @@ public class ControlsManager : MonoBehaviour
             Time.timeScale = 0;
             ui.OpenOptionsUI();
         };
+
+        inputActions.UI.DialogueUI.performed += ctx =>
+        {
+            if (ui.dialogueUI.gameObject.activeInHierarchy)
+                ui.dialogueUI.DialogueInteraction();
+        };
     }
 
     public bool PressedAttack() => inputActions.Player.Attack.WasPressedThisFrame();

@@ -19,6 +19,7 @@ public class UI : MonoBehaviour
     public UI_DeathScreen deathScreenUI { get; private set; }
     public UI_FadeScreen fadeUI { get; private set; }
     public UI_Quest questUI { get; private set; }
+    public UI_Dialogue dialogueUI { get; private set; }
     #endregion
 
     public GameObject[] uiElements;
@@ -45,6 +46,7 @@ public class UI : MonoBehaviour
         deathScreenUI = GetComponentInChildren<UI_DeathScreen>(true);
         fadeUI = GetComponentInChildren<UI_FadeScreen>(true);
         questUI = GetComponentInChildren<UI_Quest>(true);
+        dialogueUI = GetComponentInChildren<UI_Dialogue>(true);
 
         player = FindAnyObjectByType<Player>();
     }
@@ -82,21 +84,7 @@ public class UI : MonoBehaviour
         ControlsManager.instance.inputActions.Disable();
     }
 
-    public void OpenQuestUI(QuestDataSO[] questsToShow)
-    {
-        HideAllTooltips();
-        StopPlayerControls(true);
-        SwitchTo(questUI.gameObject);
 
-        questUI.SetupQuestUI(questsToShow);
-    }
-
-    public void OpenOptionsUI()
-    {
-        HideAllTooltips();
-        StopPlayerControls(true);
-        SwitchTo(optionsUI.gameObject);
-    }
 
     public void SwitchToIngameUI()
     {
@@ -139,6 +127,31 @@ public class UI : MonoBehaviour
         HideAllTooltips();
 
         StopPlayerControlIfNeeded();
+    }
+
+    public void OpenDialogueUI(DialogueLineSO firstLine)
+    {
+        StopPlayerControls(true);
+        HideAllTooltips();
+
+        dialogueUI.gameObject.SetActive(true);
+        dialogueUI.PlayDialogueLine(firstLine);
+    }
+
+    public void OpenQuestUI(QuestDataSO[] questsToShow)
+    {
+        HideAllTooltips();
+        StopPlayerControls(true);
+        SwitchTo(questUI.gameObject);
+
+        questUI.SetupQuestUI(questsToShow);
+    }
+
+    public void OpenOptionsUI()
+    {
+        HideAllTooltips();
+        StopPlayerControls(true);
+        SwitchTo(optionsUI.gameObject);
     }
 
     public void OpenStorageUI(bool openStorageUI)

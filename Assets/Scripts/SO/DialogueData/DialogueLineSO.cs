@@ -10,9 +10,8 @@ public class DialogueLineSO : ScriptableObject
     [Header("Text Options")]
     [TextArea] public string[] textLine;
 
-    [Header("Answer setup")]
-    public bool playCanAnswer; // should be true, if play can make a choice
-    public DialogueLineSO[] answerLine;
+    [Header("Dialogue Action")]
+    public DialogueActionType actionType;
 
     public string GetRandomLine()
     {
